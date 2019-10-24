@@ -1,5 +1,7 @@
 import React from "react";
 import "./homepage.style.css";
+
+import SectionItem from "./SectionItem";
 class HomePage extends React.Component {
   state = {
     sections: [
@@ -13,54 +15,42 @@ class HomePage extends React.Component {
         title: "jackets",
         imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
         id: 2,
-        linkUrl: ""
+        linkUrl: "jackets"
       },
       {
         title: "sneakers",
         imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
         id: 3,
-        linkUrl: ""
+        linkUrl: "sneakers"
       },
       {
         title: "womens",
         imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
         size: "large",
         id: 4,
-        linkUrl: ""
+        linkUrl: "womens"
       },
       {
         title: "mens",
         imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
         size: "large",
         id: 5,
-        linkUrl: ""
+        linkUrl: "mens"
       }
     ]
   };
 
   render() {
+    const { sections } = this.state;
     return (
       <div className="home-page">
         <div className="menu">
-          {this.state.sections.map(menuItem => (
-            <div
-              key={menuItem.id}
-              className={`menu-item ${menuItem.size}`}
-              // onClick={() => history.push(`${match.url}${menuItem.linkUrl}`)}
-            >
-              <div
-                className="background-image"
-                style={{
-                  backgroundImage: `url(${menuItem.imageUrl})`
-                }}
-              />
-              <div className="content">
-                <h1 className="title">{menuItem.title.toUpperCase()}</h1>
-                <span className="subtitle">SHOP NOW</span>
-              </div>
-            </div>
+          {sections.map(menuItem => (
+            <SectionItem item={menuItem} key={menuItem.id} {...this.props} />
           ))}
         </div>
+
+        {/* Website-logo */}
         <div style={{ background: "rgba(10,10,10,0.1)" }}>
           <img src="./icon.png" alt="Logo" />
         </div>
