@@ -61,6 +61,9 @@ class HomePage extends React.Component {
             </div>
           ))}
         </div>
+        <div style={{ background: "rgba(10,10,10,0.1)" }}>
+          <img src="./icon.png" alt="Logo" />
+        </div>
       </div>
     );
   }

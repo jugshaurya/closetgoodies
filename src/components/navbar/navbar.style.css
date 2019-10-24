@@ -1,0 +1,21 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  background: rgba(10, 10, 10, 0.1);
+  font-size: 1.5em;
+}
+
+.left {
+  padding: 1em;
+}
+
+.right {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.right a:hover {
+  border-bottom: 3px solid salmon;
+  cursor: pointer;
+}
