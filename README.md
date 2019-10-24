@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![Progress](https://github.com/jugshaurya/cloth-zone/blob/master/public/progress.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
