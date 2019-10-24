@@ -1,4 +1,5 @@
 .navbar {
+  border-bottom: 3px solid salmon;
   display: flex;
   justify-content: space-between;
   height: 10vh;
