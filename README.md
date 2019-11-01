@@ -1,6 +1,47 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# cloth-zone
+
+An E-Commerce Website build in REACT
+
 ![Progress](https://github.com/jugshaurya/cloth-zone/blob/master/public/progress.png)
+
+## Important
+
+---
+
+react (build a modern single-page React app)
+react-bootstrap
+react-router-dom
+
+## Firebase
+
+https://www.npmjs.com/package/firebase
+
+Adding server-side (Backend) code without writing server-side code.
+
+Include only the features you need
+The full Firebase JavaScript client includes support for Firebase Authentication, the Firebase Realtime Database, Firebase Storage, and Firebase Cloud Messaging. Including code via the above snippets will pull in all of these features.
+
+firebase-app - The core firebase client (required). `firebase/app`
+firebase-auth - Firebase Authentication (optional). `firebase/auth`
+firebase-firestore - Cloud Firestore (optional). `firebase/firestore`
+
+Firebase gives us :-
+
+- Auth
+
+  - We will be doing OAuth
+    Steps:
+    - yarn add firebase
+    - Go to project overview and create a web app and copy the configuration
+    - Handle the google sign-in flow with firebase SDK https://firebase.google.com/docs/auth/web/google-signin
+    - Show Sign in Popup
+    - use onAuthStateChange method to signin/signout and add UI accordingly
+
+- Database-Firestore for quering the db
+- Storage for information storing like image,videos or assets
+- Hosting handle website deployment
 
 ## Available Scripts
 
