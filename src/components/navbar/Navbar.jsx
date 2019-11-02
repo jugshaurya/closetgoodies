@@ -1,7 +1,7 @@
 import React from "react";
 import "./navbar.style.css";
 import { NavLink, Link } from "react-router-dom";
-import auth from "../../firebase/auth-firebase";
+import { auth } from "../../firebase/helpers.firebase";
 const Navbar = props => {
   const { currentUser } = props;
   return (
@@ -26,7 +26,10 @@ const Navbar = props => {
 
             <li className="nav-item">
               {currentUser ? (
-                <div className="nav-item" onClick={() => auth.signOut()}>
+                <div
+                  className="nav-item sign-out"
+                  onClick={() => auth.signOut()}
+                >
                   Sign Out
                 </div>
               ) : (

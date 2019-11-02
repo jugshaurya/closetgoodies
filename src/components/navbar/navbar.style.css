@@ -1,5 +1,5 @@
 .navbar {
-  border-bottom: 3px solid salmon;
+  /* border-bottom: 3px solid salmon; */
   display: flex;
   justify-content: space-between;
   height: 10vh;
@@ -18,5 +18,9 @@
 
 .right a:hover {
   border-bottom: 3px solid salmon;
+  cursor: pointer;
+}
+
+.sign-out {
   cursor: pointer;
 }

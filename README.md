@@ -31,17 +31,31 @@ Firebase gives us :-
 
 - Auth
 
-  - We will be doing OAuth
+  - We will be doing OAuth and email-password Login using Firebase
     Steps:
-    - yarn add firebase
-    - Go to project overview and create a web app and copy the configuration
-    - Handle the google sign-in flow with firebase SDK https://firebase.google.com/docs/auth/web/google-signin
-    - Show Sign in Popup
-    - use onAuthStateChange method to signin/signout and add UI accordingly
 
-- Database-Firestore for quering the db
+    - GoogleOAuth
+
+      - yarn add firebase
+      - Go to project overview and create a web app and copy the configuration
+      - Handle the google sign-in flow with firebase SDK https://firebase.google.com/docs/auth/web/google-signin
+      - Show Sign in Popup
+      - use onAuthStateChange method to signin/signout and add UI accordingly
+      - use auth.signOut() to logout
+      - also add the user to firestore so that we can say user loggedin to our website
+
+    - Email-Password
+
+      - Firestore(Cloud Firestore is a flexible, scalable database for mobile, web, and server development from Firebase and Google Cloud Platform. Like Firebase Realtime Database, it keeps your data in sync across client apps through realtime listeners and offers offline support for mobile and web so you can build responsive apps that work regardless of network latency or Internet connectivity.
+      - Firestore is a cloud-hosted, NoSQL database that your iOS, Android, and web apps can access directly via native SDKs. )
+      - Require Firestore(Database) to store our users email-Pass Data
+      - firestore returns two type of objects: Reference and Snapshot
+      - can read the data using .get() or .onSnapShot() methods over reference which returns a snapshot
+
 - Storage for information storing like image,videos or assets
 - Hosting handle website deployment
+
+---
 
 ## Available Scripts
 

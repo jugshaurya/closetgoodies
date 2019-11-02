@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 
-import { SignInWithGoogle } from "../../firebase/auth-firebase";
+import { SignInWithGoogle } from "../../firebase/helpers.firebase";
 class SignIn extends Component {
   // state = {
   //   email: "",
   //   password: ""
   // };
+
+  handleGoogleSignIn = async e => {
+    e.preventDefault();
+    await SignInWithGoogle();
+  };
 
   render() {
     return (
@@ -20,6 +25,7 @@ class SignIn extends Component {
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 placeholder="Enter email"
+                autoComplete="email"
               />
               <small id="emailHelp" className="form-text text-muted">
                 We'll never share your email with anyone else.
@@ -32,6 +38,7 @@ class SignIn extends Component {
                 className="form-control"
                 id="exampleInputPassword1"
                 placeholder="Password"
+                autoComplete="password"
               />
             </div>
 
@@ -39,7 +46,10 @@ class SignIn extends Component {
               Sign In
             </button>
 
-            <button className="btn btn-primary" onClick={SignInWithGoogle}>
+            <button
+              className="btn btn-primary"
+              onClick={this.handleGoogleSignIn}
+            >
               Google Sign In
             </button>
           </form>

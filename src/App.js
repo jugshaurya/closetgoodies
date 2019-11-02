@@ -6,7 +6,7 @@ import ShopPage from "./components/shoppage/ShopPage";
 import SignIn from "./components/sign-in/SignIn";
 
 import { Switch, Route } from "react-router-dom";
-import auth from "../src/firebase/auth-firebase";
+import { auth, addToFirestore } from "./firebase/helpers.firebase";
 
 class App extends React.Component {
   state = {
@@ -17,9 +17,25 @@ class App extends React.Component {
   unsubscribeFromGoogleAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromGoogleAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
-      console.log(user);
+    this.unsubscribeFromGoogleAuth = auth.onAuthStateChanged(async user => {
+      if (user) {
+        const userDocRef = await addToFirestore(user);
+        console.log(userDocRef);
+        // if user data is everchanged we are going to update the user
+        userDocRef.onSnapshot(snapshot => {
+          const { name, email } = snapshot.data();
+          this.setState({
+            currentUser: {
+              id: snapshot.id,
+              name,
+              email
+            }
+          });
+        });
+      } else {
+        //sklh
+        this.setState({ currentUser: null });
+      }
     });
   }
 
