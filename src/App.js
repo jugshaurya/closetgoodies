@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import HomePage from "./components/homepage/HomePage";
 import ShopPage from "./components/shoppage/ShopPage";
-import SignIn from "./components/sign-in/SignIn";
+import SignIn from "./components/sign-in-sign-up/SignIn";
 
 import { Switch, Route } from "react-router-dom";
 import { auth, addToFirestore } from "./firebase/helpers.firebase";

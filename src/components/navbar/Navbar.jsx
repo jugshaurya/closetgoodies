@@ -30,7 +30,7 @@ const Navbar = props => {
                   className="nav-item sign-out"
                   onClick={() => auth.signOut()}
                 >
-                  Sign Out
+                  {currentUser.name} Sign Out
                 </div>
               ) : (
                 <NavLink className="nav-link" to="/signin">
