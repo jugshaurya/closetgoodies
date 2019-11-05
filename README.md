@@ -17,6 +17,20 @@ react-redux
 redux
 redux-logger
 
+## React State
+
+- Do Not Modify State Directly. use setState()
+- React may batch multiple setState() calls into a single update for performance.
+  - Because this.props and this.state may be updated asynchronously, you should not rely on their values for calculating the next state.
+- State Updates are Merged
+  - When you call setState(), React merges the object you provide into the current state.
+- Data Flows Down
+  - If you imagine a component tree as a waterfall of props, each component’s state is like an additional water source that joins it at an arbitrary point but also flows down.
+
+## Some more:
+
+- A good rule of thumb is that elements inside the map() call need keys.
+
 ## React Challenges:
 
 - Decide on Components
@@ -65,6 +79,8 @@ Firebase gives us :-
 - Hosting handle website deployment
 
 ---
+
+## State Management - Redux
 
 ## Available Scripts
 
