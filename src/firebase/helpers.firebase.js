@@ -31,6 +31,7 @@ export const firestore = firebase.firestore();
 
 // Saving To Firestore Auth data/ Email-Password Data
 export const addToFirestore = async (user, additionalData) => {
+  console.log(additionalData);
   if (!user) return;
 
   const userDocRef = await firestore.doc(`users/${user.uid}`);
@@ -40,7 +41,7 @@ export const addToFirestore = async (user, additionalData) => {
 
   try {
     await userDocRef.set({
-      name: user.displayName,
+      displayName: user.displayName,
       email: user.email,
       createdAt: new Date(),
       ...additionalData

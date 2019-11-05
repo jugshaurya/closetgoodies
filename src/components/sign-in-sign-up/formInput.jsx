@@ -1,18 +1,20 @@
 import React from "react";
 
 const FormInput = props => {
-  const { type, label, value, ...otherprops } = props;
+  const { type, label, name, value, ...otherprops } = props;
   return (
     <div className="form-group">
       <input
         type={type}
         className="form-input"
-        id={value}
-        autoComplete={value}
-        name={value}
+        autoComplete={name}
+        name={name}
         {...otherprops}
       />
-      <label htmlFor={value} className="form-input-label">
+      <label
+        htmlFor={name}
+        className={`form-input-label ${value.length ? "shrink" : ""}`}
+      >
         {label}
       </label>
     </div>

@@ -1,5 +1,6 @@
-.sign-in {
+.sign-up {
   width: 40%;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
@@ -9,7 +10,7 @@
   justify-content: space-between;
 }
 
-.sign-in {
+.sign-up {
   margin: 2em;
   margin-top: 5em;
 }
@@ -57,7 +58,6 @@ input[type="password"] {
   top: 10px;
   transition: 300ms ease all;
 }
-
 .form-input-label.shrink {
   top: -14px;
   font-size: 12px;
@@ -92,7 +92,8 @@ input[type="password"] {
   background-color: #4285f4;
   color: white;
 }
-.form-button.google-sign-in:hover {
+
+.form-button.google-sign-up:hover {
   background-color: #357ae8;
   border: none;
 }
