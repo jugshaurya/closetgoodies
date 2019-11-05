@@ -1,0 +1,6 @@
+.sign-in-sign-up {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}

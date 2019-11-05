@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import { auth, SignInWithGoogle } from "../../firebase/helpers.firebase";
-import FormInput from "./formInput";
-import FormButton from "./formButton";
+import FormInput from "../formInput/formInput";
+import FormButton from "../formButton/formButton";
 import "./signin.style.css";
 
 class SignIn extends Component {

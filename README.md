@@ -8,11 +8,20 @@ An E-Commerce Website build in REACT
 
 ## Important
 
----
-
 react (build a modern single-page React app)
 react-bootstrap
 react-router-dom
+firebase
+
+react-redux
+redux
+redux-logger
+
+## React Challenges:
+
+- Decide on Components
+- Decide the state and where it lives
+- What changes when state changes
 
 ## Firebase
 

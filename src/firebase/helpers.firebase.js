@@ -31,7 +31,6 @@ export const firestore = firebase.firestore();
 
 // Saving To Firestore Auth data/ Email-Password Data
 export const addToFirestore = async (user, additionalData) => {
-  console.log(additionalData);
   if (!user) return;
 
   const userDocRef = await firestore.doc(`users/${user.uid}`);

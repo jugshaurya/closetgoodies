@@ -2,6 +2,7 @@ import React from "react";
 import "./navbar.style.css";
 import { NavLink, Link } from "react-router-dom";
 import { auth } from "../../firebase/helpers.firebase";
+
 const Navbar = props => {
   const { currentUser } = props;
   return (

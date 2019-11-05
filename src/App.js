@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
-import HomePage from "./components/homepage/HomePage";
+import HomePage from "./components/pages/homepage/HomePage";
 import ShopPage from "./components/shoppage/ShopPage";
-import SignInSignUp from "./components/sign-in-sign-up/signInSignUp";
+import SignInSignUp from "./components/pages/sign-in-sign-up-page/signInSignUp";
 
 import { Switch, Route } from "react-router-dom";
 import { auth, addToFirestore } from "./firebase/helpers.firebase";
@@ -20,7 +20,6 @@ class App extends React.Component {
     this.unsubscribeFromGoogleAuth = auth.onAuthStateChanged(async user => {
       if (user) {
         const userDocRef = await addToFirestore(user);
-        console.log(userDocRef);
         // if user data is everchanged we are going to update the user
         userDocRef.onSnapshot(snapshot => {
           const { displayName, email } = snapshot.data();

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
-import SignIn from "./signIn";
-import SignUp from "./signUp";
+import SignIn from "../../sign-in/signIn";
+import SignUp from "../../sign-up/signUp";
 
 import "./signInSignUp.style.css";
+
 class SignInSignUp extends Component {
   render() {
     return (
