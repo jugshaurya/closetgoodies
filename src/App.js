@@ -4,7 +4,7 @@ import HomePage from "./components/pages/homepage/HomePage";
 import ShopPage from "./components/pages/shoppage/ShopPage";
 import SignInSignUp from "./components/pages/sign-in-sign-up-page/signInSignUp";
 
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { auth, addToFirestore } from "./firebase/helpers.firebase";
 
 import { connect } from "react-redux";
@@ -40,11 +40,14 @@ class App extends React.Component {
   }
 
   render() {
+    const { currentUser } = this.props;
     return (
       <div className="App">
         <Navbar />
         <Switch>
-          <Route path="/signin" component={SignInSignUp} />
+          <Route path="/signin">
+            {currentUser ? <Redirect to="/" /> : <SignInSignUp />}
+          </Route>
           <Route path="/shop" component={ShopPage} />
           <Route path="/" component={HomePage} />
         </Switch>
@@ -57,7 +60,11 @@ const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(App);
