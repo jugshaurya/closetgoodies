@@ -13,9 +13,9 @@ react-bootstrap
 react-router-dom
 firebase
 
-react-redux
-redux
-redux-logger
+react-redux - <Provider/>, connect()
+redux - createStore(), applyMiddleware(), combineReducers()
+redux-logger - logger
 
 ## React State
 
@@ -81,6 +81,33 @@ Firebase gives us :-
 ---
 
 ## State Management - Redux
+
+- why am i using it?
+
+  - Because i don't like props drilling to pass data as for debugging i need to go all the way up to see from where it was coming
+
+  - other Reasons:
+    - Forgetting to pass props
+    - Problem in manageing deeply nested state
+    - Duplicate information in state
+    - Not updating all dependent props
+    - Components with large number of props
+    - uncertanity where a piece if data is managed
+
+- 3 Principles of redux
+
+  - Single Source of truth(store)
+  - State is read only
+  - changes are made using pure functions
+
+- Action -> Reducer -> Store -> Components
+  - Reducer:
+    - A `pure function` which takes the previous state and an update and returns a `new object( immutability)` with updation applied to passed state.
+  - store: (Internally implemented as a class)
+    - Responsible for maintaining state
+    - Exposes getter via `store.getState()`
+    - can only be updated through reducers by calling `store.dispatch({type:"", payload:""})`
+    - can add listeners that get invoked when state changes(Reconcilliation)
 
 ## Available Scripts
 

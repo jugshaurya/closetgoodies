@@ -3,6 +3,8 @@ import "./navbar.style.css";
 import { NavLink, Link } from "react-router-dom";
 import { auth } from "../../firebase/helpers.firebase";
 
+import { connect } from "react-redux";
+
 const Navbar = props => {
   const { currentUser } = props;
   return (
@@ -46,4 +48,8 @@ const Navbar = props => {
   );
 };
 
-export default Navbar;
+const mapStatetoProps = state => ({
+  currentUser: state.user.currentUser
+});
+
+export default connect(mapStatetoProps)(Navbar);
