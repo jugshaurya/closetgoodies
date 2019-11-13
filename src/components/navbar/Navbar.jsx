@@ -4,6 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import { auth } from "../../firebase/helpers.firebase";
 
 import { connect } from "react-redux";
+import CartIcon from "../cartIcon/cartIcon";
 
 const Navbar = props => {
   const { currentUser } = props;
@@ -40,6 +41,12 @@ const Navbar = props => {
                   Sign In
                 </NavLink>
               )}
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="">
+                <CartIcon />
+              </NavLink>
             </li>
           </ul>
         </div>

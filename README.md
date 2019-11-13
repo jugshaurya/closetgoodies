@@ -82,7 +82,7 @@ Firebase gives us :-
 
 ## State Management - Redux
 
-- why am i using it?
+- #### why am i using it?
 
   - Because i don't like props drilling to pass data as for debugging i need to go all the way up to see from where it was coming
 
@@ -94,20 +94,35 @@ Firebase gives us :-
     - Components with large number of props
     - uncertanity where a piece if data is managed
 
-- 3 Principles of redux
+- #### 3 Principles of redux
 
   - Single Source of truth(store)
   - State is read only
   - changes are made using pure functions
 
-- Action -> Reducer -> Store -> Components
+- #### Action -> Reducer -> Store -> Components
+
   - Reducer:
     - A `pure function` which takes the previous state and an update and returns a `new object( immutability)` with updation applied to passed state.
   - store: (Internally implemented as a class)
+
     - Responsible for maintaining state
     - Exposes getter via `store.getState()`
     - can only be updated through reducers by calling `store.dispatch({type:"", payload:""})`
     - can add listeners that get invoked when state changes(Reconcilliation)
+
+  - store:
+
+    - a place where all the dynamic data or the state is stored.
+
+  - action :-
+
+    - an action is a piece of data that contains the information required to make a state update.
+
+    - a object with type:'some reducer action' and payload:'some update' passed to store.dispatch() to update certain property of store state. i.e. actions must be dispatched to make a state update.
+
+
+    - functions that create the actions are action creators.
 
 ## Available Scripts
 

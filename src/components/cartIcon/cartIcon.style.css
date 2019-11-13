@@ -1,0 +1,14 @@
+.cart-img {
+  border: 3px solid red;
+  width: 60px;
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: 26px;
+  left: 25px;
+  font-size: 0.8em;
+  color: white;
+  font-weight: bolder;
+}
