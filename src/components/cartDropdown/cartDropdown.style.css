@@ -1,0 +1,22 @@
+.cart-dropdown {
+  position: absolute;
+  width: 600px;
+  max-height: 600px;
+  border: 3px solid red;
+  top: 100px;
+  left: -540px;
+  z-index: 100;
+}
+
+.cart-items {
+  height: 350px;
+  background: white;
+  padding: 10px;
+  margin: 2px;
+  overflow: scroll;
+}
+
+.cart-checkout {
+  padding: 10px;
+  margin: 2px;
+}

@@ -44,9 +44,7 @@ const Navbar = props => {
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="">
-                <CartIcon />
-              </NavLink>
+              <CartIcon />
             </li>
           </ul>
         </div>
