@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-  hidden: true
+  show: false,
+  cartItems: []
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -7,7 +8,13 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case "TOGGLE_SHOW_CART":
       return {
         ...state,
-        hidden: !state.hidden
+        show: !state.show
+      };
+
+    case "ADD_TO_CART":
+      state.cartItems.push(action.payload);
+      return {
+        ...state
       };
 
     default:

@@ -1,0 +1,21 @@
+.cartdropdown-item {
+  display: flex;
+  margin: 20px;
+}
+
+.cartdropdown-item .item-image {
+  width: 23%;
+}
+
+.cartdropdown-item img {
+  width: 100%;
+  height: auto;
+}
+
+.cartdropdown-item .item-data {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  font-size: 0.8em;
+  align-items: center;
+}
