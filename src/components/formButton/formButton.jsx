@@ -2,10 +2,12 @@ import React from "react";
 import "./formButton.style.css";
 
 const FormButton = props => {
-  const { type, children, googleButton, ...otherprops } = props;
+  const { type, children, googleButton, addToCart, ...otherprops } = props;
   return (
     <button
-      className={`form-button ${googleButton ? "google-button" : ""}`}
+      className={`form-button 
+        ${googleButton ? "google-button" : ""}
+        ${addToCart ? "addtocart-button" : ""} `}
       type={type}
       {...otherprops}
     >

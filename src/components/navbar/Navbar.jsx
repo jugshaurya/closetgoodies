@@ -4,7 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import { auth } from "../../firebase/helpers.firebase";
 
 import { connect } from "react-redux";
-import CartIcon from "../cartIcon/cartIcon";
+import Cart from "../cart/cart";
 
 const Navbar = props => {
   const { currentUser } = props;
@@ -44,7 +44,7 @@ const Navbar = props => {
             </li>
 
             <li className="nav-item">
-              <CartIcon />
+              <Cart />
             </li>
           </ul>
         </div>
