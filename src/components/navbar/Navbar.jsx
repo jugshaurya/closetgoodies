@@ -2,8 +2,8 @@ import React from "react";
 import "./navbar.style.css";
 import { NavLink, Link } from "react-router-dom";
 import { auth } from "../../firebase/helpers.firebase";
-
 import { connect } from "react-redux";
+
 import Cart from "../cart/cart";
 
 const Navbar = props => {

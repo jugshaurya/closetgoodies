@@ -1,8 +1,9 @@
 import React from "react";
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 import CartDropdown from "../cartDropdown/cartDropdown";
 import CartIcon from "../cartIcon/cartIcon";
 
+import { toggleShowCart } from "../../redux/cart/cart.action";
 import "./cart.style.css";
 
 class Cart extends React.Component {
@@ -28,10 +29,17 @@ class Cart extends React.Component {
   }
 }
 
-// const mapStatetoProps = state => ({
-//   hidden: state.cart.hidden
-// });
+const mapStatetoProps = state => ({
+  hidden: state.cart.hidden
+});
 
-// export default connect(mapStatetoProps)(Cart);
+const mapDispatchToProps = dispatch => ({
+  toggleShowCart: () => {
+    dispatch(toggleShowCart());
+  }
+});
 
-export default Cart;
+export default connect(
+  mapStatetoProps,
+  mapDispatchToProps
+)(Cart);

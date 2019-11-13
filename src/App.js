@@ -8,7 +8,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { auth, addToFirestore } from "./firebase/helpers.firebase";
 
 import { connect } from "react-redux";
-import { setCurrentUser } from "./redux/user.action";
+import { setCurrentUser } from "./redux/user/user.action";
 
 class App extends React.Component {
   // used to close the connection which is continously checking for our auth state change over Firebase
