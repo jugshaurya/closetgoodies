@@ -12,9 +12,9 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       };
 
     case "ADD_TO_CART":
-      state.cartItems.push(action.payload);
       return {
-        ...state
+        ...state,
+        cartItems: [...state.cartItems, action.payload]
       };
 
     default:

@@ -10,7 +10,7 @@ const CartDropdownItem = props => {
       </div>
       <div className="item-data">
         <div className="item-name">{name}</div>
-        <div className="item-price">1 X {price}</div>
+        <div className="item-price">1 x {price}</div>
       </div>
     </div>
   );
