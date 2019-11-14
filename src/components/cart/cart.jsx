@@ -10,8 +10,14 @@ const Cart = props => {
   const { show, toggleShowCart } = props;
   return (
     <div className="cart" onClick={toggleShowCart}>
-      <CartIcon />
-      {show && <CartDropdown />}
+      <div className="cart-icon">
+        <CartIcon />
+      </div>
+      {show && (
+        <div className="cart-dropdown">
+          <CartDropdown />
+        </div>
+      )}
     </div>
   );
 };
@@ -26,7 +32,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(
-  mapStatetoProps,
-  mapDispatchToProps
-)(Cart);
+export default connect(mapStatetoProps, mapDispatchToProps)(Cart);

@@ -1,15 +1,6 @@
-.cart-dropdown {
-  position: absolute;
-  width: 400px;
-  max-height: 600px;
-  border: 3px solid red;
-  top: 100px;
-  right: 10px;
-  z-index: 100;
-}
-
 .cart-items {
-  height: 350px;
+  width: auto;
+  height: 550px;
   background: white;
   padding: 10px;
   margin: 2px;
@@ -19,4 +10,13 @@
 .cart-checkout {
   padding: 10px;
   margin: 2px;
+}
+
+.checkout-button {
+  margin-top: -2px;
+  width: 100%;
+  display: flex;
+  background: white;
+  justify-content: center;
+  padding: 1em;
 }

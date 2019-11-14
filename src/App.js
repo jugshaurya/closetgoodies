@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/navbar/Navbar";
 import HomePage from "./components/pages/homepage/HomePage";
 import ShopPage from "./components/pages/shoppage/ShopPage";
+import CheckoutPage from "./components/pages/checkoutPage/CheckoutPage";
 import SignInSignUp from "./components/pages/sign-in-sign-up-page/signInSignUp";
 
 import { Switch, Route, Redirect } from "react-router-dom";
@@ -45,6 +46,7 @@ class App extends React.Component {
       <div className="App">
         <Navbar />
         <Switch>
+          <Route path="/checkout" component={CheckoutPage} />
           <Route path="/signin">
             {currentUser ? <Redirect to="/" /> : <SignInSignUp />}
           </Route>
@@ -64,7 +66,4 @@ const mapStateToProps = state => ({
   currentUser: state.user.currentUser
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
