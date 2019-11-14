@@ -14,7 +14,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case "ADD_TO_CART":
       return {
         ...state,
-        cartItems: [...state.cartItems, action.payload]
+        cartItems: cartAddHelper(state.cartItems, action.payload)
       };
 
     default:
@@ -23,3 +23,17 @@ const cartReducer = (state = INITIAL_STATE, action) => {
 };
 
 export default cartReducer;
+
+// Helper Functions
+// ==================
+
+const cartAddHelper = (cartItems, newItem) => {
+  const alreadyAvailableItem = cartItems.find(item => item.id === newItem.id);
+
+  if (!alreadyAvailableItem) {
+    return [...cartItems, { ...newItem, quantity: 1 }];
+  }
+
+  alreadyAvailableItem.quantity += 1;
+  return [...cartItems];
+};
