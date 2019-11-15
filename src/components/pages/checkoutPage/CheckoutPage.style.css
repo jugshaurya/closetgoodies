@@ -1,0 +1,17 @@
+.cart-item-header {
+  width: 55%;
+  margin: 1em auto 0;
+  display: flex;
+  align-content: center;
+  justify-content: left;
+  border-bottom: 3px solid black;
+}
+
+.cart-item-header .heading {
+  width: 23%;
+  padding: 1em;
+}
+
+.cart-item-header .heading:last-child {
+  width: 8%;
+}

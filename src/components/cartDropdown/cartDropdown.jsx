@@ -12,10 +12,15 @@ const CartDropdown = props => {
   return (
     <>
       <div className="cart-items">
-        {cartItems.map((item, index) => (
-          <CartDropdownItem key={index} item={item} />
-        ))}
+        {cartItems.length ? (
+          cartItems.map((item, index) => (
+            <CartDropdownItem key={index} item={item} />
+          ))
+        ) : (
+          <div className="cart-empty"> Cart is Empty</div>
+        )}
       </div>
+
       <div className="checkout-button">
         <FormButton type="button" onClick={() => history.push("/checkout")}>
           Go to Checkout

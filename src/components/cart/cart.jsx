@@ -9,8 +9,8 @@ import "./cart.style.css";
 const Cart = props => {
   const { show, toggleShowCart } = props;
   return (
-    <div className="cart" onClick={toggleShowCart}>
-      <div className="cart-icon">
+    <div className="cart">
+      <div className="cart-icon" onClick={toggleShowCart}>
         <CartIcon />
       </div>
       {show && (

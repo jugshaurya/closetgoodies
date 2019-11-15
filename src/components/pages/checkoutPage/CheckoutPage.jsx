@@ -1,19 +1,24 @@
 import React from "react";
+import CartItem from "../../cart-item/cartItem";
+import { connect } from "react-redux";
 
 import "./CheckoutPage.style.css";
 
-import { connect } from "react-redux";
 const CheckoutPage = props => {
   const { cartItems } = props;
 
-  console.log(cartItems);
   return (
     <div>
-      <ul>
-        {cartItems.map(item => {
-          return <li>{item.name}</li>;
-        })}
-      </ul>
+      <div className="cart-item-header">
+        <div className="heading">Product</div>
+        <div className="heading">Name</div>
+        <div className="heading">Quantity</div>
+        <div className="heading">Price</div>
+        <div className="heading">Remove</div>
+      </div>
+      {cartItems.map(item => (
+        <CartItem key={item.id} item={item} />
+      ))}
     </div>
   );
 };
