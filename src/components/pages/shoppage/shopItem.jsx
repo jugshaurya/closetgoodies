@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 // Action Creator Import
-import { addToCart } from "../../../redux/cart/cart.action";
+import { addToCart } from "../../../redux/cart/cart.actions";
 // other Component Import
 import FormButton from "../../form-button/formButton";
 

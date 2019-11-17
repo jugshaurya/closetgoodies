@@ -5,7 +5,7 @@ import {
   addToCart,
   decreaseCartItemCount,
   deleteFromCart
-} from "../../redux/cart/cart.action";
+} from "../../../redux/cart/cart.actions";
 
 // Style Import
 import "./cartItem.styles.css";

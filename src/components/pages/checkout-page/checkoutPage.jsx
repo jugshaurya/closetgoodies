@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 // other Component Import
-import CartItem from "../../cart-item/cartItem";
+import CartItem from "../../cart/cart-item/cartItem";
 // Style Import
 import "./checkoutPage.styles.css";
 

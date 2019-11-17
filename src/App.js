@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";
 // Action Creator Import
-import { setCurrentUser } from "./redux/user/user.action";
+import { setCurrentUser } from "./redux/user/user.actions";
 
 //  Firebase Import
 import { auth, addToFirestore } from "./firebase/helpers.firebase";

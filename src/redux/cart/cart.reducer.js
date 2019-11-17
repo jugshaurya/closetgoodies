@@ -4,7 +4,7 @@ import {
   ADD_TO_CART,
   DECREASE_CART_ITEM_COUNT,
   DELETE_ITEM_FROM_CART
-} from "./cart.action";
+} from "./cart.actions";
 
 const INITIAL_STATE = {
   show: false,

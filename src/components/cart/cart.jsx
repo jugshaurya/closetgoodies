@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 // Action Creator Import
-import { toggleShowCart } from "../../redux/cart/cart.action";
+import { toggleShowCart } from "../../redux/cart/cart.actions";
 // Other Component Import
-import CartDropdown from "../cart-dropdown/cartDropdown";
-import CartIcon from "../cart-icon/cartIcon";
+import CartDropdown from "./cart-dropdown/cartDropdown";
+import CartIcon from "./cart-icon/cartIcon";
 // Style Import
 import "./cart.styles.css";
 

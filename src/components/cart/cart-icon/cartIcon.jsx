@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 // CartIcon Import
-import { ReactComponent as CartIconSVG } from "../../assets/cartIcon.svg";
+import { ReactComponent as CartIconSVG } from "../../../assets/cartIcon.svg";
 // Style Import
 import "./cartIcon.styles.css";
 

@@ -124,6 +124,16 @@ Firebase gives us :-
 
     - functions that create the actions are action creators.
 
+### others:
+
+- React Reselect
+  - can be added to optimize the react-app configuration.Will add later if i got my mind around it later on
+- other Libraries to do: react-persist
+
+### Folder Naming Convention
+
+Refactoring adding comments and fixing file naming ambiguity i.e foldername instead of camelcase now uses hypen as seperation and components/css files as camelcase.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -190,5 +200,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-Refactoring adding comments and fixing file naming ambiguity i.e foldername instead of camelcase now uses hypen as seperation and components/css files as camelcase.
