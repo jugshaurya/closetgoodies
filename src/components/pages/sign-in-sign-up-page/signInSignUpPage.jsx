@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 
+// other Component Import
 import SignIn from "../../sign-in/signIn";
 import SignUp from "../../sign-up/signUp";
 
-import "./signInSignUp.style.css";
+// style Import
+import "./signInSignUpPage.styles.css";
 
-class SignInSignUp extends Component {
+class SignInSignUpPage extends Component {
   render() {
     return (
       <div className="sign-in-sign-up">
@@ -16,4 +18,4 @@ class SignInSignUp extends Component {
   }
 }
 
-export default SignInSignUp;
+export default SignInSignUpPage;

@@ -1,7 +1,11 @@
 import React from "react";
-import ShopTypeCollection from "./ShopTypeCollection";
+
+// Data Import
 import SHOP_DATA from "../../../assets/shop.data";
-import "./shoppage.style.css";
+//  other Component Import
+import ShopTypeCollection from "./shopTypeCollection";
+// Style Import
+import "./shopPage.styles.css";
 
 class ShopPage extends React.Component {
   state = {

@@ -20,13 +20,17 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // Firebase Auth
+// =============
+
 export const auth = firebase.auth();
 // prompt your users to sign in with their Google Accounts either by opening a pop-up window or by redirecting to the sign-in page.
 const google_provider = new firebase.auth.GoogleAuthProvider();
 // google_provider.setCustomParameters({ prompt: "select_account" });
 export const SignInWithGoogle = () => auth.signInWithPopup(google_provider);
 
-// Firestore
+// Firebase Firestore
+// ==================
+
 export const firestore = firebase.firestore();
 
 // Saving To Firestore Auth data/ Email-Password Data
@@ -52,4 +56,5 @@ export const addToFirestore = async (user, additionalData) => {
   return userDocRef;
 };
 
-export default firebase; // in case we need something more
+// in case we need something more
+export default firebase;

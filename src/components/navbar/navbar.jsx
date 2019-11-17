@@ -1,10 +1,13 @@
 import React from "react";
-import "./navbar.style.css";
 import { NavLink, Link } from "react-router-dom";
-import { auth } from "../../firebase/helpers.firebase";
 import { connect } from "react-redux";
 
+// Firebase Import
+import { auth } from "../../firebase/helpers.firebase";
+// other Component Import
 import Cart from "../cart/cart";
+// Style Import
+import "./navbar.styles.css";
 
 const Navbar = props => {
   const { currentUser } = props;

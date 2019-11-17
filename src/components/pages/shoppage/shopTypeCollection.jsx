@@ -1,5 +1,6 @@
 import React from "react";
-import ShopItem from "./ShopItem";
+// other Component Import
+import ShopItem from "./shopItem";
 
 const ShopTypeCollection = props => {
   const { title, items } = props.collection;

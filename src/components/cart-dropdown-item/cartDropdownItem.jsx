@@ -1,6 +1,7 @@
 import React from "react";
+// Style Import
+import "./cartDropdownItem.styles.css";
 
-import "./cartDropdownItem.style.css";
 const CartDropdownItem = props => {
   const { name, imageUrl, price, quantity } = props.item;
   return (

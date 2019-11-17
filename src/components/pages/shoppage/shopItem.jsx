@@ -1,8 +1,11 @@
 import React from "react";
-import FormButton from "../../formButton/formButton";
-
 import { connect } from "react-redux";
+
+// Action Creator Import
 import { addToCart } from "../../../redux/cart/cart.action";
+// other Component Import
+import FormButton from "../../form-button/formButton";
+
 const ShopItem = props => {
   const { imageUrl, name, price } = props.item;
   return (
@@ -35,7 +38,4 @@ const mapDispatchToProps = dispatch => ({
   addToCart: item => dispatch(addToCart(item))
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(ShopItem);
+export default connect(null, mapDispatchToProps)(ShopItem);

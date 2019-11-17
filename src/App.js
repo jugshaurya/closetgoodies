@@ -1,15 +1,19 @@
 import React from "react";
-import Navbar from "./components/navbar/Navbar";
-import HomePage from "./components/pages/homepage/HomePage";
-import ShopPage from "./components/pages/shoppage/ShopPage";
-import CheckoutPage from "./components/pages/checkoutPage/CheckoutPage";
-import SignInSignUp from "./components/pages/sign-in-sign-up-page/signInSignUp";
-
 import { Switch, Route, Redirect } from "react-router-dom";
-import { auth, addToFirestore } from "./firebase/helpers.firebase";
 
 import { connect } from "react-redux";
+// Action Creator Import
 import { setCurrentUser } from "./redux/user/user.action";
+
+//  Firebase Import
+import { auth, addToFirestore } from "./firebase/helpers.firebase";
+
+// other Components Import
+import Navbar from "./components/navbar/navbar";
+import HomePage from "./components/pages/homepage/homePage";
+import ShopPage from "./components/pages/shoppage/shopPage";
+import SignInSignUpPage from "./components/pages/sign-in-sign-up-page/signInSignUpPage";
+import CheckoutPage from "./components/pages/checkout-page/checkoutPage";
 
 class App extends React.Component {
   // used to close the connection which is continously checking for our auth state change over Firebase
@@ -47,8 +51,8 @@ class App extends React.Component {
         <Navbar />
         <Switch>
           <Route exact path="/checkout" component={CheckoutPage} />
-          <Route path="/signin">
-            {currentUser ? <Redirect to="/" /> : <SignInSignUp />}
+          <Route exact path="/signin">
+            {currentUser ? <Redirect to="/" /> : <SignInSignUpPage />}
           </Route>
           <Route path="/shop" component={ShopPage} />
           <Route path="/" component={HomePage} />

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-
+// Firebase Import
 import { auth, SignInWithGoogle } from "../../firebase/helpers.firebase";
-import FormInput from "../formInput/formInput";
-import FormButton from "../formButton/formButton";
-import "./signin.style.css";
+// other component Imports
+import FormInput from "../form-input/formInput";
+import FormButton from "../form-button/formButton";
+// Style Import
+import "./signIn.styles.css";
 
 class SignIn extends Component {
   state = {

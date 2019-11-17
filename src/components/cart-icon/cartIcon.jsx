@@ -1,9 +1,10 @@
 import React from "react";
-
-import { ReactComponent as CartIconSVG } from "./cartIcon.svg";
-import "./cartIcon.style.css";
-
 import { connect } from "react-redux";
+// CartIcon Import
+import { ReactComponent as CartIconSVG } from "../../assets/cartIcon.svg";
+// Style Import
+import "./cartIcon.styles.css";
+
 const CartIcon = props => {
   const { cartCount } = props;
   return (

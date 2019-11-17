@@ -1,13 +1,14 @@
 import React from "react";
-
-import "./cartItem.style.css";
-
 import { connect } from "react-redux";
+// Action Creator Import
 import {
   addToCart,
   decreaseCartItemCount,
   deleteFromCart
 } from "../../redux/cart/cart.action";
+
+// Style Import
+import "./cartItem.styles.css";
 
 const CartItem = props => {
   const { imageUrl, name, quantity, price } = props.item;

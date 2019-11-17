@@ -1,8 +1,9 @@
 import React from "react";
-import CartItem from "../../cart-item/cartItem";
 import { connect } from "react-redux";
-
-import "./CheckoutPage.style.css";
+// other Component Import
+import CartItem from "../../cart-item/cartItem";
+// Style Import
+import "./checkoutPage.styles.css";
 
 const CheckoutPage = props => {
   const { cartItems, cartTotal } = props;

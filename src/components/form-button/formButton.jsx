@@ -1,5 +1,6 @@
 import React from "react";
-import "./formButton.style.css";
+// Style Import
+import "./formButton.styles.css";
 
 const FormButton = props => {
   const { type, children, googleButton, addToCart, ...otherprops } = props;

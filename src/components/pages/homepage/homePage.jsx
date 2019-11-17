@@ -1,7 +1,9 @@
 import React from "react";
-import "./homepage.style.css";
+// other Component Import
+import SectionItem from "./sectionItem";
+// style Import
+import "./homepage.styles.css";
 
-import SectionItem from "./SectionItem";
 class HomePage extends React.Component {
   state = {
     sections: [

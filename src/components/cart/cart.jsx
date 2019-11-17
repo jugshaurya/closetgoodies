@@ -1,10 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import CartDropdown from "../cartDropdown/cartDropdown";
-import CartIcon from "../cartIcon/cartIcon";
-
+// Action Creator Import
 import { toggleShowCart } from "../../redux/cart/cart.action";
-import "./cart.style.css";
+// Other Component Import
+import CartDropdown from "../cart-dropdown/cartDropdown";
+import CartIcon from "../cart-icon/cartIcon";
+// Style Import
+import "./cart.styles.css";
 
 const Cart = props => {
   const { show, toggleShowCart } = props;
@@ -25,7 +27,6 @@ const Cart = props => {
 const mapStatetoProps = state => ({
   show: state.cart.show
 });
-
 const mapDispatchToProps = dispatch => ({
   toggleShowCart: () => {
     dispatch(toggleShowCart());
