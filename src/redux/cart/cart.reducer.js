@@ -17,6 +17,18 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         cartItems: cartAddHelper(state.cartItems, action.payload)
       };
 
+    case "DECREASE_CART_ITEM_COUNT":
+      return {
+        ...state,
+        cartItems: cartDecreaseCountHelper(state.cartItems, action.payload)
+      };
+
+    case "DELETE_ITEM_FROM_CART":
+      return {
+        ...state,
+        cartItems: cartItemDeleteHelper(state.cartItems, action.payload)
+      };
+
     default:
       return state;
   }
@@ -36,5 +48,24 @@ const cartAddHelper = (cartItems, newItem) => {
 
   return cartItems.map(item =>
     item.id === newItem.id ? { ...item, quantity: item.quantity + 1 } : item
+  );
+};
+
+const cartItemDeleteHelper = (cartItems, itemToDelete) => {
+  return cartItems.filter(item => item.id !== itemToDelete.id);
+};
+
+const cartDecreaseCountHelper = (cartItems, itemToBeDecreased) => {
+  const alreadyAvailableItem = cartItems.find(
+    item => item.id === itemToBeDecreased.id
+  );
+
+  if (alreadyAvailableItem.quantity === 1)
+    return cartItemDeleteHelper(cartItems, alreadyAvailableItem);
+
+  return cartItems.map(item =>
+    item.id === itemToBeDecreased.id
+      ? { ...item, quantity: item.quantity - 1 }
+      : item
   );
 };

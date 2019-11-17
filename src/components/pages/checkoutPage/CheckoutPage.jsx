@@ -34,5 +34,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(CheckoutPage);
-
-// import {} from '../../../redux/cart/cart.action'

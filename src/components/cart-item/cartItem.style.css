@@ -35,8 +35,7 @@
   flex-direction: row;
   justify-content: left;
   align-items: center;
-  font-size: 1.5em;
-  border: 3px solid red;
+  font-size: 1.3em;
 }
 
 .property.quantity div {
