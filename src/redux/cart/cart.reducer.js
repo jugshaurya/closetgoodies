@@ -34,6 +34,7 @@ const cartAddHelper = (cartItems, newItem) => {
     return [...cartItems, { ...newItem, quantity: 1 }];
   }
 
-  alreadyAvailableItem.quantity += 1;
-  return [...cartItems];
+  return cartItems.map(item =>
+    item.id === newItem.id ? { ...item, quantity: item.quantity + 1 } : item
+  );
 };

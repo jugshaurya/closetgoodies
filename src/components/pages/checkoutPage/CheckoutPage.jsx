@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import "./CheckoutPage.style.css";
 
 const CheckoutPage = props => {
-  const { cartItems } = props;
+  const { cartItems, cartTotal } = props;
 
   return (
     <div>
@@ -19,12 +19,18 @@ const CheckoutPage = props => {
       {cartItems.map(item => (
         <CartItem key={item.id} item={item} />
       ))}
+
+      <div className="cart-total">Total: ${cartTotal}</div>
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  cartItems: state.cart.cartItems
+  cartItems: state.cart.cartItems,
+  cartTotal: state.cart.cartItems.reduce(
+    (accum, item) => accum + item.quantity * item.price,
+    0
+  )
 });
 
 export default connect(mapStateToProps)(CheckoutPage);

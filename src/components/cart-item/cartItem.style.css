@@ -29,3 +29,20 @@
   text-align: center;
   cursor: pointer;
 }
+
+.property.quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  font-size: 1.5em;
+  border: 3px solid red;
+}
+
+.property.quantity div {
+  padding: 0.6em;
+}
+
+.property.quantity div.arrow {
+  cursor: pointer;
+}
