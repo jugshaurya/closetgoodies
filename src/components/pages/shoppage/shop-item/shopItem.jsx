@@ -1,22 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
-
 // Action Creator Import
-import { addToCart } from "../../../redux/cart/cart.actions";
+import { addToCart } from "../../../../redux/cart/cart.actions";
 // other Component Import
-import FormButton from "../../form-button/formButton";
-
+import FormButton from "../../../form-button/formButton";
+// Style Import
+import "./shopItem.styles.css";
 const ShopItem = props => {
   const { imageUrl, name, price } = props.item;
   return (
-    <div className="item">
+    <div className="shop-item">
       <div
         className="image"
         style={{
           backgroundImage: `url(${imageUrl})`
         }}
       >
-        <div className="add-btn">
+        <div className="shop-add-btn">
           <FormButton
             type="button"
             addToCart
@@ -26,7 +26,7 @@ const ShopItem = props => {
           </FormButton>
         </div>
       </div>
-      <div className="item-footer">
+      <div className="shop-item-footer">
         <span className="name">{name}</span>
         <span className="price">${price}</span>
       </div>

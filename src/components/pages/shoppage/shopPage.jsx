@@ -1,24 +1,21 @@
 import React from "react";
-import { connect } from "react-redux";
+import { Switch, Route } from "react-router-dom";
+
 //  other Component Import
-import ShopTypeCollection from "./shopTypeCollection";
-// Style Import
-import "./shopPage.styles.css";
+import ShopPageAllCollections from "./shoppage-all-collections/shopPageAllCollections";
+import ShopPageSpecificCollection from "./shoppage-specific-collection/shopPageSpecificCollection";
 
 const ShopPage = props => {
-  const { db } = props;
-
+  const { match } = props;
   return (
-    <div className="shop-page">
-      {db.map(collection => (
-        <ShopTypeCollection key={collection.id} collection={collection} />
-      ))}
-    </div>
+    <Switch>
+      <Route exact path={`${match.path}`} component={ShopPageAllCollections} />
+      <Route
+        path={`${match.path}/:collectionName`}
+        component={ShopPageSpecificCollection}
+      />
+    </Switch>
   );
 };
 
-const mapStateToProps = state => ({
-  db: state.data.db
-});
-
-export default connect(mapStateToProps)(ShopPage);
+export default ShopPage;
