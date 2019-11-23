@@ -16,6 +16,7 @@ firebase
 react-redux - <Provider/>, connect()
 redux - createStore(), applyMiddleware(), combineReducers()
 redux-logger - logger
+react-stripe-checkout - <stripeCheckout />
 
 ## React State
 
@@ -129,6 +130,17 @@ Firebase gives us :-
 - React Reselect
   - can be added to optimize the react-app configuration.Will add later if i got my mind around it later on
 - other Libraries to do: react-persist to get localStorage and SessionStorage in React to save data temporarily in browser
+
+## Stripe Payments:
+
+- react-stripe-checkout
+
+  - stripe's Checkout makes it almost too easy to take people's money.
+  - npm install react-stripe-checkout
+  - token and stripeKey are the only required props, everything else is optional as per the stripe docs
+  - import StripeCheckout from 'react-stripe-checkout'
+  - https://github.com/azmenak/react-stripe-checkout
+  - More Help: https://www.robinwieruch.de/react-express-stripe-payment
 
 ## Folder Naming Convention
 

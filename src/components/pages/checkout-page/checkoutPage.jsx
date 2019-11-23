@@ -2,6 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 // other Component Import
 import CartItem from "../../cart/cart-item/cartItem";
+
+// Stripe Payment
+import StripeCheckoutButton from "../../stripe-checkout-button/stripeCheckoutButton";
 // Style Import
 import "./checkoutPage.styles.css";
 
@@ -22,6 +25,16 @@ const CheckoutPage = props => {
       ))}
 
       <div className="cart-total">Total: ${cartTotal}</div>
+      {cartTotal ? (
+        <div className="stripe">
+          <div className="stripe-card-help">
+            <pre>Use Card: 4242 4242 4242 4242 Exp.Date: 1/22 CVV: 123</pre>
+          </div>
+          <div className="stripe-btn">
+            <StripeCheckoutButton total={cartTotal} />
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };
