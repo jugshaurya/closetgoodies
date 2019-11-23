@@ -1,14 +1,21 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 // other Component Import
 import ShopItem from "../shop-item/shopItem";
+
 // Style Import
 import "./shopTypeCollection.styles.css";
 const ShopTypeCollection = props => {
   const { title, items } = props.collection;
-  const { singleCollectionPerPage } = props;
+  const { singleCollectionPerPage, history } = props;
   return (
     <div className="collection">
-      <h1 className="shop-page-title">{title.toUpperCase()}</h1>
+      <h1
+        className="shop-page-title"
+        onClick={() => history.push(`/shop/${title.toLowerCase()}`)}
+      >
+        {title.toUpperCase()}
+      </h1>
       <div className="items">
         {singleCollectionPerPage
           ? items.map(item => <ShopItem item={item} key={item.id} />)
@@ -20,4 +27,4 @@ const ShopTypeCollection = props => {
   );
 };
 
-export default ShopTypeCollection;
+export default withRouter(ShopTypeCollection);

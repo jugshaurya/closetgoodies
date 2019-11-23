@@ -75,7 +75,7 @@ Firebase gives us :-
       - firestore returns two type of objects: Reference and Snapshot
       - can read the data using .get() or .onSnapShot() methods over reference which returns a snapshot
 
-- Storage for information storing like image,videos or assets
+- Storage for information storing like image,videos or assets like shop data
 - Hosting handle website deployment
 
 ---
@@ -124,15 +124,17 @@ Firebase gives us :-
 
     - functions that create the actions are action creators.
 
-### others:
+## others:
 
 - React Reselect
   - can be added to optimize the react-app configuration.Will add later if i got my mind around it later on
-- other Libraries to do: react-persist
+- other Libraries to do: react-persist to get localStorage and SessionStorage in React to save data temporarily in browser
 
-### Folder Naming Convention
+## Folder Naming Convention
 
 Refactoring adding comments and fixing file naming ambiguity i.e foldername instead of camelcase now uses hypen as seperation and components/css files as camelcase.
+
+## ======================================
 
 ## Available Scripts
 
