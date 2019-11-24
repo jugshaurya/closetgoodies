@@ -146,6 +146,18 @@ Firebase gives us :-
 
 Refactoring adding comments and fixing file naming ambiguity i.e foldername instead of camelcase now uses hypen as seperation and components/css files as camelcase.
 
+## Heroku Deployment (https://devcenter.heroku.com/articles/heroku-cli)
+
+sudo snap install --classic heroku
+
+- https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack
+
+  - heroku create \$APP_NAME --buildpack mars/create-react-app
+  - This buildpack deploys a React UI as a static web site. The Nginx web server provides optimum performance and security for the runtime.
+  - git push heroku master
+  - Adding https://cloth-zone.herokuapp.com/ to authorized domain in firebase
+  - and makking logger middleware to work in development mode only.
+
 ## ======================================
 
 ## Available Scripts
