@@ -6,11 +6,7 @@ import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.actions";
 
 //  Firebase Import
-import {
-  auth,
-  addToFirestore,
-  addShopDataToFirestore
-} from "./firebase/helpers.firebase";
+import { auth, addToFirestore } from "./firebase/helpers.firebase";
 
 // other Components Import
 import Navbar from "./components/navbar/navbar";
@@ -41,19 +37,6 @@ class App extends React.Component {
         setCurrentUser(null);
       }
     });
-
-    const convertJSObjectToArray = JSobject => {
-      const objectKeys = Object.keys(JSobject);
-      return objectKeys.reduce((accu, item) => {
-        return [...accu, JSobject[item]];
-      }, []);
-    };
-
-    const dbArray = convertJSObjectToArray(this.props.db);
-    addShopDataToFirestore(
-      "products",
-      dbArray.map(({ title, items }) => ({ title, items }))
-    );
   }
 
   componentWillUnmount() {
