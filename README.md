@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # cloth-zone
 
-An E-Commerce Website build in REACT
+An E-Commerce Website build in REACT(https://cloth-zone.herokuapp.com)
 
 ![Progress](https://github.com/jugshaurya/cloth-zone/blob/master/public/progress.png)
 
@@ -130,6 +130,9 @@ Firebase gives us :-
 - React Reselect
   - can be added to optimize the react-app configuration.Will add later if i got my mind around it later on
 - other Libraries to do: react-persist to get localStorage and SessionStorage in React to save data temporarily in browser
+
+- styledComponents(Personally dont like them at first glance, will later look once more...)
+  - use to add css in JS using ` styled.tag`` `etc.
 
 ## Stripe Payments:
 
