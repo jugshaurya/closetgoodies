@@ -78,6 +78,9 @@ Firebase gives us :-
 
 - Storage for information storing like image,videos or assets like shop data
 - Hosting handle website deployment
+- adding some demodata to firebase firestore:
+  - use batch() to add multiple data at a time to firestore, so that we dont save partial data to firebase if some network error occurs and we end up some data in firestore and some don't.
+  - Creates a write batch, used for performing multiple writes as a single atomic operation. The maximum number of writes allowed in a single WriteBatch is 500
 
 ---
 
