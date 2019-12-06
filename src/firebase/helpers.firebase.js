@@ -30,7 +30,6 @@ export const SignInWithGoogle = () => auth.signInWithPopup(google_provider);
 
 // Firebase Firestore
 // ==================
-
 export const firestore = firebase.firestore();
 
 // Saving To Firestore Auth data/ Email-Password Data

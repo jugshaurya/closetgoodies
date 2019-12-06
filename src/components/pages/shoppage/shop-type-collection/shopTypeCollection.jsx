@@ -12,7 +12,7 @@ const ShopTypeCollection = props => {
     <div className="collection">
       <h1
         className="shop-page-title"
-        onClick={() => history.push(`/shop/${title.toLowerCase()}`)}
+        onClick={() => history.push(`/shop/${encodeURI(title.toLowerCase())}`)}
       >
         {title.toUpperCase()}
       </h1>

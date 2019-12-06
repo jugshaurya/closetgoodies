@@ -4,18 +4,10 @@ import { connect } from "react-redux";
 // other Components
 import ShopTypeCollection from "../shop-type-collection/shopTypeCollection";
 
-// const mapCollectionNamesToID = {
-//   hats: 1,
-//   sneakers: 2,
-//   jackets: 3,
-//   womens: 4,
-//   mens: 5
-// };
-
 const ShopPageSpecificCollection = props => {
   const { collectionName } = props.match.params;
-  const { db } = props;
-  const collection = db[collectionName];
+  const { products } = props;
+  const collection = products ? products[collectionName] : null;
 
   return (
     <div className="shop-page">
@@ -25,7 +17,7 @@ const ShopPageSpecificCollection = props => {
 };
 
 const mapStateToProps = state => ({
-  db: state.data.db
+  products: state.data.products
 });
 
 export default connect(mapStateToProps)(ShopPageSpecificCollection);

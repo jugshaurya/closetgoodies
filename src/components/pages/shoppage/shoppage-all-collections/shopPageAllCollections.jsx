@@ -13,11 +13,11 @@ const convertJSObjectToArray = JSobject => {
 };
 
 const ShopPageAllCollections = props => {
-  const { db } = props;
-  const dbArray = convertJSObjectToArray(db);
+  const { products } = props;
+  const productsArray = products ? convertJSObjectToArray(products) : [];
   return (
     <div className="shop-page">
-      {dbArray.map(collection => (
+      {productsArray.map(collection => (
         <ShopTypeCollection key={collection.id} collection={collection} />
       ))}
     </div>
@@ -25,7 +25,7 @@ const ShopPageAllCollections = props => {
 };
 
 const mapStateToProps = state => ({
-  db: state.data.db
+  products: state.data.products
 });
 
 export default connect(mapStateToProps)(ShopPageAllCollections);

@@ -1,8 +1,5 @@
-// Data Import
-import SHOP_DATA from "../../assets/shop.data";
-
 const INITIAL_STATE = {
-  db: SHOP_DATA,
+  products: null,
   sections: [
     {
       title: "hats",
@@ -41,6 +38,12 @@ const INITIAL_STATE = {
 
 const dataReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case "ADD_PRODUCTS":
+      return {
+        ...state,
+        products: action.payload
+      };
+
     default:
       return state;
   }

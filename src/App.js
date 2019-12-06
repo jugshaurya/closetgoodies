@@ -68,7 +68,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser,
-  db: state.data.db
+  products: state.data.products
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

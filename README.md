@@ -53,34 +53,40 @@ firebase-firestore - Cloud Firestore (optional). `firebase/firestore`
 
 Firebase gives us :-
 
-- Auth
+1. Auth
 
-  - We will be doing OAuth and email-password Login using Firebase
-    Steps:
+- We will be doing OAuth and email-password Login using Firebase
+  Steps:
 
-    - GoogleOAuth
+  1.a GoogleOAuth
 
-      - yarn add firebase
-      - Go to project overview and create a web app and copy the configuration
-      - Handle the google sign-in flow with firebase SDK https://firebase.google.com/docs/auth/web/google-signin
-      - Show Sign in Popup
-      - use onAuthStateChange method to signin/signout and add UI accordingly
-      - use auth.signOut() to logout
-      - also add the user to firestore so that we can say user loggedin to our website
+  - yarn add firebase
+  - Go to project overview and create a web app and copy the configuration
+  - Handle the google sign-in flow with firebase SDK https://firebase.google.com/docs/auth/web/google-signin
+  - Show Sign in Popup
+  - use onAuthStateChange method to signin/signout and add UI accordingly
+  - use auth.signOut() to logout
+  - also add the user to firestore so that we can say user loggedin to our website
 
-    - Email-Password
+    1.b Email-Password
 
-      - Firestore(Cloud Firestore is a flexible, scalable database for mobile, web, and server development from Firebase and Google Cloud Platform. Like Firebase Realtime Database, it keeps your data in sync across client apps through realtime listeners and offers offline support for mobile and web so you can build responsive apps that work regardless of network latency or Internet connectivity.
-      - Firestore is a cloud-hosted, NoSQL database that your iOS, Android, and web apps can access directly via native SDKs. )
-      - Require Firestore(Database) to store our users email-Pass Data
-      - firestore returns two type of objects: Reference and Snapshot
-      - can read the data using .get() or .onSnapShot() methods over reference which returns a snapshot
+  - Firestore(Cloud Firestore is a flexible, scalable database for mobile, web, and server development from Firebase and Google Cloud Platform. Like Firebase Realtime Database, it keeps your data in sync across client apps through realtime listeners and offers offline support for mobile and web so you can build responsive apps that work regardless of network latency or Internet connectivity.
+  - Firestore is a cloud-hosted, NoSQL database that your iOS, Android, and web apps can access directly via native SDKs. )
+  - Require Firestore(Database) to store our users email-Pass Data
+  - firestore returns two type of objects: Reference and Snapshot
+  - can read the data using .get() or .onSnapShot() methods over reference which returns a snapshot
 
-- Storage for information storing like image,videos or assets like shop data
-- Hosting handle website deployment
-- adding some demodata to firebase firestore:
-  - use batch() to add multiple data at a time to firestore, so that we dont save partial data to firebase if some network error occurs and we end up some data in firestore and some don't.
-  - Creates a write batch, used for performing multiple writes as a single atomic operation. The maximum number of writes allowed in a single WriteBatch is 500
+2. Storage for information storing like image,videos or assets like shop data
+3. Hosting handle website deployment
+4. adding some demodata to firebase firestore:
+
+   4.a. use batch() to add multiple data at a time to firestore, so that we dont save partial data to firebase if some network error occurs and we end up some data in firestore and some don't.
+
+   4.b Creates a write batch, used for performing multiple writes as a single atomic operation. The maximum number of writes allowed in a single WriteBatch is 500
+
+- used inside addShopDataToFirestore()
+
+5. Grabbing firestore Data into our app
 
 ---
 
