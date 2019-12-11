@@ -8,7 +8,6 @@ const ShopPageSpecificCollection = props => {
   const { collectionName } = props.match.params;
   const { products } = props;
   const collection = products ? products[collectionName] : null;
-
   return (
     <div className="shop-page">
       <ShopTypeCollection collection={collection} singleCollectionPerPage />

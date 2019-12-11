@@ -7,14 +7,10 @@ import ShopItem from "../shop-item/shopItem";
 import "./shopTypeCollection.styles.css";
 
 const ShopTypeCollection = props => {
+  // if props value is null simply return
   if (!props.collection) {
-    return (
-      <>
-        <h1>Loading</h1>
-      </>
-    );
+    return <></>;
   }
-
   const { title, items } = props.collection;
   const { singleCollectionPerPage, history } = props;
   return (

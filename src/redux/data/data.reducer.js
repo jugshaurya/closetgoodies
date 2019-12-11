@@ -36,26 +36,30 @@ const INITIAL_STATE = {
       linkUrl: "mens"
     }
   ],
-  error: null
+  error: null,
+  isFetching: false
 };
 
 const dataReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_START:
       return {
-        ...state
+        ...state,
+        isFetching: true
       };
     case actionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_SUCCESS:
       return {
         ...state,
         products: action.payload,
-        error: null
+        error: null,
+        isFetching: false
       };
 
     case actionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_FAILURE:
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
+        isFetching: false
       };
 
     default:

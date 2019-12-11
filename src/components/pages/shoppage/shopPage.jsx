@@ -9,23 +9,27 @@ import ShopPageSpecificCollection from "./shoppage-specific-collection/shopPageS
 // action Creators
 import { fetchProductFromStoreAsync } from "../../../redux/data/data.actions";
 
+import { ReactComponent as Spinner } from "./Spinner.svg";
+
 class ShopPage extends React.Component {
   componentDidMount() {
     this.props.fetchProductFromStoreAsync();
   }
 
   render() {
-    const { match } = this.props;
+    const { match, isFetching } = this.props;
     return (
       <Switch>
         <Route
           exact
           path={`${match.path}`}
-          component={ShopPageAllCollections}
+          render={() => (isFetching ? <Spinner /> : <ShopPageAllCollections />)}
         />
         <Route
           path={`${match.path}/:collectionName`}
-          component={ShopPageSpecificCollection}
+          render={props =>
+            isFetching ? <Spinner /> : <ShopPageSpecificCollection {...props} />
+          }
         />
       </Switch>
     );
@@ -36,4 +40,7 @@ const mapDispatchToProps = dispatch => ({
   fetchProductFromStoreAsync: () => dispatch(fetchProductFromStoreAsync())
 });
 
-export default connect(null, mapDispatchToProps)(ShopPage);
+const mapStateToProps = state => ({
+  isFetching: state.data.isFetching
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);
