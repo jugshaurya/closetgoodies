@@ -9,7 +9,15 @@ import ShopPageSpecificCollection from "./shoppage-specific-collection/shopPageS
 // action Creators
 import { fetchProductFromStoreAsync } from "../../../redux/data/data.actions";
 
-import { ReactComponent as Spinner } from "./Spinner.svg";
+// HOC Import
+import withLoadingSpinner from "../../HOC/with-loading-spinner/withLoadingSpinner.component";
+
+const ShopPageAllCollectionsWithLoadingSpinner = withLoadingSpinner(
+  ShopPageAllCollections
+);
+const ShopPageSpecificCollectionWithLoadingSpinner = withLoadingSpinner(
+  ShopPageSpecificCollection
+);
 
 class ShopPage extends React.Component {
   componentDidMount() {
@@ -23,13 +31,18 @@ class ShopPage extends React.Component {
         <Route
           exact
           path={`${match.path}`}
-          render={() => (isFetching ? <Spinner /> : <ShopPageAllCollections />)}
+          render={() => (
+            <ShopPageAllCollectionsWithLoadingSpinner isLoading={isFetching} />
+          )}
         />
         <Route
           path={`${match.path}/:collectionName`}
-          render={props =>
-            isFetching ? <Spinner /> : <ShopPageSpecificCollection {...props} />
-          }
+          render={props => (
+            <ShopPageSpecificCollectionWithLoadingSpinner
+              isLoading={isFetching}
+              {...props}
+            />
+          )}
         />
       </Switch>
     );
