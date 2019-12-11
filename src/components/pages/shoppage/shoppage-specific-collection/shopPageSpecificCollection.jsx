@@ -11,7 +11,7 @@ const ShopPageSpecificCollection = props => {
 
   return (
     <div className="shop-page">
-      <ShopTypeCollection collection={collection} singleCollectionPerPage />;
+      <ShopTypeCollection collection={collection} singleCollectionPerPage />
     </div>
   );
 };

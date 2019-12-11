@@ -1,3 +1,5 @@
+import actionTypes from "./data.types";
+
 const INITIAL_STATE = {
   products: null,
   sections: [
@@ -33,15 +35,27 @@ const INITIAL_STATE = {
       id: 5,
       linkUrl: "mens"
     }
-  ]
+  ],
+  error: null
 };
 
 const dataReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "ADD_PRODUCTS":
+    case actionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_START:
+      return {
+        ...state
+      };
+    case actionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_SUCCESS:
       return {
         ...state,
-        products: action.payload
+        products: action.payload,
+        error: null
+      };
+
+    case actionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_FAILURE:
+      return {
+        ...state,
+        error: action.payload
       };
 
     default:

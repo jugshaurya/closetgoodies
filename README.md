@@ -84,9 +84,24 @@ Firebase gives us :-
 
    4.b Creates a write batch, used for performing multiple writes as a single atomic operation. The maximum number of writes allowed in a single WriteBatch is 500
 
-- used inside addShopDataToFirestore()
+   - used inside `addShopDataToFirestore()`
+
+Note:- Observable and observer Pattern
+
+- We have Observable, which is an object we’d like to observe (it may be also called Subject in the Observer pattern) and we can subscribe for observing changes in those object. Every object interested in those changes will be called Observer. We can have one Subject and many Observers, and these single Observers may know nothing about each other. We can also stop observing changes at any time.
+
+- firebase onAuthChange(), onSnapshot() were the functions based on this pattern or to which we subscribed to, for ex- onAuthChange method is the mechansim to observe the auth changes whenever user sign in or sign out. and the onAuthChange(user => userWorkHere..., error=> errorHandlerHere) was the observer. if any auth changes happens observers are notified with value/error.and we can end the subscription when we dont want to listen to auth changed, which we have done in ComponentWillUnmount().
+
+- observable is the chain of events that happens one after the other and we subscribe to this chain so to get notified about the changes/error/completeness and when anyof this happens observer reacts toward it.
+  observer = {
+  next(nextValue) // when any event in chain return some value this function runs ex- user => userWorkHere...,
+  error(errorValue),
+  complete() // when chain is complete and no further actions are there
+  }
 
 5. Grabbing firestore Data into our app
+
+- using `snapshot()` and unsubscribefromServices() like we did while authorizing the user.
 
 ---
 
@@ -133,6 +148,11 @@ Firebase gives us :-
 
 
     - functions that create the actions are action creators.
+
+- #### Action -> redux-thunk-middleWare -> Reducer -> Store -> Components
+  [redux-thunk Github](https://github.com/reduxjs/redux-thunk)
+  - Async redux dispatching is dine using middleware redux thunk, which is i guess is a smart way to alter the actions which are of type functions to take a dispatch as an argument and dispatching START, SUCCESS, FAILURE actions depending upon the asynchronous activites and time of it.
+    ![Redux-thunk](https://github.com/jugshaurya/cloth-zone/blob/master/public/redux-thunk.png)
 
 ## others:
 

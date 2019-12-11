@@ -5,7 +5,16 @@ import ShopItem from "../shop-item/shopItem";
 
 // Style Import
 import "./shopTypeCollection.styles.css";
+
 const ShopTypeCollection = props => {
+  if (!props.collection) {
+    return (
+      <>
+        <h1>Loading</h1>
+      </>
+    );
+  }
+
   const { title, items } = props.collection;
   const { singleCollectionPerPage, history } = props;
   return (
