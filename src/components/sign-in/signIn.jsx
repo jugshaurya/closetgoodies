@@ -53,7 +53,7 @@ class SignIn extends Component {
             <span>
               {error && (
                 <div className="alert alert-danger" role="alert">
-                  <strong>{error.message}</strong>
+                  <strong>{error}</strong>
                 </div>
               )}
             </span>
@@ -81,7 +81,7 @@ class SignIn extends Component {
 }
 
 const mapStateToProps = state => ({
-  error: state.user.error
+  error: state.user.signInError
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -20,6 +20,10 @@ export const SET_CURRENT_USER_USING_LOCAL_SUCCESS =
 export const SET_CURRENT_USER_USING_LOCAL_FAILURE =
   "SET_CURRENT_USER_USING_LOCAL_FAILURE";
 
+export const CREATE_USER_START = "CREATE_USER_START";
+export const CREATE_USER_SUCCESS = "CREATE_USER_SUCCESS";
+export const CREATE_USER_FAILURE = "CREATE_USER_FAILURE";
+
 //  Async Action Creators
 // ================
 
@@ -52,7 +56,7 @@ export const googleSignInAsync = () => async dispatch => {
       })
     );
   } catch (error) {
-    dispatch(googleSignInFailure(error));
+    dispatch(googleSignInFailure(error.message));
   }
 };
 
@@ -85,6 +89,37 @@ export const localSignInAsync = (email, password) => async dispatch => {
       })
     );
   } catch (error) {
-    dispatch(localSignInFailure(error));
+    dispatch(localSignInFailure(error.message));
+  }
+};
+
+const createUserStart = () => ({
+  type: CREATE_USER_START
+});
+
+const createUserSuccess = () => ({
+  type: CREATE_USER_SUCCESS,
+  payload: "New User Created!"
+});
+
+const createUserFailure = error => ({
+  type: CREATE_USER_FAILURE,
+  payload: error
+});
+
+export const createUserAsync = (
+  displayName,
+  email,
+  password,
+  confirmPassword
+) => async dispatch => {
+  dispatch(createUserStart());
+  try {
+    if (password !== confirmPassword) throw new Error("Password Don't Match");
+    const { user } = await auth.createUserWithEmailAndPassword(email, password);
+    await addToFirestore(user, { displayName });
+    dispatch(createUserSuccess());
+  } catch (error) {
+    dispatch(createUserFailure(error.message));
   }
 };
