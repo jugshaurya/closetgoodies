@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-// Firebase Import
-import { auth, addToFirestore } from "../../firebase/helpers.firebase";
+import { connect } from "react-redux";
+// action creator Import
+import { createUserAsync } from "../../redux/user/user.actions";
 
 // other Components Import
 import FormInput from "../form-input/formInput";
@@ -14,8 +15,7 @@ class SignUp extends Component {
     displayName: "",
     email: "",
     password: "",
-    confirmPassword: "",
-    error: null
+    confirmPassword: ""
   };
 
   handleChange = e => {
@@ -23,31 +23,9 @@ class SignUp extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSignUp = async e => {
-    e.preventDefault();
-    const { displayName, email, password, confirmPassword } = this.state;
-    if (password !== confirmPassword) return alert("Password Don't Match");
-
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-      await addToFirestore(user, { displayName });
-      this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-        error: null
-      });
-    } catch (error) {
-      console.log("error Creating a User in Sign Up", error);
-      this.setState({ error });
-    }
-  };
-
   render() {
+    const { createUserAsync, successCreationMessage, error } = this.props;
+    const { displayName, email, password, confirmPassword } = this.state;
     return (
       <>
         <div className="sign-up">
@@ -82,14 +60,25 @@ class SignUp extends Component {
               onChange={this.handleChange}
             />
             <span>
-              {this.state.error && (
+              {error && (
                 <div className="alert alert-danger" role="alert">
-                  <strong>{this.state.error.message}</strong>
+                  <strong>{error}</strong>
                 </div>
               )}
             </span>
-
-            <FormButton type={"submit"} onClick={this.handleSignUp}>
+            <span>
+              {successCreationMessage && (
+                <div className="alert alert-success" role="alert">
+                  <strong>{successCreationMessage}</strong>
+                </div>
+              )}
+            </span>
+            <FormButton
+              type={"button"}
+              onClick={() =>
+                createUserAsync(displayName, email, password, confirmPassword)
+              }
+            >
               Sign Up
             </FormButton>
           </form>
@@ -99,4 +88,14 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+const mapStateToProps = state => ({
+  error: state.user.signUpError,
+  successCreationMessage: state.user.successCreationMessage
+});
+
+const mapDispatchToProps = dispatch => ({
+  createUserAsync: (displayName, email, password, confirmPassword) =>
+    dispatch(createUserAsync(displayName, email, password, confirmPassword))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
