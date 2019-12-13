@@ -1,19 +1,19 @@
 import { firestore } from "../../firebase/helpers.firebase";
-import actionTypes from "./data.types";
+import dataActionTypes from "./data.types";
 
 // Async Action Creators
 // ======================
 const fetchProductFromStoreStart = products => ({
-  type: actionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_START
+  type: dataActionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_START
 });
 
 const fetchProductFromStoreSuccess = products => ({
-  type: actionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_SUCCESS,
+  type: dataActionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_SUCCESS,
   payload: products
 });
 
 const fetchProductFromStoreFailure = error => ({
-  type: actionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_FAILURE,
+  type: dataActionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_FAILURE,
   payload: error
 });
 

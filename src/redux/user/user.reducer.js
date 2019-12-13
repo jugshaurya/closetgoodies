@@ -1,15 +1,5 @@
 //  Action Types Import
-import {
-  SET_CURRENT_USER_USING_GOOGLE_FAILURE,
-  SET_CURRENT_USER_USING_GOOGLE_SUCCESS,
-  SET_CURRENT_USER_USING_GOOGLE_START,
-  SET_CURRENT_USER_USING_LOCAL_START,
-  SET_CURRENT_USER_USING_LOCAL_SUCCESS,
-  SET_CURRENT_USER_USING_LOCAL_FAILURE,
-  CREATE_USER_START,
-  CREATE_USER_SUCCESS,
-  CREATE_USER_FAILURE
-} from "./user.actions";
+import userActionTypes from "./user.types";
 
 const INITIAL_STATE = {
   currentUser: null,
@@ -20,34 +10,34 @@ const INITIAL_STATE = {
 
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case SET_CURRENT_USER_USING_GOOGLE_START:
-    case SET_CURRENT_USER_USING_LOCAL_START:
-    case CREATE_USER_START:
+    case userActionTypes.SET_CURRENT_USER_USING_GOOGLE_START:
+    case userActionTypes.SET_CURRENT_USER_USING_LOCAL_START:
+    case userActionTypes.CREATE_USER_START:
       return {
         ...state
       };
-    case SET_CURRENT_USER_USING_GOOGLE_SUCCESS:
-    case SET_CURRENT_USER_USING_LOCAL_SUCCESS:
+    case userActionTypes.SET_CURRENT_USER_USING_GOOGLE_SUCCESS:
+    case userActionTypes.SET_CURRENT_USER_USING_LOCAL_SUCCESS:
       return {
         ...state,
         currentUser: action.payload,
         signInError: null
       };
-    case SET_CURRENT_USER_USING_GOOGLE_FAILURE:
-    case SET_CURRENT_USER_USING_LOCAL_FAILURE:
+    case userActionTypes.SET_CURRENT_USER_USING_GOOGLE_FAILURE:
+    case userActionTypes.SET_CURRENT_USER_USING_LOCAL_FAILURE:
       return {
         ...state,
         signInError: action.payload
       };
 
-    case CREATE_USER_SUCCESS:
+    case userActionTypes.CREATE_USER_SUCCESS:
       return {
         ...state,
         successCreationMessage: action.payload,
         signUpError: null
       };
 
-    case CREATE_USER_FAILURE:
+    case userActionTypes.CREATE_USER_FAILURE:
       return {
         ...state,
         successCreationMessage: null,

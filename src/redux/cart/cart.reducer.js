@@ -1,10 +1,5 @@
 // Action Types Import
-import {
-  TOGGLE_SHOW_CART,
-  ADD_TO_CART,
-  DECREASE_CART_ITEM_COUNT,
-  DELETE_ITEM_FROM_CART
-} from "./cart.actions";
+import cartActionTypes from "./cart.types";
 
 const INITIAL_STATE = {
   show: false,
@@ -13,25 +8,25 @@ const INITIAL_STATE = {
 
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case TOGGLE_SHOW_CART:
+    case cartActionTypes.TOGGLE_SHOW_CART:
       return {
         ...state,
         show: !state.show
       };
 
-    case ADD_TO_CART:
+    case cartActionTypes.ADD_TO_CART:
       return {
         ...state,
         cartItems: cartAddHelper(state.cartItems, action.payload)
       };
 
-    case DECREASE_CART_ITEM_COUNT:
+    case cartActionTypes.DECREASE_CART_ITEM_COUNT:
       return {
         ...state,
         cartItems: cartDecreaseCountHelper(state.cartItems, action.payload)
       };
 
-    case DELETE_ITEM_FROM_CART:
+    case cartActionTypes.DELETE_ITEM_FROM_CART:
       return {
         ...state,
         cartItems: cartItemDeleteHelper(state.cartItems, action.payload)

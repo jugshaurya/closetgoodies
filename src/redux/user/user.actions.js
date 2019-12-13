@@ -5,39 +5,21 @@ import {
   auth
 } from "../../firebase/helpers.firebase";
 
-// Action-Types
-// ============
-export const SET_CURRENT_USER_USING_GOOGLE_START =
-  "SET_CURRENT_USER_USING_GOOGLE_START";
-export const SET_CURRENT_USER_USING_GOOGLE_SUCCESS =
-  "SET_CURRENT_USER_USING_GOOGLE_SUCCESS";
-export const SET_CURRENT_USER_USING_GOOGLE_FAILURE =
-  "SET_CURRENT_USER_USING_GOOGLE_FAILURE";
-export const SET_CURRENT_USER_USING_LOCAL_START =
-  "SET_CURRENT_USER_USING_LOCAL_START";
-export const SET_CURRENT_USER_USING_LOCAL_SUCCESS =
-  "SET_CURRENT_USER_USING_LOCAL_SUCCESS";
-export const SET_CURRENT_USER_USING_LOCAL_FAILURE =
-  "SET_CURRENT_USER_USING_LOCAL_FAILURE";
-
-export const CREATE_USER_START = "CREATE_USER_START";
-export const CREATE_USER_SUCCESS = "CREATE_USER_SUCCESS";
-export const CREATE_USER_FAILURE = "CREATE_USER_FAILURE";
-
+import userActionTypes from "./user.types";
 //  Async Action Creators
 // ================
 
 const googleSignInStart = () => ({
-  type: SET_CURRENT_USER_USING_GOOGLE_START
+  type: userActionTypes.SET_CURRENT_USER_USING_GOOGLE_START
 });
 
 const googleSignInSuccess = user => ({
-  type: SET_CURRENT_USER_USING_GOOGLE_SUCCESS,
+  type: userActionTypes.SET_CURRENT_USER_USING_GOOGLE_SUCCESS,
   payload: user
 });
 
 const googleSignInFailure = error => ({
-  type: SET_CURRENT_USER_USING_GOOGLE_FAILURE,
+  type: userActionTypes.SET_CURRENT_USER_USING_GOOGLE_FAILURE,
   payload: error
 });
 
@@ -61,16 +43,16 @@ export const googleSignInAsync = () => async dispatch => {
 };
 
 const localSignInStart = () => ({
-  type: SET_CURRENT_USER_USING_LOCAL_START
+  type: userActionTypes.SET_CURRENT_USER_USING_LOCAL_START
 });
 
 const localSignInSuccess = user => ({
-  type: SET_CURRENT_USER_USING_LOCAL_SUCCESS,
+  type: userActionTypes.SET_CURRENT_USER_USING_LOCAL_SUCCESS,
   payload: user
 });
 
 const localSignInFailure = error => ({
-  type: SET_CURRENT_USER_USING_LOCAL_FAILURE,
+  type: userActionTypes.SET_CURRENT_USER_USING_LOCAL_FAILURE,
   payload: error
 });
 
@@ -94,16 +76,16 @@ export const localSignInAsync = (email, password) => async dispatch => {
 };
 
 const createUserStart = () => ({
-  type: CREATE_USER_START
+  type: userActionTypes.CREATE_USER_START
 });
 
 const createUserSuccess = () => ({
-  type: CREATE_USER_SUCCESS,
+  type: userActionTypes.CREATE_USER_SUCCESS,
   payload: "New User Created!"
 });
 
 const createUserFailure = error => ({
-  type: CREATE_USER_FAILURE,
+  type: userActionTypes.CREATE_USER_FAILURE,
   payload: error
 });
 

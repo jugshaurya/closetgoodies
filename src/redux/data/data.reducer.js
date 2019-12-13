@@ -1,4 +1,4 @@
-import actionTypes from "./data.types";
+import dataActionTypes from "./data.types";
 
 const INITIAL_STATE = {
   products: null,
@@ -42,12 +42,12 @@ const INITIAL_STATE = {
 
 const dataReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case actionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_START:
+    case dataActionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_START:
       return {
         ...state,
         isFetching: true
       };
-    case actionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_SUCCESS:
+    case dataActionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_SUCCESS:
       return {
         ...state,
         products: action.payload,
@@ -55,7 +55,7 @@ const dataReducer = (state = INITIAL_STATE, action) => {
         isFetching: false
       };
 
-    case actionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_FAILURE:
+    case dataActionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_FAILURE:
       return {
         ...state,
         error: action.payload,
