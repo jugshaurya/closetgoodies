@@ -57,6 +57,7 @@ export const addToFirestore = async (user, additionalData) => {
 
 // Helper function to add bunch of data in firestore
 // =================================================
+
 // @collectionName - table to which data is required to insert
 // @collectionData - data to add , type : array of objects
 

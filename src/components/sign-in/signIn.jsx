@@ -1,22 +1,23 @@
 import React, { Component } from "react";
-// Firebase Import
-import { auth, SignInWithGoogle } from "../../firebase/helpers.firebase";
+import { connect } from "react-redux";
+
 // other component Imports
 import FormInput from "../form-input/formInput";
 import FormButton from "../form-button/formButton";
+
+// action creator Import
+import {
+  googleSignInAsync,
+  localSignInAsync
+} from "../../redux/user/user.actions";
+
 // Style Import
 import "./signIn.styles.css";
 
 class SignIn extends Component {
   state = {
     email: "",
-    password: "",
-    error: null
-  };
-
-  handleGoogleSignIn = async e => {
-    e.preventDefault();
-    await SignInWithGoogle();
+    password: ""
   };
 
   handleChange = e => {
@@ -24,24 +25,9 @@ class SignIn extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSignIn = async e => {
-    e.preventDefault();
-    const { email, password } = this.state;
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-      this.setState({
-        email: "",
-        password: "",
-        error: null
-      });
-    } catch (error) {
-      console.log("error Signing in the user", error);
-      this.setState({ error });
-    }
-  };
-
   render() {
     const { email, password } = this.state;
+    const { googleSignInAsync, localSignInAsync, error } = this.props;
     return (
       <>
         <div className="sign-in">
@@ -65,20 +51,23 @@ class SignIn extends Component {
             />
 
             <span>
-              {this.state.error && (
+              {error && (
                 <div className="alert alert-danger" role="alert">
-                  <strong>{this.state.error.message}</strong>
+                  <strong>{error.message}</strong>
                 </div>
               )}
             </span>
 
             <div className="buttons">
-              <FormButton type={"submit"} onClick={this.handleSignIn}>
+              <FormButton
+                type={"button"}
+                onClick={() => localSignInAsync(email, password)}
+              >
                 Sign In
               </FormButton>
               <FormButton
                 type={"button"}
-                onClick={this.handleGoogleSignIn}
+                onClick={googleSignInAsync}
                 googleButton
               >
                 Google Sign In
@@ -91,4 +80,14 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+const mapStateToProps = state => ({
+  error: state.user.error
+});
+
+const mapDispatchToProps = dispatch => ({
+  googleSignInAsync: () => dispatch(googleSignInAsync()),
+  localSignInAsync: (email, password) =>
+    dispatch(localSignInAsync(email, password))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

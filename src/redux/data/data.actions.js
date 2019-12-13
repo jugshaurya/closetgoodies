@@ -2,6 +2,7 @@ import { firestore } from "../../firebase/helpers.firebase";
 import actionTypes from "./data.types";
 
 // Async Action Creators
+// ======================
 const fetchProductFromStoreStart = products => ({
   type: actionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_START
 });
@@ -41,3 +42,4 @@ export const fetchProductFromStoreAsync = () => {
       });
   };
 };
+// ==========================================================
