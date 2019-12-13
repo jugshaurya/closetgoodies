@@ -9,7 +9,7 @@ import ShopPageSpecificCollection from "./shoppage-specific-collection/shopPageS
 // action Creators
 import { fetchProductFromStoreAsync } from "../../../redux/data/data.actions";
 
-// HOC Import
+// HOC Spinner Import
 import withLoadingSpinner from "../../HOC/with-loading-spinner/withLoadingSpinner.component";
 
 const ShopPageAllCollectionsWithLoadingSpinner = withLoadingSpinner(
@@ -56,4 +56,5 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
   isFetching: state.data.isFetching
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);

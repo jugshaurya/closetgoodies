@@ -6,6 +6,7 @@ import { addToCart } from "../../../../redux/cart/cart.actions";
 import FormButton from "../../../form-button/formButton";
 // Style Import
 import "./shopItem.styles.css";
+
 const ShopItem = props => {
   const { imageUrl, name, price } = props.item;
   return (

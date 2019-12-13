@@ -2,7 +2,6 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 // other Component Import
 import ShopItem from "../shop-item/shopItem";
-
 // Style Import
 import "./shopTypeCollection.styles.css";
 
