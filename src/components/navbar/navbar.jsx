@@ -2,15 +2,15 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-// Firebase Import
-import { auth } from "../../firebase/helpers.firebase";
+// action creator import
+import { signoutUserAsync } from "../../redux/user/user.actions";
 // other Component Import
 import Cart from "../cart/cart";
 // Style Import
 import "./navbar.styles.css";
 
 const Navbar = props => {
-  const { currentUser } = props;
+  const { currentUser, signoutUserAsync } = props;
   return (
     <>
       <nav className="navbar navbar-expand navbar-light bg-light">
@@ -33,10 +33,7 @@ const Navbar = props => {
 
             <li className="nav-item">
               {currentUser ? (
-                <div
-                  className="nav-item sign-out"
-                  onClick={() => auth.signOut()}
-                >
+                <div className="nav-item sign-out" onClick={signoutUserAsync}>
                   {currentUser.displayName} Sign Out
                 </div>
               ) : (
@@ -60,4 +57,8 @@ const mapStatetoProps = state => ({
   currentUser: state.user.currentUser
 });
 
-export default connect(mapStatetoProps)(Navbar);
+const mapDispatchToProps = dispatch => ({
+  signoutUserAsync: () => dispatch(signoutUserAsync())
+});
+
+export default connect(mapStatetoProps, mapDispatchToProps)(Navbar);

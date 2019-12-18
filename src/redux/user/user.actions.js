@@ -6,9 +6,10 @@ import {
 } from "../../firebase/helpers.firebase";
 
 import userActionTypes from "./user.types";
+
 //  Async Action Creators
 // ================
-
+// Google Signin
 const googleSignInStart = () => ({
   type: userActionTypes.SET_CURRENT_USER_USING_GOOGLE_START
 });
@@ -41,7 +42,7 @@ export const googleSignInAsync = () => async dispatch => {
     dispatch(googleSignInFailure(error.message));
   }
 };
-
+// Local Signin
 const localSignInStart = () => ({
   type: userActionTypes.SET_CURRENT_USER_USING_LOCAL_START
 });
@@ -75,6 +76,7 @@ export const localSignInAsync = (email, password) => async dispatch => {
   }
 };
 
+// sign up
 const createUserStart = () => ({
   type: userActionTypes.CREATE_USER_START
 });
@@ -123,8 +125,6 @@ const checkUserFailure = error => ({
 
 export const checkUserAsync = () => dispatch => {
   dispatch(checkUserStart());
-
-  console.log(auth.currentUser);
   // add an auth state change observer.
   // https://firebase.google.com/docs/auth/web/manage-users
   const authSubscription = auth.onAuthStateChanged(
@@ -146,4 +146,29 @@ export const checkUserAsync = () => dispatch => {
       dispatch(checkUserFailure(error.message));
     }
   );
+};
+
+// signout
+const signoutUserStart = () => ({
+  type: userActionTypes.SIGNOUT_USER_START
+});
+
+const signoutUserSuccess = () => ({
+  type: userActionTypes.SIGNOUT_USER_SUCCESS
+});
+
+const signoutUserFailure = () => ({
+  type: userActionTypes.SIGNOUT_USER_FAILURE
+});
+
+export const signoutUserAsync = () => async dispatch => {
+  dispatch(signoutUserStart());
+  try {
+    await auth.signOut();
+    dispatch(signoutUserSuccess());
+    alert("Signout Success");
+  } catch (error) {
+    dispatch(signoutUserFailure(error.message));
+    alert("Signout Failure");
+  }
 };
