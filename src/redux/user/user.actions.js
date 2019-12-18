@@ -6,6 +6,7 @@ import {
 } from "../../firebase/helpers.firebase";
 
 import userActionTypes from "./user.types";
+import { clearCart } from "../cart/cart.actions";
 
 //  Async Action Creators
 // ================
@@ -108,6 +109,46 @@ export const createUserAsync = (
   }
 };
 
+// check-user
+const checkUserStart = () => ({
+  type: userActionTypes.CHECK_USER_START
+});
+
+const checkUserSuccess = user => ({
+  type: userActionTypes.CHECK_USER_SUCCESS,
+  payload: user
+});
+
+const checkUserFailure = error => ({
+  type: userActionTypes.CHECK_USER_FAILURE,
+  payload: error
+});
+
+export const checkUserAsync = () => dispatch => {
+  dispatch(checkUserStart());
+  // add an auth state change observer.
+  // https://firebase.google.com/docs/auth/web/manage-users
+  const authSubscription = auth.onAuthStateChanged(
+    user => {
+      if (user) {
+        dispatch(
+          checkUserSuccess({
+            id: user.uid,
+            displayName: user.displayName,
+            email: user.email
+          })
+        );
+      } else {
+        dispatch(checkUserSuccess(null));
+      }
+      authSubscription();
+    },
+    error => {
+      dispatch(checkUserFailure(error.message));
+    }
+  );
+};
+
 // signout
 const signoutUserStart = () => ({
   type: userActionTypes.SIGNOUT_USER_START
@@ -126,9 +167,8 @@ export const signoutUserAsync = () => async dispatch => {
   try {
     await auth.signOut();
     dispatch(signoutUserSuccess());
-    alert("Signout Success");
+    dispatch(clearCart());
   } catch (error) {
     dispatch(signoutUserFailure(error.message));
-    alert("Signout Failure");
   }
 };

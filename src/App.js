@@ -9,7 +9,14 @@ import ShopPage from "./components/pages/shoppage/shopPage";
 import SignInSignUpPage from "./components/pages/sign-in-sign-up-page/signInSignUpPage";
 import CheckoutPage from "./components/pages/checkout-page/checkoutPage";
 
+// action Creator Import
+import { checkUserAsync } from "./redux/user/user.actions";
 class App extends React.Component {
+  componentDidMount() {
+    this.props.checkUserAsync();
+    // just testing something
+  }
+
   render() {
     const { currentUser } = this.props;
     return (
@@ -32,4 +39,8 @@ const mapStateToProps = state => ({
   currentUser: state.user.currentUser
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  checkUserAsync: () => dispatch(checkUserAsync())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

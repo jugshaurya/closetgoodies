@@ -305,7 +305,7 @@ const SHOP_DATA = {
         id: 34,
         name: "Jean Long Sleeve",
         imageUrl: "https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png",
-        price: 40
+        price: 40 
       },
       {
         id: 35,
