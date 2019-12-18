@@ -6,9 +6,10 @@ import {
 } from "../../firebase/helpers.firebase";
 
 import userActionTypes from "./user.types";
+
 //  Async Action Creators
 // ================
-
+// Google Signin
 const googleSignInStart = () => ({
   type: userActionTypes.SET_CURRENT_USER_USING_GOOGLE_START
 });
@@ -41,7 +42,7 @@ export const googleSignInAsync = () => async dispatch => {
     dispatch(googleSignInFailure(error.message));
   }
 };
-
+// Local Signin
 const localSignInStart = () => ({
   type: userActionTypes.SET_CURRENT_USER_USING_LOCAL_START
 });
@@ -75,6 +76,7 @@ export const localSignInAsync = (email, password) => async dispatch => {
   }
 };
 
+// sign up
 const createUserStart = () => ({
   type: userActionTypes.CREATE_USER_START
 });
@@ -103,5 +105,30 @@ export const createUserAsync = (
     dispatch(createUserSuccess());
   } catch (error) {
     dispatch(createUserFailure(error.message));
+  }
+};
+
+// signout
+const signoutUserStart = () => ({
+  type: userActionTypes.SIGNOUT_USER_START
+});
+
+const signoutUserSuccess = () => ({
+  type: userActionTypes.SIGNOUT_USER_SUCCESS
+});
+
+const signoutUserFailure = () => ({
+  type: userActionTypes.SIGNOUT_USER_FAILURE
+});
+
+export const signoutUserAsync = () => async dispatch => {
+  dispatch(signoutUserStart());
+  try {
+    await auth.signOut();
+    dispatch(signoutUserSuccess());
+    alert("Signout Success");
+  } catch (error) {
+    dispatch(signoutUserFailure(error.message));
+    alert("Signout Failure");
   }
 };
