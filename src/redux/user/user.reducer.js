@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   currentUser: null,
   signInError: null,
   signUpError: null,
+  checkError: null,
   successCreationMessage: null
 };
 
@@ -42,6 +43,21 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         successCreationMessage: null,
         signUpError: action.payload
+      };
+
+    case userActionTypes.CHECK_USER_START:
+      return {
+        ...state
+      };
+    case userActionTypes.CHECK_USER_SUCCESS:
+      return {
+        ...state,
+        currentUser: action.payload
+      };
+    case userActionTypes.CHECK_USER_FAILURE:
+      return {
+        ...state,
+        checkError: action.payload
       };
     default:
       return state;

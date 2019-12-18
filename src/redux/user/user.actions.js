@@ -105,3 +105,45 @@ export const createUserAsync = (
     dispatch(createUserFailure(error.message));
   }
 };
+
+// check-user
+const checkUserStart = () => ({
+  type: userActionTypes.CHECK_USER_START
+});
+
+const checkUserSuccess = user => ({
+  type: userActionTypes.CHECK_USER_SUCCESS,
+  payload: user
+});
+
+const checkUserFailure = error => ({
+  type: userActionTypes.CHECK_USER_FAILURE,
+  payload: error
+});
+
+export const checkUserAsync = () => dispatch => {
+  dispatch(checkUserStart());
+
+  console.log(auth.currentUser);
+  // add an auth state change observer.
+  // https://firebase.google.com/docs/auth/web/manage-users
+  const authSubscription = auth.onAuthStateChanged(
+    user => {
+      if (user) {
+        dispatch(
+          checkUserSuccess({
+            id: user.uid,
+            displayName: user.displayName,
+            email: user.email
+          })
+        );
+      } else {
+        dispatch(checkUserSuccess(null));
+      }
+      authSubscription();
+    },
+    error => {
+      dispatch(checkUserFailure(error.message));
+    }
+  );
+};
