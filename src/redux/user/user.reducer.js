@@ -13,6 +13,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
     case userActionTypes.SET_CURRENT_USER_USING_GOOGLE_START:
     case userActionTypes.SET_CURRENT_USER_USING_LOCAL_START:
     case userActionTypes.CREATE_USER_START:
+    case userActionTypes.SIGNOUT_USER_START:
       return {
         ...state
       };
@@ -43,6 +44,18 @@ const userReducer = (state = INITIAL_STATE, action) => {
         successCreationMessage: null,
         signUpError: action.payload
       };
+
+    case userActionTypes.SIGNOUT_USER_SUCCESS:
+      return {
+        ...state,
+        currentUser: null
+      };
+
+    case userActionTypes.SIGNOUT_USER_FAILURE:
+      return {
+        ...state
+      };
+
     default:
       return state;
   }
