@@ -11,6 +11,7 @@ import "./navbar.styles.css";
 
 const Navbar = props => {
   const { currentUser, signoutUserAsync } = props;
+
   return (
     <>
       <nav className="navbar navbar-expand navbar-light bg-light">

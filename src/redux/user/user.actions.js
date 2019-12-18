@@ -6,6 +6,7 @@ import {
 } from "../../firebase/helpers.firebase";
 
 import userActionTypes from "./user.types";
+import { clearCart } from "../cart/cart.actions";
 
 //  Async Action Creators
 // ================
@@ -166,9 +167,8 @@ export const signoutUserAsync = () => async dispatch => {
   try {
     await auth.signOut();
     dispatch(signoutUserSuccess());
-    alert("Signout Success");
+    dispatch(clearCart());
   } catch (error) {
     dispatch(signoutUserFailure(error.message));
-    alert("Signout Failure");
   }
 };
