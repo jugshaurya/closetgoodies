@@ -87,22 +87,22 @@ firebase-firestore - Cloud Firestore (optional). `firebase/firestore`
 
       - used inside `addShopDataToFirestore()`
 
-  Note:- Observable and observer Pattern
+Note:- Observable and observer Pattern
 
-  - We have Observable, which is an object we’d like to observe (it may be also called Subject in the Observer pattern) and we can subscribe for observing changes in those object. Every object interested in those changes will be called Observer. We can have one Subject and many Observers, and these single Observers may know nothing about each other. We can also stop observing changes at any time.
+- We have Observable, which is an object we’d like to observe (it may be also called Subject in the Observer pattern) and we can subscribe for observing changes in those object. Every object interested in those changes will be called Observer. We can have one Subject and many Observers, and these single Observers may know nothing about each other. We can also stop observing changes at any time.
 
-  - firebase onAuthChange(), onSnapshot() were the functions based on this pattern or to which we subscribed to, for ex- onAuthChange method is the mechansim to observe the auth changes whenever user sign in or sign out. and the onAuthChange(user => userWorkHere..., error=> errorHandlerHere) was the observer. if any auth changes happens observers are notified with value/error.and we can end the subscription when we dont want to listen to auth changed, which we have done in ComponentWillUnmount().
+- firebase onAuthChange(), onSnapshot() were the functions based on this pattern or to which we subscribed to, for ex- onAuthChange method is the mechansim to observe the auth changes whenever user sign in or sign out. and the onAuthChange(user => userWorkHere..., error=> errorHandlerHere) was the observer. if any auth changes happens observers are notified with value/error.and we can end the subscription when we dont want to listen to auth changed, which we have done in ComponentWillUnmount().
 
-  - observable is the chain of events that happens one after the other and we subscribe to this chain so to get notified about the changes/error/completeness and when anyof this happens observer reacts toward it.
-    observer = {
-    next(nextValue) // when any event in chain return some value this function runs ex- user => userWorkHere...,
-    error(errorValue),
-    complete() // when chain is complete and no further actions are there
-    }
+- observable is the chain of events that happens one after the other and we subscribe to this chain so to get notified about the changes/error/completeness and when anyof this happens observer reacts toward it.
+  observer = {
+  next(nextValue) // when any event in chain return some value this function runs ex- user => userWorkHere...,
+  error(errorValue),
+  complete() // when chain is complete and no further actions are there
+  }
 
-  5. Grabbing firestore Data into our app
+5. Grabbing firestore Data into our app
 
-  - using `snapshot()` and unsubscribefromServices() like we did while authorizing the user.
+- using `snapshot()` and unsubscribefromServices() like we did while authorizing the user.
 
 ---
 
@@ -204,20 +204,35 @@ sudo snap install --classic heroku
   - Error Boundaries
   -
 
-- Hooks (React 16.8+) = They let you use state and other React features without writing a class = use when u want to have functional Components but yet need to use state or any lifecycle Methods.
+### [Hooks (React 16.8+)](https://reactjs.org/docs/hooks-intro.html)
 
-  - useState
-    = Let us use state in functional Components
-  - useEffect
-    = The Effect Hook lets you perform side effects in function components
-    = Data fetching, setting up a subscription, and manually changing the DOM in React components are all examples of side effect(interation with outside world).
-    = Think useEffect Hook as componentDidMount, componentDidUpdate, and componentWillUnmount combined.
-  - useRef
-  - useCallback
-  - useReducer
-  - useMemo
-  - useDefaultValue
-  -
+> They let you use state and other React features without writing a class
+
+> use when u want to have functional Components but yet need to use state or any lifecycle Methods.
+
+- useState
+  - Let us use state in functional Components
+- [useEffect](https://reactjs.org/docs/hooks-effect.html)
+
+  - The Effect Hook lets you perform side effects in function components
+  - Data fetching, setting up a subscription, and manually changing the DOM in React components are all examples of side effect(interation with outside world).
+  - Think useEffect Hook as componentDidMount, componentDidUpdate, and componentWillUnmount combined.
+  - used in 2 ways:
+
+    1. useEffect(()=> {})
+
+    - this is called for any change in component, whether it is mounting, rendering or update.
+
+      2.useEffect(()=>{}, [0 or more arguments])
+
+    - always called on mounting, but only called on rendering if any of argument value is changed inside useEffect
+
+* useRef
+* useCallback
+* useReducer
+* useMemo
+* useDefaultValue
+*
 
 - Containers and Presentational Components
   - Containers = components, that have state and uses some lifecycle methods

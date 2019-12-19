@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -11,7 +11,6 @@ import { fetchProductFromStoreAsync } from "../../../redux/data/data.actions";
 
 // HOC Spinner Import
 import withLoadingSpinner from "../../HOC/with-loading-spinner/withLoadingSpinner.component";
-
 const ShopPageAllCollectionsWithLoadingSpinner = withLoadingSpinner(
   ShopPageAllCollections
 );
@@ -19,35 +18,32 @@ const ShopPageSpecificCollectionWithLoadingSpinner = withLoadingSpinner(
   ShopPageSpecificCollection
 );
 
-class ShopPage extends React.Component {
-  componentDidMount() {
-    this.props.fetchProductFromStoreAsync();
-  }
+const ShopPage = ({ match, isFetching, fetchProductFromStoreAsync }) => {
+  useEffect(() => {
+    fetchProductFromStoreAsync();
+  }, [fetchProductFromStoreAsync]);
 
-  render() {
-    const { match, isFetching } = this.props;
-    return (
-      <Switch>
-        <Route
-          exact
-          path={`${match.path}`}
-          render={() => (
-            <ShopPageAllCollectionsWithLoadingSpinner isLoading={isFetching} />
-          )}
-        />
-        <Route
-          path={`${match.path}/:collectionName`}
-          render={props => (
-            <ShopPageSpecificCollectionWithLoadingSpinner
-              isLoading={isFetching}
-              {...props}
-            />
-          )}
-        />
-      </Switch>
-    );
-  }
-}
+  return (
+    <Switch>
+      <Route
+        exact
+        path={`${match.path}`}
+        render={() => (
+          <ShopPageAllCollectionsWithLoadingSpinner isLoading={isFetching} />
+        )}
+      />
+      <Route
+        path={`${match.path}/:collectionName`}
+        render={props => (
+          <ShopPageSpecificCollectionWithLoadingSpinner
+            isLoading={isFetching}
+            {...props}
+          />
+        )}
+      />
+    </Switch>
+  );
+};
 
 const mapDispatchToProps = dispatch => ({
   fetchProductFromStoreAsync: () => dispatch(fetchProductFromStoreAsync())
