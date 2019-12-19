@@ -8,15 +8,19 @@ An E-Commerce Website build in REACT(https://cloth-zone.herokuapp.com)
 
 ## Important
 
-react (build a modern single-page React app)
-react-bootstrap
-react-router-dom
-firebase
+```sh
+Libraries Used:
+  react (build a modern single-page React app)
+  react-bootstrap
+  react-router-dom
+  firebase
 
-react-redux - <Provider/>, connect()
-redux - createStore(), applyMiddleware(), combineReducers()
-redux-logger - logger
-react-stripe-checkout - <stripeCheckout />
+  react-redux - <Provider/>, connect()
+  redux - createStore(), applyMiddleware(), combineReducers()
+  redux-logger - logger
+  react-stripe-checkout - <stripeCheckout />
+  redux-thunk
+```
 
 ## React State
 
@@ -28,80 +32,77 @@ react-stripe-checkout - <stripeCheckout />
 - Data Flows Down
   - If you imagine a component tree as a waterfall of props, each component’s state is like an additional water source that joins it at an arbitrary point but also flows down.
 
-## Some more:
-
-- A good rule of thumb is that elements inside the map() call need keys.
-
 ## React Challenges:
 
 - Decide on Components
 - Decide the state and where it lives
 - What changes when state changes
 
-## Firebase
+## Firebase (https://www.npmjs.com/package/firebase)
 
-https://www.npmjs.com/package/firebase
+- Adding server-side (Backend) code without writing server-side code.
 
-Adding server-side (Backend) code without writing server-side code.
+- Include only the features you need
+  The full Firebase JavaScript client includes support for Firebase Authentication, the Firebase Realtime Database, Firebase Storage, and Firebase Cloud Messaging. Including code via the above snippets will pull in all of these features.
 
-Include only the features you need
-The full Firebase JavaScript client includes support for Firebase Authentication, the Firebase Realtime Database, Firebase Storage, and Firebase Cloud Messaging. Including code via the above snippets will pull in all of these features.
-
+```
 firebase-app - The core firebase client (required). `firebase/app`
 firebase-auth - Firebase Authentication (optional). `firebase/auth`
 firebase-firestore - Cloud Firestore (optional). `firebase/firestore`
+```
 
-Firebase gives us :-
+- Firebase gives us :-
 
-1. Auth
+  1. Auth
 
-- We will be doing OAuth and email-password Login using Firebase
-  Steps:
+  - We will be doing OAuth and email-password Login using Firebase
+    Steps:
 
-  1.a GoogleOAuth
+    1.a GoogleOAuth
 
-  - yarn add firebase
-  - Go to project overview and create a web app and copy the configuration
-  - Handle the google sign-in flow with firebase SDK https://firebase.google.com/docs/auth/web/google-signin
-  - Show Sign in Popup
-  - use onAuthStateChange method to signin/signout and add UI accordingly
-  - use auth.signOut() to logout
-  - also add the user to firestore so that we can say user loggedin to our website
+    - yarn add firebase
+    - Go to project overview and create a web app and copy the configuration
+    - Handle the google sign-in flow with firebase SDK https://firebase.google.com/docs/auth/web/google-signin
+    - Show Sign in Popup
+    - use onAuthStateChange method to signin/signout and add UI accordingly
+    - use auth.signOut() to logout
+    - also add the user to firestore so that we can say user loggedin to our website
 
-    1.b Email-Password
+      1.b Email-Password
 
-  - Firestore(Cloud Firestore is a flexible, scalable database for mobile, web, and server development from Firebase and Google Cloud Platform. Like Firebase Realtime Database, it keeps your data in sync across client apps through realtime listeners and offers offline support for mobile and web so you can build responsive apps that work regardless of network latency or Internet connectivity.
-  - Firestore is a cloud-hosted, NoSQL database that your iOS, Android, and web apps can access directly via native SDKs. )
-  - Require Firestore(Database) to store our users email-Pass Data
-  - firestore returns two type of objects: Reference and Snapshot
-  - can read the data using .get() or .onSnapShot() methods over reference which returns a snapshot
+    - Firestore(Cloud Firestore is a flexible, scalable database for mobile, web, and server development from Firebase and Google Cloud Platform. Like Firebase Realtime Database, it keeps your data in sync across client apps through realtime listeners and offers offline support for mobile and web so you can build responsive apps that work regardless of network latency or Internet connectivity.
+    - Firestore is a cloud-hosted, NoSQL database that your iOS, Android, and web apps can access directly via native SDKs. )
+    - Require Firestore(Database) to store our users email-Pass Data
+    - firestore returns two type of objects: Reference and Snapshot
+    - can read the data using .get() or .onSnapShot() methods over reference which returns a snapshot
 
-2. Storage for information storing like image,videos or assets like shop data
-3. Hosting handle website deployment
-4. adding some demodata to firebase firestore:
+  2. Storage for information storing like image,videos or assets like shop data
+  3. Hosting handle website deployment
+  4. adding some demodata to firebase firestore:
 
-   4.a. use batch() to add multiple data at a time to firestore, so that we dont save partial data to firebase if some network error occurs and we end up some data in firestore and some don't.
 
-   4.b Creates a write batch, used for performing multiple writes as a single atomic operation. The maximum number of writes allowed in a single WriteBatch is 500
+      4.a. use batch() to add multiple data at a time to firestore, so that we dont save partial data to firebase if some network error occurs and we end up some data in firestore and some don't.
 
-   - used inside `addShopDataToFirestore()`
+      4.b Creates a write batch, used for performing multiple writes as a single atomic operation. The maximum number of writes allowed in a single WriteBatch is 500
 
-Note:- Observable and observer Pattern
+      - used inside `addShopDataToFirestore()`
 
-- We have Observable, which is an object we’d like to observe (it may be also called Subject in the Observer pattern) and we can subscribe for observing changes in those object. Every object interested in those changes will be called Observer. We can have one Subject and many Observers, and these single Observers may know nothing about each other. We can also stop observing changes at any time.
+  Note:- Observable and observer Pattern
 
-- firebase onAuthChange(), onSnapshot() were the functions based on this pattern or to which we subscribed to, for ex- onAuthChange method is the mechansim to observe the auth changes whenever user sign in or sign out. and the onAuthChange(user => userWorkHere..., error=> errorHandlerHere) was the observer. if any auth changes happens observers are notified with value/error.and we can end the subscription when we dont want to listen to auth changed, which we have done in ComponentWillUnmount().
+  - We have Observable, which is an object we’d like to observe (it may be also called Subject in the Observer pattern) and we can subscribe for observing changes in those object. Every object interested in those changes will be called Observer. We can have one Subject and many Observers, and these single Observers may know nothing about each other. We can also stop observing changes at any time.
 
-- observable is the chain of events that happens one after the other and we subscribe to this chain so to get notified about the changes/error/completeness and when anyof this happens observer reacts toward it.
-  observer = {
-  next(nextValue) // when any event in chain return some value this function runs ex- user => userWorkHere...,
-  error(errorValue),
-  complete() // when chain is complete and no further actions are there
-  }
+  - firebase onAuthChange(), onSnapshot() were the functions based on this pattern or to which we subscribed to, for ex- onAuthChange method is the mechansim to observe the auth changes whenever user sign in or sign out. and the onAuthChange(user => userWorkHere..., error=> errorHandlerHere) was the observer. if any auth changes happens observers are notified with value/error.and we can end the subscription when we dont want to listen to auth changed, which we have done in ComponentWillUnmount().
 
-5. Grabbing firestore Data into our app
+  - observable is the chain of events that happens one after the other and we subscribe to this chain so to get notified about the changes/error/completeness and when anyof this happens observer reacts toward it.
+    observer = {
+    next(nextValue) // when any event in chain return some value this function runs ex- user => userWorkHere...,
+    error(errorValue),
+    complete() // when chain is complete and no further actions are there
+    }
 
-- using `snapshot()` and unsubscribefromServices() like we did while authorizing the user.
+  5. Grabbing firestore Data into our app
+
+  - using `snapshot()` and unsubscribefromServices() like we did while authorizing the user.
 
 ---
 
@@ -154,15 +155,6 @@ Note:- Observable and observer Pattern
   - Async redux dispatching is dine using middleware redux thunk, which is i guess is a smart way to alter the actions which are of type functions to take a dispatch as an argument and dispatching START, SUCCESS, FAILURE actions depending upon the asynchronous activites and time of it.
     ![Redux-thunk](https://github.com/jugshaurya/cloth-zone/blob/master/public/redux-thunk.png)
 
-## others:
-
-- React Reselect
-  - can be added to optimize the react-app configuration.Will add later if i got my mind around it later on
-- other Libraries to do: react-persist to get localStorage and SessionStorage in React to save data temporarily in browser
-
-- styledComponents(Personally dont like them at first glance, will later look once more...)
-  - use to add css in JS using ` styled.tag`` `etc.
-
 ## Stripe Payments:
 
 - react-stripe-checkout
@@ -189,3 +181,44 @@ sudo snap install --classic heroku
   - git push heroku master
   - Adding https://cloth-zone.herokuapp.com/ to authorized domain in firebase
   - and makking logger middleware to work in development mode only.
+
+## others:
+
+- React Reselect
+  - can be added to optimize the react-app configuration.Will add later if i got my mind around it later on
+- other Libraries to do: react-persist to get localStorage and SessionStorage in React to save data temporarily in browser
+
+- styledComponents(Personally dont like them at first glance, will later look once more...)
+
+  - use to add css in JS using ` styled.tag`` `etc.
+
+- React-Saga
+
+  - other alternative to redux-thunk, do async activities to update the store
+  - uses generator functions i.e function\* a(){ yield something}
+
+- Context API
+- Optimaization
+
+  - React Lazy + Suspense
+  - Error Boundaries
+  -
+
+- Hooks (React 16.8+) = They let you use state and other React features without writing a class = use when u want to have functional Components but yet need to use state or any lifecycle Methods.
+
+  - useState
+    = Let us use state in functional Components
+  - useEffect
+    = The Effect Hook lets you perform side effects in function components
+    = Data fetching, setting up a subscription, and manually changing the DOM in React components are all examples of side effect(interation with outside world).
+    = Think useEffect Hook as componentDidMount, componentDidUpdate, and componentWillUnmount combined.
+  - useRef
+  - useCallback
+  - useReducer
+  - useMemo
+  - useDefaultValue
+  -
+
+- Containers and Presentational Components
+  - Containers = components, that have state and uses some lifecycle methods
+  - Presentational = components, that are dumb, rely on props to render the view only

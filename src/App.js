@@ -14,7 +14,6 @@ import { checkUserAsync } from "./redux/user/user.actions";
 class App extends React.Component {
   componentDidMount() {
     this.props.checkUserAsync();
-    // just testing something
   }
 
   render() {
