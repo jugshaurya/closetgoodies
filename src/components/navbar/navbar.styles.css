@@ -1,26 +1,125 @@
 .navbar {
-  /* border-bottom: 3px solid salmon; */
+  background: #1f2833;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+}
+.navbar-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* navbar-left */
+.navbar-left a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 2em;
+  color: #66fcf1;
+}
+
+/* Middle Part */
+.navbar-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+}
+
+/* Middle-top */
+.navbar-middle-top {
+  margin-bottom: 0.2em;
+  height: 2.2rem;
+  line-height: 2.2em;
+  padding: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.navbar-middle-top form {
+  width: 100%;
+  display: flex;
+}
+
+.navbar-middle-top input {
+  width: 100%;
+  border-left: none;
+  font-size: 1.2em;
+}
+
+.navbar-middle-top .input1,
+.navbar-middle-top .input2 {
+  width: 47.5%;
+  display: flex;
+}
+
+.navbar-middle-top span {
+  font-weight: 600;
+  border-right: none;
+  padding: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: #0b0c10;
+  background: linear-gradient(to right, #45a29e, #fff);
+}
+
+.navbar-middle-top button {
+  width: 5%;
+  background: #1f2833;
+  border: 0.1em solid #66fcf1;
+  color: #c5c6c7;
+  cursor: pointer;
+}
+
+.navbar-middle-top button svg {
+  width: auto;
+  height: 2.2em;
+  line-height: 2.2em;
+}
+
+/* middle-bottom */
+.navbar-middle-bottom {
+  display: flex;
+
+  justify-content: space-between;
+  margin-top: 0.5em;
+}
+
+.navbar-middle-bottom .left,
+.navbar-middle-bottom .right {
   display: flex;
   justify-content: space-between;
-  height: 10vh;
-  background: rgba(10, 10, 10, 0.1);
-  font-size: 1.5em;
 }
 
-.left {
-  padding: 1em;
+.navbar-middle-bottom .left .nav-link,
+.navbar-middle-bottom .right .nav-link {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #c5c6c7;
 }
 
-.right {
+/* navbar-right */
+.navbar-right {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
 }
 
-.right a:hover {
-  border-bottom: 3px solid salmon;
+.navbar-right .sign-up-btn {
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
+  background: #1f2833;
+  border: 0.1em solid #66fcf1;
+  color: #c5c6c7;
+  font-size: 1.1em;
   cursor: pointer;
 }
 
-.sign-out {
-  cursor: pointer;
+.navbar-right a {
+  margin-top: 0.5em;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #c5c6c7;
 }

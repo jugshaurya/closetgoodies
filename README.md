@@ -227,9 +227,14 @@ sudo snap install --classic heroku
 
     - always called on mounting, but only called on rendering if any of argument value is changed inside useEffect
 
+- [useReducer](https://reactjs.org/docs/hooks-reference.html#usereducer)
+
+  - An alternative to useState. Accepts a reducer of type (state, action) => newState, and returns the current state paired with a dispatch method. (If you’re familiar with Redux, you already know how this works.)
+
+  - useReducer is usually preferable to useState when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one.
+
 * useRef
 * useCallback
-* useReducer
 * useMemo
 * useDefaultValue
 *
@@ -237,3 +242,11 @@ sudo snap install --classic heroku
 - Containers and Presentational Components
   - Containers = components, that have state and uses some lifecycle methods
   - Presentational = components, that are dumb, rely on props to render the view only
+
+* ## Color Pallets
+  #0b0c10
+  #1f2833
+  #c5c6c7
+  #66fcf1 -react blue
+  #45a29e
+  https://visme.co/blog/website-color-schemes/

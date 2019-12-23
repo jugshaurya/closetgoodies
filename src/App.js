@@ -11,14 +11,18 @@ import CheckoutPage from "./components/pages/checkout-page/checkoutPage";
 
 // action Creator Import
 import { checkUserAsync } from "./redux/user/user.actions";
+
+// Css Import
+import "./App.css";
 const App = ({ checkUserAsync, currentUser }) => {
   useEffect(() => {
     checkUserAsync();
   }, [checkUserAsync]);
 
   return (
-    <div className="App">
+    <div className="container-fluid p-0">
       <Navbar />
+
       <Switch>
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route exact path="/signin">
