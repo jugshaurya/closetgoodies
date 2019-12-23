@@ -8,7 +8,6 @@ import store from "./redux/store";
 import App from "./App";
 
 // CSS Import
-import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 
 ReactDOM.render(
