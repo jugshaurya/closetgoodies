@@ -250,8 +250,11 @@ sudo snap install --classic heroku
   #66fcf1 -react blue
   #45a29e
   https://visme.co/blog/website-color-schemes/
+<<<<<<< HEAD
 
 # Stretch
 
 - [] store review system
 - [] day sell like monday sell , tuesday sell ... in left corner at fixed like sale.png
+=======
+>>>>>>> 666b83c886328fc223ac876763c27e42f071c45b
