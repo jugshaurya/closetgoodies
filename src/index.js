@@ -14,6 +14,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <App />
+      {/* <AddDataToFirestore />  -> Run if new data is required to add inside Firestore with new data in shop.data.js*/}
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")
