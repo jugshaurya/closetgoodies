@@ -1,0 +1,95 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  height: auto;
+  background-color: #242323;
+
+  .navbar-top {
+    background-color: rgba(1, 1, 1, 0.2);
+    .container {
+      width: 70%;
+      margin: 0 auto;
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px;
+
+      .text {
+        color: #939393;
+        margin: 0 10px;
+        padding: 0 10px;
+        font-size: large;
+        border-left: 3px solid #fff;
+        border-right: 3px solid #fff;
+      }
+
+      a {
+        text-decoration: none;
+        color: #939393;
+        vertical-align: top;
+        font-size: large;
+        margin-right: 10px;
+        svg {
+          width: 25px;
+          height: 25px;
+          margin-right: 10px;
+          color: #fff;
+        }
+
+        .cartsvg {
+          width: 45px;
+          height: 45px;
+          .count {
+            font-size: 3.5em;
+          }
+        }
+
+        .userProfile {
+          position: relative;
+          .dropdown {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+          }
+
+          &:hover .dropdown {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-bottom {
+    .container {
+      width: 70%;
+      margin: 0 auto;
+      padding: 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 20px;
+      a {
+        text-decoration: none;
+        color: #939393;
+        font-size: large;
+        margin-right: 10px;
+        padding: 0px 10px;
+        &.active {
+          color: #fff;
+          &:hover {
+            color: #939393;
+          }
+        }
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

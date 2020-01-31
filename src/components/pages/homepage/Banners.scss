@@ -1,0 +1,43 @@
+.banner-section {
+  .banner-container {
+    width: 70%10;
+    position: relative;
+    margin: auto;
+    background: rgba(47, 51, 69, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    .banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .banner-svg {
+        stroke-width: 0;
+        fill-opacity: 1;
+        stroke: rgb(0, 0, 0);
+        stroke-opacity: 1;
+        fill: rgb(232, 216, 72);
+        svg {
+          width: 25px;
+          height: 25px;
+          margin-right: 10px;
+        }
+      }
+      .banner-text {
+        color: #939393;
+        font-size: small;
+        display: flex;
+        justify-content: center;
+        &::after {
+          display: block;
+          content: "/";
+          font-size: large;
+          color: rgb(232, 216, 72);
+          margin-right: 10px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

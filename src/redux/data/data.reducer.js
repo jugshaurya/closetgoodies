@@ -2,40 +2,56 @@ import dataActionTypes from "./data.types";
 
 const INITIAL_STATE = {
   products: null,
-  sections: [
-    {
-      title: "hats",
-      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-      id: 1,
-      linkUrl: "hats"
-    },
-    {
-      title: "jackets",
-      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-      id: 2,
-      linkUrl: "jackets"
-    },
-    {
-      title: "sneakers",
-      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-      id: 3,
-      linkUrl: "sneakers"
-    },
-    {
-      title: "womens",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-      size: "large",
-      id: 4,
-      linkUrl: "womens"
-    },
-    {
-      title: "mens",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-      size: "large",
-      id: 5,
-      linkUrl: "mens"
-    }
-  ],
+  sections: {
+    girls: [
+      "https://picsum.photos/id/351/200/300",
+      "https://picsum.photos/id/352/200/300",
+      "https://picsum.photos/id/353/200/300",
+      "https://picsum.photos/id/354/200/300",
+      "https://picsum.photos/id/355/200/300",
+      "https://picsum.photos/id/356/200/300",
+      "https://picsum.photos/id/357/200/300",
+      "https://picsum.photos/id/358/200/300",
+      "https://picsum.photos/id/360/200/300",
+      "https://picsum.photos/id/361/200/300"
+    ],
+    boys: [
+      "https://picsum.photos/id/261/200/300",
+      "https://picsum.photos/id/263/200/300",
+      "https://picsum.photos/id/264/200/300",
+      "https://picsum.photos/id/265/200/300",
+      "https://picsum.photos/id/266/200/300",
+      "https://picsum.photos/id/267/200/300",
+      "https://picsum.photos/id/268/200/300",
+      "https://picsum.photos/id/269/200/300",
+      "https://picsum.photos/id/270/200/300",
+      "https://picsum.photos/id/271/200/300"
+    ],
+
+    women: [
+      "https://picsum.photos/id/171/200/300",
+      "https://picsum.photos/id/172/200/300",
+      "https://picsum.photos/id/173/200/300",
+      "https://picsum.photos/id/174/200/300",
+      "https://picsum.photos/id/175/200/300",
+      "https://picsum.photos/id/176/200/300",
+      "https://picsum.photos/id/177/200/300",
+      "https://picsum.photos/id/178/200/300",
+      "https://picsum.photos/id/179/200/300",
+      "https://picsum.photos/id/180/200/300"
+    ],
+    men: [
+      "https://picsum.photos/id/40/200/300",
+      "https://picsum.photos/id/42/200/300",
+      "https://picsum.photos/id/43/200/300",
+      "https://picsum.photos/id/44/200/300",
+      "https://picsum.photos/id/45/200/300",
+      "https://picsum.photos/id/47/200/300",
+      "https://picsum.photos/id/48/200/300",
+      "https://picsum.photos/id/49/200/300",
+      "https://picsum.photos/id/50/200/300"
+    ]
+  },
   error: null,
   isFetching: false
 };

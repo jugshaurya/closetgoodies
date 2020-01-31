@@ -1,10 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # cloth-zone
 
 An E-Commerce Website build in REACT(https://cloth-zone.herokuapp.com)
 
-![Progress](https://github.com/jugshaurya/cloth-zone/blob/master/public/progress.png)
+![Progress](https://github.com/jugshaurya/cloth-zone/blob/master/progress.png)
 
 ## Important
 
@@ -153,7 +151,7 @@ Note:- Observable and observer Pattern
 - #### Action -> redux-thunk-middleWare -> Reducer -> Store -> Components
   [redux-thunk Github](https://github.com/reduxjs/redux-thunk)
   - Async redux dispatching is dine using middleware redux thunk, which is i guess is a smart way to alter the actions which are of type functions to take a dispatch as an argument and dispatching START, SUCCESS, FAILURE actions depending upon the asynchronous activites and time of it.
-    ![Redux-thunk](https://github.com/jugshaurya/cloth-zone/blob/master/public/redux-thunk.png)
+    ![Redux-thunk](https://github.com/jugshaurya/cloth-zone/blob/master/redux-thunk.png)
 
 ## Stripe Payments:
 
@@ -250,11 +248,22 @@ sudo snap install --classic heroku
   #66fcf1 -react blue
   #45a29e
   https://visme.co/blog/website-color-schemes/
-<<<<<<< HEAD
 
 # Stretch
 
 - [] store review system
 - [] day sell like monday sell , tuesday sell ... in left corner at fixed like sale.png
-=======
->>>>>>> 666b83c886328fc223ac876763c27e42f071c45b
+
+# attribution
+
+WowPatterns.com
+
+# changes in data
+
+spelling mistake in men and women in firebase data as well as addDataHelper folder
+
+<!-- credit baches -->
+
+<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@mercantile?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Clark Street Mercantile"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Clark Street Mercantile</span></a>
+
+<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@burgessbadass?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Burgess Milner"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Burgess Milner</span></a>
