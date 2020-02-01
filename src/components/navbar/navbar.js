@@ -55,11 +55,11 @@ const Navbar = props => {
           <Link to="/" className="active">
             HOME
           </Link>
-          <Link to="/men">MEN</Link>
-          <Link to="/women">WOMEN</Link>
-          <Link to="/boys">BOYS</Link>
-          <Link to="/girls">GIRLS</Link>
-          <Link to="/ourcloset">OUR CLOSET</Link>
+          <Link to="/shop/men">MEN</Link>
+          <Link to="/shop/women">WOMEN</Link>
+          <Link to="/shop/boys">BOYS</Link>
+          <Link to="/shop/girls">GIRLS</Link>
+          <Link to="/shop">NEW CLOSET</Link>
           <Link to="/faq">FAQ</Link>
         </div>
       </section>

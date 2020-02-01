@@ -1,24 +1,20 @@
 import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
-
-//  other Component Import
-import ShopPageAllCollections from "./shoppage-all-collections/shopPageAllCollections";
-import ShopPageSpecificCollection from "./shoppage-specific-collection/shopPageSpecificCollection";
-
 // action Creators
 import { fetchProductFromStoreAsync } from "../../../redux/data/data.actions";
 
 // HOC Spinner Import
 import withLoadingSpinner from "../../HOC/with-loading-spinner/withLoadingSpinner.component";
-const ShopPageAllCollectionsWithLoadingSpinner = withLoadingSpinner(
-  ShopPageAllCollections
-);
-const ShopPageSpecificCollectionWithLoadingSpinner = withLoadingSpinner(
-  ShopPageSpecificCollection
-);
+import ShoppageNewCloset from "./shoppageNewCloset";
+import ShoppageSpecific from "./shoppageSpecific";
 
-const ShopPage = ({ match, isFetching, fetchProductFromStoreAsync }) => {
+const ShoppageNewClosetWithLoadingSpinner = withLoadingSpinner(
+  ShoppageNewCloset
+);
+const ShoppageSpecificWithLoadingSpinner = withLoadingSpinner(ShoppageSpecific);
+
+const Shoppage = ({ match, isFetching, fetchProductFromStoreAsync }) => {
   useEffect(() => {
     fetchProductFromStoreAsync();
   }, [fetchProductFromStoreAsync]);
@@ -29,13 +25,13 @@ const ShopPage = ({ match, isFetching, fetchProductFromStoreAsync }) => {
         exact
         path={`${match.path}`}
         render={() => (
-          <ShopPageAllCollectionsWithLoadingSpinner isLoading={isFetching} />
+          <ShoppageNewClosetWithLoadingSpinner isLoading={isFetching} />
         )}
       />
       <Route
         path={`${match.path}/:collectionName`}
         render={props => (
-          <ShopPageSpecificCollectionWithLoadingSpinner
+          <ShoppageSpecificWithLoadingSpinner
             isLoading={isFetching}
             {...props}
           />
@@ -53,4 +49,4 @@ const mapStateToProps = state => ({
   isFetching: state.data.isFetching
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);
+export default connect(mapStateToProps, mapDispatchToProps)(Shoppage);

@@ -8,7 +8,7 @@ import "./App.scss";
 // other Components Import
 import Navbar from "./components/navbar/navbar";
 import HomePage from "./components/pages/homepage/homepage";
-// import ShopPage from "./components/pages/shoppage/shopPage";
+import Shoppage from "./components/pages/shoppage/shoppage";
 // import SignInSignUpPage from "./components/pages/sign-in-sign-up-page/signInSignUpPage";
 // import CheckoutPage from "./components/pages/checkout-page/checkoutPage";
 import Footer from "./components/footer/footer";
@@ -27,8 +27,8 @@ const App = ({ checkUserAsync, currentUser }) => {
         {/* <Route exact path="/checkout" component={CheckoutPage} />
           <Route exact path="/signin">
             {currentUser ? <Redirect to="/" /> : <SignInSignUpPage />}
-          </Route>
-          <Route path="/shop" component={ShopPage} /> */}
+          </Route>*/}
+        <Route path="/shop" component={Shoppage} />
         <Route path="/" component={HomePage} />
       </Switch>
       <Footer />

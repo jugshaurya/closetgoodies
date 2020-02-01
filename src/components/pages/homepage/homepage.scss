@@ -1,6 +1,6 @@
 .homepage {
   overflow-x: hidden;
-  background-color: green;
+
   width: 100vw;
   padding: 0;
   margin: 0;
@@ -34,10 +34,8 @@
         margin: 20px 0;
         &:nth-child(2n) {
           justify-content: flex-start;
-          background: #ffe9e3;
           .homepage-section-outer-box {
             right: 4% !important;
-            background: #a3c7bd;
           }
         }
         &:nth-child(2n + 1) {
@@ -45,7 +43,6 @@
           background: #a3c7bd;
           .homepage-section-outer-box {
             left: 4% !important;
-            background: #ffe9e3;
           }
         }
         img {
@@ -58,6 +55,9 @@
           top: 20vh;
           border: 3px solid #aaa;
           background: url("../../../assets/background.jpg") left bottom;
+          background: rgba(31, 40, 51, 0.6);
+          box-shadow: 3px 3px 3px #222;
+
           padding: 10px;
           width: 60%;
           height: 45vh;
@@ -72,7 +72,7 @@
             .texta {
               font-weight: bolder;
               color: #222;
-              font-size: 2.5em;
+              font-size: 2.2em;
               text-transform: uppercase;
               margin-bottom: 6vh;
             }

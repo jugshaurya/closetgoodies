@@ -70,194 +70,194 @@ const getItems = (howMany, name) => {
 };
 
 const SHOP_DATA = {
-  men: {
-    shoes: {
+  men: [
+    {
       id: "men-shoes",
       title: "Shoes",
       items: getItems(10, "shoe")
     },
-    socks: {
+    {
       id: "men-socks",
       title: "Socks",
       items: getItems(10, "sock")
     },
-    jeans: {
+    {
       id: "men-jeans",
       title: "Jeans",
       items: getItems(10, "jean")
     },
-    trousers: {
+    {
       id: "men-trousers",
       title: "trousers",
       items: getItems(10, "trouser")
     },
-    jackets: {
+    {
       id: "men-jackets",
       title: "Jackets",
       items: getItems(10, "jacket")
     },
-    hats: {
+    {
       id: "men-hats",
       title: "Hats",
       items: getItems(10, "hat")
     },
-    shirt: {
+    {
       id: "men-shirt",
       title: "Shirt",
       items: getItems(10, "shirt")
     },
-    tshirt: {
+    {
       id: "men-tshirt",
       title: "T-shirt",
       items: getItems(10, "t-shirt")
     },
-    watches: {
+    {
       id: "men-watches",
       title: "watches",
       items: getItems(10, "watch")
     }
-  },
-  women: {
-    shoes: {
+  ],
+  women: [
+    {
       id: "women-shoes",
       title: "Shoes",
       items: getItems(10, "shoe")
     },
-    socks: {
+    {
       id: "women-socks",
       title: "Socks",
       items: getItems(10, "sock")
     },
-    jeans: {
+    {
       id: "women-jeans",
       title: "Jeans",
       items: getItems(10, "jean")
     },
-    trousers: {
+    {
       id: "women-trousers",
       title: "trousers",
       items: getItems(10, "trouser")
     },
-    jackets: {
+    {
       id: "women-jackets",
       title: "Jackets",
       items: getItems(10, "jacket")
     },
-    hats: {
+    {
       id: "women-hats",
       title: "Hats",
       items: getItems(10, "hat")
     },
-    shirt: {
+    {
       id: "women-shirt",
       title: "Shirt",
       items: getItems(10, "shirt")
     },
-    tshirt: {
+    {
       id: "women-tshirt",
       title: "T-shirt",
       items: getItems(10, "t-shirt")
     },
-    watches: {
+    {
       id: "women-watches",
       title: "watches",
       items: getItems(10, "watch")
     }
-  },
-  boys: {
-    shoes: {
+  ],
+  boys: [
+    {
       id: "boys-shoes",
       title: "Shoes",
       items: getItems(10, "shoe")
     },
-    socks: {
+    {
       id: "boys-socks",
       title: "Socks",
       items: getItems(10, "sock")
     },
-    jeans: {
+    {
       id: "boys-jeans",
       title: "Jeans",
       items: getItems(10, "jean")
     },
-    trousers: {
+    {
       id: "boys-trousers",
       title: "trousers",
       items: getItems(10, "trouser")
     },
-    jackets: {
+    {
       id: "boys-jackets",
       title: "Jackets",
       items: getItems(10, "jacket")
     },
-    hats: {
+    {
       id: "boys-hats",
       title: "Hats",
       items: getItems(10, "hat")
     },
-    shirt: {
+    {
       id: "boys-shirt",
       title: "Shirt",
       items: getItems(10, "shirt")
     },
-    tshirt: {
+    {
       id: "boys-tshirt",
       title: "T-shirt",
       items: getItems(10, "t-shirt")
     },
-    watches: {
+    {
       id: "boys-watches",
       title: "watches",
       items: getItems(10, "watch")
     }
-  },
-  girls: {
-    shoes: {
+  ],
+  girls: [
+    {
       id: "girls-shoes",
       title: "Shoes",
       items: getItems(10, "shoe")
     },
-    socks: {
+    {
       id: "girls-socks",
       title: "Socks",
       items: getItems(10, "sock")
     },
-    jeans: {
+    {
       id: "girls-jeans",
       title: "Jeans",
       items: getItems(10, "jean")
     },
-    trousers: {
+    {
       id: "girls-trousers",
       title: "trousers",
       items: getItems(10, "trouser")
     },
-    jackets: {
+    {
       id: "girls-jackets",
       title: "Jackets",
       items: getItems(10, "jacket")
     },
-    hats: {
+    {
       id: "girls-hats",
       title: "Hats",
       items: getItems(10, "hat")
     },
-    shirt: {
+    {
       id: "girls-shirt",
       title: "Shirt",
       items: getItems(10, "shirt")
     },
-    tshirt: {
+    {
       id: "girls-tshirt",
       title: "T-shirt",
       items: getItems(10, "t-shirt")
     },
-    watches: {
+    {
       id: "girls-watches",
       title: "watches",
       items: getItems(10, "watch")
     }
-  }
+  ]
 };
 
 console.log(SHOP_DATA);

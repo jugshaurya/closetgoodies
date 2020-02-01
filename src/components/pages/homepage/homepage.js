@@ -1,10 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-// other Component Import
-// import SectionItem from "./sectionItem";
-// style Import
-import Section from "./Section/section";
+
 import SlideShow from "./SlideShow";
 import Banners from "./Banners";
 
@@ -19,22 +16,22 @@ class HomePage extends React.Component {
     sections: [
       {
         img: Home1,
-        link: "/men",
+        link: "/shop/men",
         name: "Men"
       },
       {
         img: Home2,
-        link: "/women",
+        link: "/shop/women",
         name: "Women"
       },
       {
         img: Home3,
-        link: "/boys",
+        link: "/shop/boys",
         name: "Boy"
       },
       {
         img: Home4,
-        link: "/girls",
+        link: "/shop/girls",
         name: "Girl"
       }
     ]
@@ -46,15 +43,15 @@ class HomePage extends React.Component {
         <div className="container">
           <header className="heading">
             <h2>Closet Goodies</h2>
-            <h4>Exclusive Wears for Men, Women, Boys, Girls</h4>
+            <h4>Exclusive Wears for Men, Women, Boys and Girls</h4>
           </header>
-          {/* <SlideShow /> */}
-          <div className="slideshow"></div>
+          <SlideShow />
+          {/* <div className="slideshow"></div> */}
 
           <Banners />
           <div className="homepage-sections">
-            {this.state.sections.map(section => (
-              <div className="homepage-section">
+            {this.state.sections.map((section, i) => (
+              <div className="homepage-section" key={600 + i}>
                 <img src={section.img} alt="sectionpic" />
 
                 <div className="homepage-section-outer-box">
