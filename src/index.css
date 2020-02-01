@@ -7,6 +7,8 @@
   font-family: "Spinnaker", sans-serif;
   color: #2f3345;
   word-break: keep-all;
+  text-align: center;
+  overflow-x: hidden;
 }
 
 /* width */

@@ -3,21 +3,23 @@ import firebase from "firebase/app";
 // These imports load individual services into the firebase namespace.
 import "firebase/auth";
 import "firebase/firestore";
+import "firebase/analytics";
 
 // 1. Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCu-7QWKv79M8LwbHXdku1HrO0ODhlQcOY",
-  authDomain: "cloth-zone-26a02.firebaseapp.com",
-  databaseURL: "https://cloth-zone-26a02.firebaseio.com",
-  projectId: "cloth-zone-26a02",
-  storageBucket: "cloth-zone-26a02.appspot.com",
-  messagingSenderId: "320136478705",
-  appId: "1:320136478705:web:494415afd4e5fbe77a8e50",
-  measurementId: "G-62ZET2QFTB"
+  apiKey: "AIzaSyBZG7qB9bySnO81pCzY1NF5sXIM-2pdaTo",
+  authDomain: "closet-goodies.firebaseapp.com",
+  databaseURL: "https://closet-goodies.firebaseio.com",
+  projectId: "closet-goodies",
+  storageBucket: "closet-goodies.appspot.com",
+  messagingSenderId: "776213849902",
+  appId: "1:776213849902:web:8916fb6893350fada63cbf",
+  measurementId: "G-YV2CCDR733"
 };
 
 // 2. Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 // Firebase Auth
 // =============

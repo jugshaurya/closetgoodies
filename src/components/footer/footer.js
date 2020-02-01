@@ -38,7 +38,7 @@ class Footer extends React.Component {
       },
       {
         title: "Contacts >>",
-        values: ["shaurya"],
+        values: ["@shaurya"],
         links: ["mailto:shauryasinghal84@gmail.com"]
       }
     ]
