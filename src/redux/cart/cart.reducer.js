@@ -2,22 +2,15 @@
 import cartActionTypes from "./cart.types";
 
 const INITIAL_STATE = {
-  show: false,
   cartItems: []
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case cartActionTypes.TOGGLE_SHOW_CART:
-      return {
-        ...state,
-        show: !state.show
-      };
-
     case cartActionTypes.ADD_TO_CART:
       return {
         ...state,
-        cartItems: cartAddHelper(state.cartItems, action.payload)
+        cartItems: addToCartHelper(state.cartItems, action.payload)
       };
 
     case cartActionTypes.DECREASE_CART_ITEM_COUNT:
@@ -46,7 +39,7 @@ export default cartReducer;
 
 // Helper Functions
 // ==================
-const cartAddHelper = (cartItems, newItem) => {
+const addToCartHelper = (cartItems, newItem) => {
   const alreadyAvailableItem = cartItems.find(item => item.id === newItem.id);
 
   if (!alreadyAvailableItem) {

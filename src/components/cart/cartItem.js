@@ -5,39 +5,40 @@ import {
   addToCart,
   decreaseCartItemCount,
   deleteFromCart
-} from "../../../redux/cart/cart.actions";
+} from "../../redux/cart/cart.actions";
 
 // Style Import
-import "./cartItem.styles.css";
+import "./cartItem.scss";
 
 const CartItem = props => {
   const { imageUrl, name, quantity, price } = props.item;
   const { addToCart, decreaseCartItemCount, deleteFromCart } = props;
   return (
     <div className="cart-item">
-      <div className="property product-img">
+      <div className="product-img">
         <img src={imageUrl} alt="product" />
       </div>
-      <div className="property name">{name}</div>
-
-      <div className="property quantity">
-        <div
-          className="arrow decrease"
-          onClick={() => decreaseCartItemCount(props.item)}
-        >
-          &#9666;
+      <div className="property">
+        <div className="name">{name}</div>
+        <div className="quantity">
+          <div
+            className="arrow decrease"
+            onClick={() => decreaseCartItemCount(props.item)}
+          >
+            &#9666;
+          </div>
+          <div className="value">{quantity}</div>
+          <div className="arrow increase" onClick={() => addToCart(props.item)}>
+            &#9656;
+          </div>
         </div>
-        <div className="value">{quantity}</div>
-        <div className="arrow increase" onClick={() => addToCart(props.item)}>
-          &#9656;
+        <div className="price">
+          <span>Rs.</span>
+          {price * quantity}
         </div>
-      </div>
-      <div className="property price">{price}</div>
-      <div
-        className="property remove"
-        onClick={() => deleteFromCart(props.item)}
-      >
-        &#10005;
+        <div className="remove" onClick={() => deleteFromCart(props.item)}>
+          &#10005;
+        </div>
       </div>
     </div>
   );

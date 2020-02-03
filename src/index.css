@@ -13,18 +13,18 @@
 
 /* width */
 *::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 /* Track */
 *::-webkit-scrollbar-track {
-  background: #fafaff;
+  background: #2f3345;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #253486;
+  background: #939393;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #1236ff;
+  background: #fff;
 }

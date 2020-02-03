@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import SlideShow from "./SlideShow";
 import Banners from "./Banners";
 
-import Home1 from "../../../assets/hompage/home1.webp";
-import Home2 from "../../../assets/hompage/home2.webp";
-import Home3 from "../../../assets/hompage/home3.webp";
-import Home4 from "../../../assets/hompage/home4.webp";
+import Home1 from "../../../assets/homepage/home1.webp";
+import Home2 from "../../../assets/homepage/home2.webp";
+import Home3 from "../../../assets/homepage/home3.webp";
+import Home4 from "../../../assets/homepage/home4.webp";
 import "./homepage.scss";
 
 class HomePage extends React.Component {

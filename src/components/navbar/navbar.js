@@ -6,18 +6,24 @@ import { connect } from "react-redux";
 import { signoutUserAsync } from "../../redux/user/user.actions";
 
 // other Component Import
-// import Cart from "../cart/cart";
+import Cart from "../cart/cart.js";
 
 // Style/SVG Import
 import "./navbar.scss";
 import { ReactComponent as MockUser } from "../../assets/mockuser.svg";
-import { ReactComponent as Cart } from "../../assets/cart.svg";
 
 const UserProfile = ({ user, signoutUserAsync }) => {
+  const [show, setShow] = useState(false);
   return (
     <div className="userProfile">
-      {user.displayName}
-      <div className="dropdown" onClick={signoutUserAsync}>
+      <div className="username" onClick={() => setShow(!show)}>
+        {user.displayName} <span>&#9663;</span>
+      </div>
+      <div
+        className="dropdown"
+        onClick={signoutUserAsync}
+        style={{ display: show ? "block" : "none" }}
+      >
         Signout
       </div>
     </div>
@@ -37,8 +43,9 @@ const Navbar = props => {
     <nav className="navbar">
       <section className="navbar-top">
         <div className="container">
+          <div className="appname">Cloth Goodies</div>
           {currentUser ? (
-            <Link to="/profile">
+            <Link to="#">
               <UserProfile
                 user={currentUser}
                 signoutUserAsync={signoutUserAsync}
@@ -58,9 +65,7 @@ const Navbar = props => {
             </>
           )}
           <div className="text"> FREE SHIPPING</div>
-          <Link to="/cart">
-            <Cart className="cartsvg" />
-          </Link>
+          <Cart />
         </div>
       </section>
       <section className="navbar-bottom">
@@ -95,8 +100,8 @@ const Navbar = props => {
           </Link>
           <Link
             to="/shop/girls"
-            className={activeLink === "men" ? "active" : ""}
-            onClick={() => handleActiveLink("men")}
+            className={activeLink === "girls" ? "active" : ""}
+            onClick={() => handleActiveLink("girls")}
           >
             GIRLS
           </Link>

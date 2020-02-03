@@ -1,9 +1,10 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-
+import { connect } from "react-redux";
 import "./renderCollection.scss";
+import { addToCart } from "../../../redux/cart/cart.actions";
 const RenderCollection = props => {
-  const { history } = props;
+  const { history, addToCart } = props;
   // if props value is null simply return
   if (!props.collection) {
     return <></>;
@@ -27,16 +28,18 @@ const RenderCollection = props => {
                     <img
                       src={item.imageUrl}
                       alt="itempic"
-                      onClick={() =>
-                        history.push(
-                          `/shop/${props.collectionName}/${encodeURI(
-                            item.name
-                              .split(" ")
-                              .join("")
-                              .toLowerCase()
-                          )}`
-                        )
-                      }
+                      onClick={() => addToCart(item)}
+
+                      // onClick={() =>
+                      //   history.push(
+                      //     `/shop/${props.collectionName}/${encodeURI(
+                      //       item.name
+                      //         .split(" ")
+                      //         .join("")
+                      //         .toLowerCase()
+                      //     )}`
+                      //   )
+                      // }
                     />
                   </div>
                   <p className="name">{item.name}</p>
@@ -54,4 +57,8 @@ const RenderCollection = props => {
   );
 };
 
-export default withRouter(RenderCollection);
+const mapDispatchToProps = dispatch => ({
+  addToCart: item => dispatch(addToCart(item))
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(RenderCollection));
