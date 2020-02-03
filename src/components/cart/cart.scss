@@ -1,0 +1,110 @@
+#cart {
+  .cart-dropdown {
+    overflow-y: hidden;
+    box-shadow: -2px -2px 2px #111111;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 3000;
+    overflow-x: hidden;
+    top: 4em;
+    right: 0;
+    background: #fff;
+    transition: 0.5s;
+    height: calc(100vh - 4em);
+    .cart-dropdown-heading {
+      background: #242323;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding: 25px 10px;
+      max-height: 10vh;
+      .closebtn {
+        font-size: 1.55em;
+        margin-left: 20px;
+        color: #fff;
+      }
+      .heading {
+        color: #fff;
+        flex-grow: 1;
+        font-size: 2em;
+      }
+    }
+    .cart-dropdown-body {
+      height: auto;
+      min-height: 71vh;
+      max-height: 72vh;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      background: #ddd;
+
+      .lists-empty {
+        width: 100%;
+        text-align: center;
+        font-size: x-large;
+        margin-top: 10%;
+        color: #aaa;
+
+        .pushtohome {
+          text-align: center;
+          text-decoration: underline;
+          cursor: pointer;
+          color: #aaa;
+          font-size: small;
+          margin-top: 10px;
+          &:hover {
+            color: black;
+          }
+        }
+      }
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #242323;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #939393;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: #fff;
+      }
+    }
+    .cart-dropdown-footer {
+      height: 13vh;
+      border-top: 3px solid #242323;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #242323;
+      .form-button {
+        &.checkout-btn {
+          cursor: pointer;
+          padding: 10px 40px;
+          color: #242323;
+          background: #fff;
+          border: 3px solid #111111;
+          &:hover {
+            background-color: #242323;
+            color: #fff;
+            border: 3px solid #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .cartsvg {
+    cursor: pointer;
+    width: 45px !important;
+    height: 45px !important;
+    .count {
+      font-size: 5.5em;
+      font-weight: bolder;
+    }
+  }
+}

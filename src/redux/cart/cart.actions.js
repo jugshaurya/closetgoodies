@@ -2,9 +2,6 @@ import cartActionTypes from "./cart.types";
 
 //  Action Creators
 // ================
-export const toggleShowCart = () => ({
-  type: cartActionTypes.TOGGLE_SHOW_CART
-});
 
 export const addToCart = item => ({
   type: cartActionTypes.ADD_TO_CART,

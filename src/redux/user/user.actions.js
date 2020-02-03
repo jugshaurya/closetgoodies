@@ -31,12 +31,13 @@ export const googleSignInAsync = () => async dispatch => {
     const { user } = await SignInWithGoogle();
     const userDocRef = await addToFirestore(user);
     const snapshot = await userDocRef.get();
-    const { displayName, email } = snapshot.data();
+    const { displayName, email, photoURL } = snapshot.data();
     dispatch(
       googleSignInSuccess({
         id: snapshot.id,
         displayName,
-        email
+        email,
+        photoURL
       })
     );
   } catch (error) {
@@ -64,12 +65,13 @@ export const localSignInAsync = (email, password) => async dispatch => {
     const { user } = await auth.signInWithEmailAndPassword(email, password);
     const userDocRef = await addToFirestore(user);
     const snapshot = await userDocRef.get();
-    const { displayName, displayEmail } = snapshot.data();
+    const { displayName, emailResult, photoURL } = snapshot.data();
     dispatch(
       localSignInSuccess({
         id: snapshot.id,
         displayName,
-        email: displayEmail
+        email: emailResult,
+        photoURL
       })
     );
   } catch (error) {
@@ -102,7 +104,14 @@ export const createUserAsync = (
   try {
     if (password !== confirmPassword) throw new Error("Password Don't Match");
     const { user } = await auth.createUserWithEmailAndPassword(email, password);
-    await addToFirestore(user, { displayName });
+    // update user to include displayname anda default photo
+    const photoURL = `https://api.adorable.io/avatars/285/${email}.png`;
+    await user.updateProfile({
+      displayName,
+      photoURL
+    });
+
+    await addToFirestore(user, { displayName, photoURL });
     dispatch(createUserSuccess());
   } catch (error) {
     dispatch(createUserFailure(error.message));

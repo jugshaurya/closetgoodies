@@ -2,8 +2,7 @@
   font-size: medium;
   width: 100%;
   height: auto;
-  background-color: #ccc;
-  color: #1f2833;
+  background-color: #242323;
 
   .container {
     padding: 10px 30px;
@@ -22,6 +21,8 @@
       margin-right: 1%;
       h4 {
         margin-bottom: 10px;
+        color: #fff;
+        text-align: left;
       }
 
       ul {
@@ -29,6 +30,14 @@
         padding: 0;
         li {
           font-family: monospace;
+          color: #939393;
+          text-align: left;
+          a {
+            text-decoration: none;
+            cursor: pointer;
+            font-family: monospace;
+            color: #939393;
+          }
         }
       }
       &.social-links {
@@ -52,8 +61,11 @@
   }
 
   .footer-bottom {
+    border-top: 3px solid #939393;
     padding: 10px 30px;
     font-size: larger;
+    color: #939393;
+
     background-color: rgba(31, 40, 51, 0.2);
   }
 }

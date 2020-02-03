@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import { ReactComponent as GithubSvg } from "../../assets/github.svg";
 import { ReactComponent as FacebookSvg } from "../../assets/facebook.svg";
 import { ReactComponent as TwitterSvg } from "../../assets/twitter.svg";
@@ -17,19 +17,29 @@ class Footer extends React.Component {
         title: "About Us >>",
         values: [
           "A Personal Project focusing over the ecommerce Fashion idea to fill the beautiful people Closet."
-        ]
+        ],
+        links: null
       },
       {
         title: "Quick Links >>",
-        values: ["Women", "Men", "Girls", "Boys", "Our Closet"]
+        values: ["Women", "Men", "Girls", "Boys", "New Closet"],
+        links: [
+          "/shop/women",
+          "/shop/men",
+          "/shop/girls",
+          "/shop/boys",
+          "/shop"
+        ]
       },
       {
         title: "Help >>",
-        values: ["Contact", "FAQ"]
+        values: ["Contact", "FAQ"],
+        links: ["/contact", "/faq"]
       },
       {
         title: "Contacts >>",
-        values: ["shauryasinghal84@gmail.com"]
+        values: ["@shaurya"],
+        links: ["mailto:shauryasinghal84@gmail.com"]
       }
     ]
   };
@@ -90,8 +100,16 @@ class Footer extends React.Component {
             <div className="extra-links" key={100 + i}>
               <h4>{section.title}</h4>
               <ul>
-                {section.values.map(value => (
-                  <li>{value}</li>
+                {section.values.map((value, i) => (
+                  <li key={700 + i}>
+                    {section.title === "Contacts >>" ? (
+                      <a href={section.links[i]}>{value}</a>
+                    ) : (
+                      <Link to={section.links ? section.links[i] : "#"}>
+                        {value}
+                      </Link>
+                    )}
+                  </li>
                 ))}
               </ul>
             </div>

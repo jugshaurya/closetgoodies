@@ -6,24 +6,25 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-family: "Spinnaker", sans-serif;
   color: #2f3345;
-
   word-break: keep-all;
+  text-align: center;
+  overflow-x: hidden;
 }
 
 /* width */
 *::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 /* Track */
 *::-webkit-scrollbar-track {
-  background: #fafaff;
+  background: #2f3345;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #253486;
+  background: #939393;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #1236ff;
+  background: #fff;
 }

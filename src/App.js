@@ -2,15 +2,13 @@ import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-// Css Import
-import "./App.scss";
-
 // other Components Import
 import Navbar from "./components/navbar/navbar";
 import HomePage from "./components/pages/homepage/homepage";
-// import ShopPage from "./components/pages/shoppage/shopPage";
-// import SignInSignUpPage from "./components/pages/sign-in-sign-up-page/signInSignUpPage";
-// import CheckoutPage from "./components/pages/checkout-page/checkoutPage";
+import Shoppage from "./components/pages/shoppage/shoppage";
+import Signin from "./components/pages/sign-in/signin";
+import Signup from "./components/pages/sign-up/signup";
+import Checkout from "./components/pages/checkoutpage/checkout";
 import Footer from "./components/footer/footer";
 
 // action Creator Import
@@ -24,11 +22,14 @@ const App = ({ checkUserAsync, currentUser }) => {
     <div className="App">
       <Navbar user={currentUser} />
       <Switch>
-        {/* <Route exact path="/checkout" component={CheckoutPage} />
-          <Route exact path="/signin">
-            {currentUser ? <Redirect to="/" /> : <SignInSignUpPage />}
-          </Route>
-          <Route path="/shop" component={ShopPage} /> */}
+        <Route exact path="/checkout" component={Checkout} />
+        <Route exact path="/signin">
+          {currentUser ? <Redirect to="/" /> : <Signin />}
+        </Route>
+        <Route exact path="/signup">
+          {currentUser ? <Redirect to="/" /> : <Signup />}
+        </Route>
+        <Route path="/shop" component={Shoppage} />
         <Route path="/" component={HomePage} />
       </Switch>
       <Footer />

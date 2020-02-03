@@ -1,4 +1,7 @@
 .navbar {
+  * {
+    overflow: visible;
+  }
   position: fixed;
   top: 0;
   left: 0;
@@ -16,8 +19,14 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      padding: 10px;
 
+      .appname {
+        margin-left: 0;
+        margin-right: auto;
+        color: #939393;
+        font-family: "Sarina", "cursive";
+        font-size: large;
+      }
       .text {
         color: #939393;
         margin: 0 10px;
@@ -40,25 +49,27 @@
           color: #fff;
         }
 
-        .cartsvg {
-          width: 45px;
-          height: 45px;
-          .count {
-            font-size: 3.5em;
-          }
+        .cartdisable {
+          pointer-events: none;
         }
 
         .userProfile {
           position: relative;
+          .username {
+            color: #939393;
+            span {
+              font-size: larger;
+              color: #939393;
+            }
+          }
           .dropdown {
             position: absolute;
-            top: 0;
-            left: 0;
-            display: none;
-          }
-
-          &:hover .dropdown {
-            display: block;
+            bottom: -45px;
+            right: 0;
+            z-index: 3000;
+            background-color: #939393;
+            color: #242323;
+            padding: 5px;
           }
         }
       }
@@ -73,17 +84,19 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      padding: 20px;
+      padding: 10px;
       a {
         text-decoration: none;
         color: #939393;
         font-size: large;
         margin-right: 10px;
-        padding: 0px 10px;
+        padding: 10px;
         &.active {
-          color: #fff;
+          color: #242323;
+          font-weight: 600;
+          border-radius: 5px;
           &:hover {
-            color: #939393;
+            color: #fff;
           }
         }
         &:hover {
