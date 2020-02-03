@@ -9,13 +9,11 @@ const ShopPageNewCloset = props => {
   const products = NEW_CLOSET_DATA;
   const collection = products["New Closet"];
   return (
-    <div className="shop-page">
-      <RenderCollection
-        key={collection.id}
-        collection={collection}
-        collectionName={"New"}
-      />
-    </div>
+    <RenderCollection
+      key={collection.id}
+      collection={collection}
+      collectionName={"New"}
+    />
   );
 };
 

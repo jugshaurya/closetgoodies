@@ -38,9 +38,16 @@ class Cart extends React.Component {
             <div className="heading">Cart</div>
           </div>
           <div className="cart-dropdown-body">
-            {cartItems.map(item => (
-              <CartItem key={item.id} item={item} />
-            ))}
+            {cartItems.length === 0 ? (
+              <div className="lists-empty">
+                Cart is Empty
+                <div className="pushtohome" onClick={() => history.push("/")}>
+                  Go to Shopping
+                </div>
+              </div>
+            ) : (
+              cartItems.map(item => <CartItem key={item.id} item={item} />)
+            )}
           </div>
           <div className="cart-dropdown-footer">
             <button

@@ -26,7 +26,7 @@ class Footer extends React.Component {
         links: [
           "/shop/women",
           "/shop/men",
-          "/shop/rirls",
+          "/shop/girls",
           "/shop/boys",
           "/shop"
         ]

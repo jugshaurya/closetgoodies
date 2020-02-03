@@ -8,7 +8,7 @@ import HomePage from "./components/pages/homepage/homepage";
 import Shoppage from "./components/pages/shoppage/shoppage";
 import Signin from "./components/pages/sign-in/signin";
 import Signup from "./components/pages/sign-up/signup";
-// import CheckoutPage from "./components/pages/checkout-page/checkoutPage";
+import Checkout from "./components/pages/checkoutpage/checkout";
 import Footer from "./components/footer/footer";
 
 // action Creator Import
@@ -22,7 +22,7 @@ const App = ({ checkUserAsync, currentUser }) => {
     <div className="App">
       <Navbar user={currentUser} />
       <Switch>
-        {/* <Route exact path="/checkout" component={CheckoutPage} />*/}
+        <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/signin">
           {currentUser ? <Redirect to="/" /> : <Signin />}
         </Route>

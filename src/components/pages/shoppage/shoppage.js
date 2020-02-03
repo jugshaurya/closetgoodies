@@ -5,14 +5,12 @@ import { connect } from "react-redux";
 import { fetchProductFromStoreAsync } from "../../../redux/data/data.actions";
 
 // HOC Spinner Import
-import withLoadingSpinner from "../../HOC/with-loading-spinner/withLoadingSpinner.component";
+import pageSpinner from "../../page-spinner/pageSpinner";
 import ShoppageNewCloset from "./shoppageNewCloset";
 import ShoppageSpecific from "./shoppageSpecific";
 
-const ShoppageNewClosetWithLoadingSpinner = withLoadingSpinner(
-  ShoppageNewCloset
-);
-const ShoppageSpecificWithLoadingSpinner = withLoadingSpinner(ShoppageSpecific);
+const ShoppageNewClosetWithSpinner = pageSpinner(ShoppageNewCloset);
+const ShoppageSpecificWithSpinner = pageSpinner(ShoppageSpecific);
 
 const Shoppage = ({ match, isFetching, fetchProductFromStoreAsync }) => {
   useEffect(() => {
@@ -24,17 +22,12 @@ const Shoppage = ({ match, isFetching, fetchProductFromStoreAsync }) => {
       <Route
         exact
         path={`${match.path}`}
-        render={() => (
-          <ShoppageNewClosetWithLoadingSpinner isLoading={isFetching} />
-        )}
+        render={() => <ShoppageNewClosetWithSpinner isLoading={isFetching} />}
       />
       <Route
         path={`${match.path}/:collectionName`}
         render={props => (
-          <ShoppageSpecificWithLoadingSpinner
-            isLoading={isFetching}
-            {...props}
-          />
+          <ShoppageSpecificWithSpinner isLoading={isFetching} {...props} />
         )}
       />
     </Switch>

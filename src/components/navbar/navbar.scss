@@ -19,7 +19,6 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      padding: 10px;
 
       .appname {
         margin-left: 0;
@@ -51,7 +50,7 @@
         }
 
         .cartdisable {
-          pointer-event: none;
+          pointer-events: none;
         }
 
         .userProfile {
@@ -85,7 +84,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      padding: 20px;
+      padding: 10px;
       a {
         text-decoration: none;
         color: #939393;
@@ -95,7 +94,7 @@
         &.active {
           color: #242323;
           font-weight: 600;
-
+          border-radius: 5px;
           &:hover {
             color: #fff;
           }

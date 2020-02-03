@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 // action creator import
 import { signoutUserAsync } from "../../redux/user/user.actions";
@@ -31,9 +32,8 @@ const UserProfile = ({ user, signoutUserAsync }) => {
 };
 
 const Navbar = props => {
-  const { currentUser, signoutUserAsync } = props;
-  const [activeLink, setActiveLink] = useState("home");
-
+  const { currentUser, signoutUserAsync, location } = props;
+  const [activeLink, setActiveLink] = useState(`${location.pathname}`);
   const handleActiveLink = item => {
     setActiveLink(item);
   };
@@ -72,50 +72,50 @@ const Navbar = props => {
         <div className="container">
           <Link
             to="/"
-            className={activeLink === "home" ? "active" : ""}
-            onClick={() => handleActiveLink("home")}
+            className={activeLink === "/" ? "active" : ""}
+            onClick={() => handleActiveLink("/")}
           >
             HOME
           </Link>
           <Link
             to="/shop/men"
-            className={activeLink === "men" ? "active" : ""}
-            onClick={() => handleActiveLink("men")}
+            className={activeLink === "/shop/men" ? "active" : ""}
+            onClick={() => handleActiveLink("/shop/men")}
           >
             MEN
           </Link>
           <Link
             to="/shop/women"
-            className={activeLink === "women" ? "active" : ""}
-            onClick={() => handleActiveLink("women")}
+            className={activeLink === "/shop/women" ? "active" : ""}
+            onClick={() => handleActiveLink("/shop/women")}
           >
             WOMEN
           </Link>
           <Link
             to="/shop/boys"
-            className={activeLink === "boys" ? "active" : ""}
-            onClick={() => handleActiveLink("boys")}
+            className={activeLink === "/shop/boys" ? "active" : ""}
+            onClick={() => handleActiveLink("/shop/boys")}
           >
             BOYS
           </Link>
           <Link
             to="/shop/girls"
-            className={activeLink === "girls" ? "active" : ""}
-            onClick={() => handleActiveLink("girls")}
+            className={activeLink === "/shop/girls" ? "active" : ""}
+            onClick={() => handleActiveLink("/shop/girls")}
           >
             GIRLS
           </Link>
           <Link
             to="/shop"
-            className={activeLink === "newcloset" ? "active" : ""}
-            onClick={() => handleActiveLink("newcloset")}
+            className={activeLink === "/shop" ? "active" : ""}
+            onClick={() => handleActiveLink("/shop")}
           >
             NEW CLOSET
           </Link>
           <Link
             to="/faq"
-            className={activeLink === "faq" ? "active" : ""}
-            onClick={() => handleActiveLink("faq")}
+            className={activeLink === "/faq" ? "active" : ""}
+            onClick={() => handleActiveLink("/faq")}
           >
             FAQ
           </Link>
@@ -133,4 +133,4 @@ const mapDispatchToProps = dispatch => ({
   signoutUserAsync: () => dispatch(signoutUserAsync())
 });
 
-export default connect(mapStatetoProps, mapDispatchToProps)(Navbar);
+export default withRouter(connect(mapStatetoProps, mapDispatchToProps)(Navbar));

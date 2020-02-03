@@ -1,6 +1,8 @@
-# cloth-zone
+## cloth-zone
 
-An E-Commerce Website build in REACT(https://cloth-zone.herokuapp.com)
+An E-Commerce Website build in REACT
+
+![Progress](https://github.com/jugshaurya/cloth-zone/blob/master/storehome.gif)
 
 ![Progress](https://github.com/jugshaurya/cloth-zone/blob/master/progress.png)
 

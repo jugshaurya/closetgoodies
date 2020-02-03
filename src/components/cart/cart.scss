@@ -1,10 +1,9 @@
 #cart {
   .cart-dropdown {
     overflow-y: hidden;
-    border: 2px solid #2f3345;
     box-shadow: -2px -2px 2px #111111;
     height: 100%;
-    width: 10;
+    width: 0;
     position: fixed;
     z-index: 3000;
     overflow-x: hidden;
@@ -14,7 +13,7 @@
     transition: 0.5s;
     height: calc(100vh - 4em);
     .cart-dropdown-heading {
-      background: #2f3345;
+      background: #242323;
       display: flex;
       justify-content: left;
       align-items: center;
@@ -22,7 +21,7 @@
       max-height: 10vh;
       .closebtn {
         font-size: 1.55em;
-        margin-left: 50px;
+        margin-left: 20px;
         color: #fff;
       }
       .heading {
@@ -39,12 +38,32 @@
       overflow-x: hidden;
       background: #ddd;
 
+      .lists-empty {
+        width: 100%;
+        text-align: center;
+        font-size: x-large;
+        margin-top: 10%;
+        color: #aaa;
+
+        .pushtohome {
+          text-align: center;
+          text-decoration: underline;
+          cursor: pointer;
+          color: #aaa;
+          font-size: small;
+          margin-top: 10px;
+          &:hover {
+            color: black;
+          }
+        }
+      }
+
       &::-webkit-scrollbar {
         width: 5px;
       }
 
       &::-webkit-scrollbar-track {
-        background: #2f3345;
+        background: #242323;
       }
 
       &::-webkit-scrollbar-thumb {
@@ -57,20 +76,20 @@
     }
     .cart-dropdown-footer {
       height: 13vh;
-      border-top: 3px solid #2f3345;
+      border-top: 3px solid #242323;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #2f3345;
+      background-color: #242323;
       .form-button {
         &.checkout-btn {
           cursor: pointer;
           padding: 10px 40px;
-          color: #2f3345;
+          color: #242323;
           background: #fff;
           border: 3px solid #111111;
           &:hover {
-            background-color: #2f3345;
+            background-color: #242323;
             color: #fff;
             border: 3px solid #fff;
           }
