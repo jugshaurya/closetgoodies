@@ -1,0 +1,121 @@
+#productpage-section {
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  padding-top: 11rem;
+
+  .container {
+    * {
+      font-family: monospace;
+    }
+    width: 70%;
+    min-height: 70vh;
+    margin: 0 auto;
+    border: 3px double #111;
+    margin-bottom: 20px;
+    .product-info {
+      padding: 10px;
+      .top {
+        padding: 20px 10px;
+        text-align: left;
+        font-size: x-large;
+        border-bottom: 3px double#111;
+        text-transform: capitalize;
+        display: flex;
+        justify-content: space-between;
+        span {
+          color: #f56618;
+        }
+      }
+
+      .middle {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        .middle-left {
+          width: 40%;
+          padding: 10px;
+          img {
+            width: 200;
+            height: 300;
+          }
+          .text {
+            padding-top: 20px;
+            word-break: keep-all;
+            text-align: left;
+            text-transform: initial;
+            font-size: larger;
+            span {
+              color: #f56618;
+              font-weight: 600;
+            }
+          }
+        }
+
+        .middle-right {
+          padding: 10px;
+          padding-left: 30px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 60%;
+          border-left: 3px double #111;
+          * {
+            width: 100%;
+            text-align: left;
+          }
+          .name {
+            font-weight: 600;
+            font-size: xx-large;
+            text-align: right;
+          }
+          .price {
+            margin-top: 20px;
+            text-align: right;
+            span {
+              color: #f56618;
+            }
+            font-size: larger;
+          }
+
+          .addtocart {
+            width: 50%;
+            margin: 20px 0 20px auto;
+            text-align: left;
+            button {
+              cursor: pointer;
+              padding: 10px 20px;
+              text-align: center;
+              font-size: larger;
+              background: #242323;
+              color: #fff;
+            }
+          }
+
+          .product-info,
+          .return-info {
+            padding-left: 20px;
+            .header {
+              font-weight: 600;
+              font-size: larger;
+              margin: 10px 0;
+              border-bottom: 3px double #111;
+              text-transform: uppercase;
+              padding: 10px;
+            }
+            ul {
+              list-style: circle;
+              li {
+                margin: 2px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

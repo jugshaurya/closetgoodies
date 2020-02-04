@@ -10,6 +10,7 @@ import Signin from "./components/pages/sign-in/signin";
 import Signup from "./components/pages/sign-up/signup";
 import Checkout from "./components/pages/checkoutpage/checkout";
 import Footer from "./components/footer/footer";
+import Errorboundary from "./components/ErrorBoundary";
 
 // action Creator Import
 import { checkUserAsync } from "./redux/user/user.actions";
@@ -20,19 +21,21 @@ const App = ({ checkUserAsync, currentUser }) => {
 
   return (
     <div className="App">
-      <Navbar user={currentUser} />
-      <Switch>
-        <Route exact path="/checkout" component={Checkout} />
-        <Route exact path="/signin">
-          {currentUser ? <Redirect to="/" /> : <Signin />}
-        </Route>
-        <Route exact path="/signup">
-          {currentUser ? <Redirect to="/" /> : <Signup />}
-        </Route>
-        <Route path="/shop" component={Shoppage} />
-        <Route path="/" component={HomePage} />
-      </Switch>
-      <Footer />
+      <Errorboundary>
+        <Navbar user={currentUser} />
+        <Switch>
+          <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/signin">
+            {currentUser ? <Redirect to="/" /> : <Signin />}
+          </Route>
+          <Route exact path="/signup">
+            {currentUser ? <Redirect to="/" /> : <Signup />}
+          </Route>
+          <Route path="/shop" component={Shoppage} />
+          <Route path="/" component={HomePage} />
+        </Switch>
+        <Footer />
+      </Errorboundary>
     </div>
   );
 };

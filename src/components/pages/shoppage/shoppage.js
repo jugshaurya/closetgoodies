@@ -8,9 +8,11 @@ import { fetchProductFromStoreAsync } from "../../../redux/data/data.actions";
 import pageSpinner from "../../page-spinner/pageSpinner";
 import ShoppageNewCloset from "./shoppageNewCloset";
 import ShoppageSpecific from "./shoppageSpecific";
+import ProductPage from "./productpage";
 
 const ShoppageNewClosetWithSpinner = pageSpinner(ShoppageNewCloset);
 const ShoppageSpecificWithSpinner = pageSpinner(ShoppageSpecific);
+const ProductPageWithSpinner = pageSpinner(ProductPage);
 
 const Shoppage = ({ match, isFetching, fetchProductFromStoreAsync }) => {
   useEffect(() => {
@@ -24,6 +26,13 @@ const Shoppage = ({ match, isFetching, fetchProductFromStoreAsync }) => {
         path={`${match.path}`}
         render={() => <ShoppageNewClosetWithSpinner isLoading={isFetching} />}
       />
+      <Route
+        path={`${match.path}/:collectionName/:title/:itemId`}
+        render={props => (
+          <ProductPageWithSpinner isLoading={isFetching} {...props} />
+        )}
+      />
+
       <Route
         path={`${match.path}/:collectionName`}
         render={props => (

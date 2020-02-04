@@ -1,8 +1,12 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import "./renderCollection.scss";
+
 import { addToCart } from "../../../redux/cart/cart.actions";
+
+import { ReactComponent as CartAdd } from "../../../assets/addtocart.svg";
+import "./renderCollection.scss";
+
 const RenderCollection = props => {
   const { history, addToCart } = props;
   // if props value is null simply return
@@ -24,22 +28,22 @@ const RenderCollection = props => {
             <div className="collection-items">
               {collection.items.map(item => (
                 <div className="item" key={item.id}>
+                  <CartAdd
+                    className="addtocart"
+                    onClick={() => addToCart(item)}
+                  />
+
                   <div className="image">
                     <img
                       src={item.imageUrl}
                       alt="itempic"
-                      onClick={() => addToCart(item)}
-
-                      // onClick={() =>
-                      //   history.push(
-                      //     `/shop/${props.collectionName}/${encodeURI(
-                      //       item.name
-                      //         .split(" ")
-                      //         .join("")
-                      //         .toLowerCase()
-                      //     )}`
-                      //   )
-                      // }
+                      onClick={() =>
+                        history.push(
+                          `/shop/${
+                            props.collectionName
+                          }/${collection.title.toLowerCase()}/${item.id}`
+                        )
+                      }
                     />
                   </div>
                   <p className="name">{item.name}</p>
