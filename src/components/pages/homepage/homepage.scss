@@ -33,6 +33,8 @@
         margin: 20px 0;
         &:nth-child(2n) {
           justify-content: flex-start;
+          background: #dba7db;
+
           .homepage-section-outer-box {
             right: 4% !important;
           }
@@ -45,7 +47,7 @@
           }
         }
         img {
-          width: 60%;
+          width: 55%;
           margin-right: 0;
           height: 80vh;
         }
@@ -70,7 +72,7 @@
             .texta {
               font-weight: bolder;
               color: #222;
-              font-size: 2.2em;
+              font-size: 2em;
               text-transform: uppercase;
               margin-bottom: 6vh;
             }
@@ -86,6 +88,162 @@
               padding: 20px;
               color: #939393;
               background-color: #111;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .homepage {
+    padding-top: 12rem;
+    * {
+      overflow: visible;
+    }
+
+    .container {
+      width: 70%;
+      margin: 0 auto;
+      // background: #aaa;
+      // background: #aaa;
+      .homepage-sections {
+        .homepage-section {
+          img {
+            height: 52vh;
+          }
+
+          .homepage-section-outer-box {
+            top: 5vh;
+            height: 40vh;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 971px) {
+  .homepage {
+    padding-top: 8rem;
+    .container {
+      .homepage-sections {
+        .homepage-section {
+          img {
+            width: 60%;
+            margin-right: 0;
+            height: 45vh;
+          }
+          .homepage-section-outer-box {
+            top: 5vh;
+            height: 30vh;
+            .homepage-section-inner-box {
+              .texta {
+                font-weight: bolder;
+                color: #222;
+                font-size: 1.5em;
+                text-transform: uppercase;
+                margin-top: 25px;
+                margin-bottom: 20px;
+              }
+
+              .textb {
+                font-size: larger;
+                margin-bottom: 10px;
+                padding: 0px 20px;
+              }
+
+              .homepage-section-button {
+                text-decoration: none;
+                cursor: pointer;
+                padding: 20px;
+                color: #939393;
+                background-color: #111;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 695px) {
+  .homepage {
+    .container {
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: 545px) {
+  .homepage {
+    .container {
+      .homepage-sections {
+        .homepage-section {
+          img {
+            width: 50%;
+          }
+          &:nth-child(2n + 1) {
+            .homepage-section-outer-box {
+              order: -1;
+            }
+          }
+
+          .homepage-section-outer-box {
+            height: 45vh;
+            position: initial;
+            .homepage-section-inner-box {
+              .texta {
+                font-weight: bolder;
+                color: #222;
+                font-size: 1.5em;
+                text-transform: uppercase;
+                margin-top: 25px;
+                margin-bottom: 20px;
+              }
+
+              .textb {
+                font-size: medium;
+                margin-bottom: 40px;
+                padding: 0px 5px;
+              }
+
+              .homepage-section-button {
+                text-decoration: none;
+                cursor: pointer;
+                padding: 20px;
+                color: #939393;
+                background-color: #111;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 381px) {
+  .homepage {
+    .container {
+      .homepage-sections {
+        .homepage-section {
+          img {
+            height: 40vh;
+          }
+          .homepage-section-outer-box {
+            height: 40vh;
+            .homepage-section-inner-box {
+              .textb {
+                margin-bottom: 10px;
+                padding: 0px 5px;
+              }
+
+              .homepage-section-button {
+                padding: 10px;
+              }
             }
           }
         }

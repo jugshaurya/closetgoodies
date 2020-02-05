@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-
+import CollapsedNavbar from "./CollapsedNavbar";
 // action creator import
 import { signoutUserAsync } from "../../redux/user/user.actions";
 
@@ -34,8 +34,21 @@ const UserProfile = ({ user, signoutUserAsync }) => {
 const Navbar = props => {
   const { currentUser, signoutUserAsync, location } = props;
   const [activeLink, setActiveLink] = useState(`${location.pathname}`);
+  const [collapsedProps, setCollapsedProps] = useState({
+    isCollapsedNavOpen: false,
+    height: 0
+  });
+
   const handleActiveLink = item => {
     setActiveLink(item);
+  };
+
+  const showNavbar = isOpen => {
+    const obj = {
+      isCollapsedNavOpen: isOpen,
+      height: isOpen ? 100 : 0
+    };
+    setCollapsedProps(obj);
   };
 
   console.log(currentUser);
@@ -43,6 +56,13 @@ const Navbar = props => {
     <nav className="navbar">
       <section className="navbar-top">
         <div className="container">
+          <div className="navbar-collapse" onClick={() => showNavbar(true)}>
+            &#9776;
+          </div>
+          <CollapsedNavbar
+            showNavbar={showNavbar}
+            height={`${collapsedProps.height}%`}
+          />
           <div className="appname">Cloth Goodies</div>
           {currentUser ? (
             <Link to="#">
@@ -64,61 +84,63 @@ const Navbar = props => {
               </Link>
             </>
           )}
-          <div className="text"> FREE SHIPPING</div>
+          <div className="text invisible-on-mobile"> FREE SHIPPING</div>
           <Cart />
         </div>
       </section>
       <section className="navbar-bottom">
         <div className="container">
-          <Link
-            to="/"
-            className={activeLink === "/" ? "active" : ""}
-            onClick={() => handleActiveLink("/")}
-          >
-            HOME
-          </Link>
-          <Link
-            to="/shop/men"
-            className={activeLink === "/shop/men" ? "active" : ""}
-            onClick={() => handleActiveLink("/shop/men")}
-          >
-            MEN
-          </Link>
-          <Link
-            to="/shop/women"
-            className={activeLink === "/shop/women" ? "active" : ""}
-            onClick={() => handleActiveLink("/shop/women")}
-          >
-            WOMEN
-          </Link>
-          <Link
-            to="/shop/boys"
-            className={activeLink === "/shop/boys" ? "active" : ""}
-            onClick={() => handleActiveLink("/shop/boys")}
-          >
-            BOYS
-          </Link>
-          <Link
-            to="/shop/girls"
-            className={activeLink === "/shop/girls" ? "active" : ""}
-            onClick={() => handleActiveLink("/shop/girls")}
-          >
-            GIRLS
-          </Link>
-          <Link
-            to="/shop"
-            className={activeLink === "/shop" ? "active" : ""}
-            onClick={() => handleActiveLink("/shop")}
-          >
-            NEW CLOSET
-          </Link>
-          <Link
-            to="/faq"
-            className={activeLink === "/faq" ? "active" : ""}
-            onClick={() => handleActiveLink("/faq")}
-          >
-            FAQ
-          </Link>
+          <div className="bottom-navbar">
+            <Link
+              to="/"
+              className={activeLink === "/" ? "active" : ""}
+              onClick={() => handleActiveLink("/")}
+            >
+              HOME
+            </Link>
+            <Link
+              to="/shop/men"
+              className={activeLink === "/shop/men" ? "active" : ""}
+              onClick={() => handleActiveLink("/shop/men")}
+            >
+              MEN
+            </Link>
+            <Link
+              to="/shop/women"
+              className={activeLink === "/shop/women" ? "active" : ""}
+              onClick={() => handleActiveLink("/shop/women")}
+            >
+              WOMEN
+            </Link>
+            <Link
+              to="/shop/boys"
+              className={activeLink === "/shop/boys" ? "active" : ""}
+              onClick={() => handleActiveLink("/shop/boys")}
+            >
+              BOYS
+            </Link>
+            <Link
+              to="/shop/girls"
+              className={activeLink === "/shop/girls" ? "active" : ""}
+              onClick={() => handleActiveLink("/shop/girls")}
+            >
+              GIRLS
+            </Link>
+            <Link
+              to="/shop"
+              className={activeLink === "/shop" ? "active" : ""}
+              onClick={() => handleActiveLink("/shop")}
+            >
+              NEW CLOSET
+            </Link>
+            <Link
+              to="/faq"
+              className={activeLink === "/faq" ? "active" : ""}
+              onClick={() => handleActiveLink("/faq")}
+            >
+              FAQ
+            </Link>
+          </div>
         </div>
       </section>
     </nav>

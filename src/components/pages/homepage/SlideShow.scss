@@ -61,3 +61,21 @@ img {
     font-size: 11px;
   }
 }
+
+@media (max-width: 874px) {
+  .slideshow-section {
+    height: 298px;
+  }
+}
+
+@media (max-width: 504px) {
+  .slideshow-section {
+    height: 248px;
+  }
+}
+
+@media (max-width: 420px) {
+  .slideshow-section {
+    height: 200px;
+  }
+}

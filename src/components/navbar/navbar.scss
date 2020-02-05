@@ -20,6 +20,10 @@
       justify-content: flex-end;
       align-items: center;
 
+      .navbar-collapse {
+        display: none;
+      }
+
       .appname {
         margin-left: 0;
         margin-right: auto;
@@ -42,6 +46,8 @@
         vertical-align: top;
         font-size: large;
         margin-right: 10px;
+        display: flex;
+        align-items: center;
         svg {
           width: 25px;
           height: 25px;
@@ -81,26 +87,105 @@
       width: 70%;
       margin: 0 auto;
       padding: 10px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 10px;
-      a {
-        text-decoration: none;
-        color: #939393;
-        font-size: large;
-        margin-right: 10px;
+      .bottom-navbar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         padding: 10px;
-        &.active {
-          color: #242323;
-          font-weight: 600;
-          border-radius: 5px;
+        a {
+          text-decoration: none;
+          color: #939393;
+          font-size: large;
+          margin-right: 10px;
+          padding: 10px;
+          &.active {
+            color: #242323;
+            font-weight: 600;
+            border-radius: 5px;
+            &:hover {
+              color: #fff;
+            }
+          }
           &:hover {
             color: #fff;
           }
         }
-        &:hover {
-          color: #fff;
+      }
+    }
+  }
+}
+
+@media (max-width: 964px) {
+  .navbar {
+    .navbar-top {
+      .container {
+        .text {
+          &.invisible-on-mobile {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 663px) {
+  .navbar {
+    .navbar-top {
+      .container {
+        width: 90%;
+        .navbar-collapse {
+          display: block !important;
+          font-size: 1.5em;
+          border-radius: 25px;
+          width: 10%;
+          height: 10%;
+          line-height: 1.8em;
+          min-width: 40px;
+          min-height: 40px;
+          color: #242323;
+          background-color: #939393;
+          box-shadow: inset 2px 2px 2px #242323, inset -2px -2px 2px #242323;
+          cursor: pointer;
+          margin-right: 10px;
+        }
+
+        .appname {
+          text-align: left;
+        }
+        a {
+          flex-direction: column;
+          svg {
+            margin-bottom: 2px;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-bottom {
+    .container {
+      padding: 0 !important;
+      .bottom-navbar {
+        display: none !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 490px) {
+  .navbar {
+    .navbar-top {
+      .container {
+        width: 98%;
+        .appname {
+          text-align: left;
+        }
+        a {
+          flex-direction: column;
+          svg {
+            margin-bottom: 2px;
+          }
         }
       }
     }

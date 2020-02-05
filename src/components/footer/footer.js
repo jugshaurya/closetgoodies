@@ -95,6 +95,9 @@ class Footer extends React.Component {
     const { sections } = this.state;
     return (
       <div className="footer-section">
+        <a href="#top" className="backtotop">
+          Back to Top
+        </a>
         <div className="container">
           {sections.map((section, i) => (
             <div className="extra-links" key={100 + i}>

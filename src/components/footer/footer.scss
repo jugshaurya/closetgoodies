@@ -3,7 +3,13 @@
   width: 100%;
   height: auto;
   background-color: #242323;
-
+  padding-top: 20px;
+  .backtotop {
+    color: #939393;
+    &:hover {
+      color: #fff;
+    }
+  }
   .container {
     padding: 10px 30px;
     padding-top: 20px;
@@ -43,8 +49,8 @@
       &.social-links {
         ul {
           display: flex;
-
           flex-direction: row;
+          flex-wrap: wrap;
         }
         a svg {
           width: 25px;
@@ -67,5 +73,46 @@
     color: #939393;
 
     background-color: rgba(31, 40, 51, 0.2);
+  }
+}
+
+@media (max-width: 1000px) {
+  .footer-section {
+    .container {
+      width: 80%;
+    }
+  }
+}
+
+@media (max-width: 799px) {
+  .footer-section {
+    .container {
+      width: 90%;
+      justify-content: space-evenly;
+      .extra-links {
+        width: 24%;
+        margin-top: 20px;
+      }
+    }
+
+    .footer-bottom {
+      font-size: medium;
+    }
+  }
+}
+
+@media (max-width: 526px) {
+  .footer-section {
+    .container {
+      width: 100%;
+      justify-content: space-between;
+      .extra-links {
+        width: 44%;
+      }
+    }
+
+    .footer-bottom {
+      font-size: small;
+    }
   }
 }

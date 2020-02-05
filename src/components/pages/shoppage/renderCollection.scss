@@ -93,3 +93,23 @@
     }
   }
 }
+
+@media (max-width: 945px) {
+  .shoppage-section {
+    .container {
+      width: 80%;
+      .collection {
+        .collection-items {
+          .item {
+            margin: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 663px) {
+  .shoppage-section {
+    padding-top: 6rem;
+  }
+}

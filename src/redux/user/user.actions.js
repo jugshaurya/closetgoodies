@@ -44,6 +44,7 @@ export const googleSignInAsync = () => async dispatch => {
     dispatch(googleSignInFailure(error.message));
   }
 };
+
 // Local Signin
 const localSignInStart = () => ({
   type: userActionTypes.SET_CURRENT_USER_USING_LOCAL_START

@@ -27,12 +27,12 @@ class HomePage extends React.Component {
       {
         img: Home3,
         link: "/shop/boys",
-        name: "Boy"
+        name: "Boys"
       },
       {
         img: Home4,
         link: "/shop/girls",
-        name: "Girl"
+        name: "Girls"
       }
     ]
   };

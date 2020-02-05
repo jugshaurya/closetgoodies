@@ -108,3 +108,11 @@
     }
   }
 }
+
+@media (max-width: 436px) {
+  #cart {
+    .cart-dropdown {
+      top: 5.6em;
+    }
+  }
+}
