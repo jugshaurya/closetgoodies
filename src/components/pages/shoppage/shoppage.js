@@ -6,18 +6,16 @@ import { fetchProductFromStoreAsync } from "../../../redux/data/data.actions";
 
 // HOC Spinner Import
 import pageSpinner from "../../page-spinner/pageSpinner";
-import ShoppageNewCloset from "./shoppageNewCloset";
 import ShoppageSpecific from "./shoppageSpecific";
 import ProductPage from "./productpage";
 
-const ShoppageNewClosetWithSpinner = pageSpinner(ShoppageNewCloset);
 const ShoppageSpecificWithSpinner = pageSpinner(ShoppageSpecific);
 const ProductPageWithSpinner = pageSpinner(ProductPage);
 
 const Shoppage = ({
   match,
   history,
-  isFetching,
+  isFetchingData,
   fetchProductFromStoreAsync
 }) => {
   useEffect(() => {
@@ -29,12 +27,12 @@ const Shoppage = ({
       <Route
         exact
         path={`${match.path}`}
-        render={() => <ShoppageNewClosetWithSpinner isLoading={isFetching} />}
+        render={() => <Redirect to="/shop/new" />}
       />
       <Route
         path={`${match.path}/:collectionName/:title/:itemId`}
         render={props => (
-          <ProductPageWithSpinner isLoading={isFetching} {...props} />
+          <ProductPageWithSpinner isLoading={isFetchingData} {...props} />
         )}
       />
 
@@ -45,7 +43,7 @@ const Shoppage = ({
       <Route
         path={`${match.path}/:collectionName`}
         render={props => (
-          <ShoppageSpecificWithSpinner isLoading={isFetching} {...props} />
+          <ShoppageSpecificWithSpinner isLoading={isFetchingData} {...props} />
         )}
       />
     </Switch>
@@ -57,7 +55,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  isFetching: state.data.isFetching
+  isFetchingData: state.data.isFetchingData
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Shoppage);

@@ -3,7 +3,7 @@ import dataActionTypes from "./data.types";
 
 // Async Action Creators
 // ======================
-const fetchProductFromStoreStart = products => ({
+const fetchProductFromStoreStart = () => ({
   type: dataActionTypes.FETCH_PRODUCTS_FROM_FIRESTORE_START
 });
 
@@ -20,26 +20,20 @@ const fetchProductFromStoreFailure = error => ({
 export const fetchProductFromStoreAsync = () => {
   return dispatch => {
     dispatch(fetchProductFromStoreStart());
-    const collectionRef = firestore.collection("products");
+    const collectionRef = firestore.collection("data");
     collectionRef
       .get()
       .then(collectionSnapshot => {
         const docSnapshot = collectionSnapshot.docs;
-        const dataArray = docSnapshot.map(doc => ({
+        const data = docSnapshot.map(doc => ({
           id: doc.id,
           ...doc.data()
         }));
 
-        const products = dataArray.reduce((acc, product) => {
-          acc[product.title.toLowerCase()] = product;
-          return acc;
-        }, {});
-
-        dispatch(fetchProductFromStoreSuccess(products));
+        dispatch(fetchProductFromStoreSuccess(data[0]));
       })
       .catch(error => {
         dispatch(fetchProductFromStoreFailure(error.message));
       });
   };
 };
-// ==========================================================

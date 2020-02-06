@@ -257,6 +257,53 @@ const SHOP_DATA = {
       title: "watches",
       items: getItems(10, "watch")
     }
+  ],
+  new: [
+    {
+      id: "new-shoes",
+      title: "Shoes",
+      items: getItems(10, "shoe")
+    },
+    {
+      id: "new-socks",
+      title: "Socks",
+      items: getItems(10, "sock")
+    },
+    {
+      id: "new-jeans",
+      title: "Jeans",
+      items: getItems(10, "jean")
+    },
+    {
+      id: "new-trousers",
+      title: "trousers",
+      items: getItems(10, "trouser")
+    },
+    {
+      id: "new-jackets",
+      title: "Jackets",
+      items: getItems(10, "jacket")
+    },
+    {
+      id: "new-hats",
+      title: "Hats",
+      items: getItems(10, "hat")
+    },
+    {
+      id: "new-shirt",
+      title: "Shirt",
+      items: getItems(10, "shirt")
+    },
+    {
+      id: "new-tshirt",
+      title: "T-shirt",
+      items: getItems(10, "t-shirt")
+    },
+    {
+      id: "new-watches",
+      title: "watches",
+      items: getItems(10, "watch")
+    }
   ]
 };
 

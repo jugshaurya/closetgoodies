@@ -1,25 +1,21 @@
 import React, { Component } from "react";
-
 import { addShopDataToFirestore } from "../helpers.firebase";
-import SHOP_DATA from "./shop.data.js";
-// const fs = require("fs");
+
+// import data file of which data you want to import to firebase
+import ACTUAL_DATA from "./actual.data.js";
+
 class AddDataToFirebase extends Component {
   getData = () => {
-    console.log(SHOP_DATA);
-    const objectKeys = Object.keys(SHOP_DATA);
-    const result = objectKeys.reduce((accu, item) => {
-      return [...accu, { [item]: SHOP_DATA[item] }];
-    }, []);
-    console.log(result);
-    return result;
+    console.log(ACTUAL_DATA);
+    return ACTUAL_DATA;
   };
 
   componentDidMount() {
-    addShopDataToFirestore("products", this.getData());
+    addShopDataToFirestore("data", this.getData());
   }
 
   render() {
-    return <h1>Add please</h1>;
+    return null;
   }
 }
 

@@ -2,20 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import RenderCollection from "./renderCollection";
 
-import SHOPDATA from "../../../firebase/addDataHelper/shop.data";
-
 const ShopPageSpecific = props => {
   const { collectionName } = props.match.params;
-  // const { products } = props; // later
-  const products = SHOPDATA;
-  const collection = products ? products[collectionName] : null;
+  const DATA = props.data;
+  const collection = DATA ? DATA[collectionName] : null;
   return (
     <RenderCollection collection={collection} collectionName={collectionName} />
   );
 };
 
 const mapStateToProps = state => ({
-  products: state.data.products
+  data: state.data.data
 });
 
 export default connect(mapStateToProps)(ShopPageSpecific);

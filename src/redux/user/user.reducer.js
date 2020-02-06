@@ -115,7 +115,21 @@ const userReducer = (state = INITIAL_STATE, action) => {
     case userActionTypes.SIGNOUT_USER_SUCCESS:
       return {
         ...state,
-        currentUser: null
+        // reset everything
+        currentUser: null,
+        checkError: null,
+
+        signinError: null,
+        successSigninMessage: null,
+        isSigning: false,
+
+        signupError: null,
+        successSignupMessage: null,
+        isSignuping: false,
+
+        signinGoogleError: null,
+        successSigninGoogleMessage: null,
+        isSigningGoogle: false
       };
 
     case userActionTypes.SIGNOUT_USER_FAILURE:

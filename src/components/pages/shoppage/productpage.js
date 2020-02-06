@@ -2,25 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 import { addToCart } from "../../../redux/cart/cart.actions";
 
-import SHOPDATA from "../../../firebase/addDataHelper/shop.data";
-import NEW_CLOSET_DATA from "../../../firebase/addDataHelper/newCloset.data";
-
 import "./productpage.scss";
 
-const getItemFromURL = (SHOPDATA, collectionName, title, itemId) => {
-  const DATA = collectionName === "new" ? NEW_CLOSET_DATA : SHOPDATA;
-  const collections = DATA[collectionName];
+const getItemFromURL = (data, collectionName, title, itemId) => {
+  const collections = data[collectionName];
   if (!collections) return null;
 
-  const product = collections.filter(
-    product => product.title.toLowerCase() === title
+  const collection = collections.filter(
+    collection => collection.title.toLowerCase() === title
   )[0];
-  if (!product) return null;
+  if (!collection) return null;
 
-  const productItems = product["items"];
-  if (!productItems) return null;
+  const collectionItems = collection["items"];
+  if (!collectionItems) return null;
 
-  const itemArray = productItems.filter(item => String(item.id) === itemId);
+  const itemArray = collectionItems.filter(item => String(item.id) === itemId);
   if (itemArray.length === 0) return null;
   return itemArray[0];
 };
@@ -31,10 +27,7 @@ const throwError = () => {
 
 const ProductPage = props => {
   const { collectionName, title, itemId } = props.match.params;
-  const item = SHOPDATA
-    ? getItemFromURL(SHOPDATA, collectionName, title, itemId)
-    : null;
-  console.log(item);
+  const item = getItemFromURL(props.data, collectionName, title, itemId);
   return item ? (
     <div id="productpage-section">
       <div className="container">
@@ -103,7 +96,7 @@ const ProductPage = props => {
 };
 
 const mapStateToProps = state => ({
-  products: state.data.products
+  data: state.data.data
 });
 
 const mapDispatchToProps = dispatch => ({

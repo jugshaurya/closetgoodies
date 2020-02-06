@@ -59,24 +59,17 @@ export const addToFirestore = async (user, additionalData) => {
 
 // Helper function to add bunch of data in firestore
 // =================================================
-
 // @collectionName - table to which data is required to insert
-// @collectionData - data to add , type : array of objects
+// @collectionData - data to add.
 
 export const addShopDataToFirestore = async (
   collectionName,
   collectionData
 ) => {
   const collectionRef = firestore.collection(collectionName);
-  const batch = firestore.batch();
-  collectionData.forEach(obj => {
-    const newDocRef = collectionRef.doc(); // will generate a unique id
-    batch.set(newDocRef, obj);
-  });
-
-  // fireoff-batch to add data to Firestore
+  const newDocRef = collectionRef.doc();
   console.log("Pending...");
-  await batch.commit();
+  await newDocRef.set(collectionData);
   console.log("DONE!!!");
 };
 

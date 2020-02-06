@@ -21,7 +21,6 @@ class Cart extends React.Component {
   render() {
     const { cartCount, cartItems, history } = this.props;
     const { width } = this.state;
-    console.log(cartItems);
     return (
       <div id="cart">
         <div
