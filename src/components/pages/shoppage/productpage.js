@@ -3,10 +3,13 @@ import { connect } from "react-redux";
 import { addToCart } from "../../../redux/cart/cart.actions";
 
 import SHOPDATA from "../../../firebase/addDataHelper/shop.data";
+import NEW_CLOSET_DATA from "../../../firebase/addDataHelper/newCloset.data";
+
 import "./productpage.scss";
 
 const getItemFromURL = (SHOPDATA, collectionName, title, itemId) => {
-  const collections = SHOPDATA[collectionName];
+  const DATA = collectionName === "new" ? NEW_CLOSET_DATA : SHOPDATA;
+  const collections = DATA[collectionName];
   if (!collections) return null;
 
   const product = collections.filter(
@@ -28,7 +31,6 @@ const throwError = () => {
 
 const ProductPage = props => {
   const { collectionName, title, itemId } = props.match.params;
-  // const { products } = props; // later
   const item = SHOPDATA
     ? getItemFromURL(SHOPDATA, collectionName, title, itemId)
     : null;
@@ -49,13 +51,12 @@ const ProductPage = props => {
           </div>
           <div className="middle">
             <div className="middle-left">
-              <img src={item.imageUrl} alt="product" />
+              <img src={item.imageURL} alt="product" />
               <div className="text">
-                <span>We Made Fits Fitter </span>: We did a complete body
-                measurement to create a range of smarter and perfect fits 5
-                sizes in India We did a revised study in 2017 and introduced a
-                seventh size Right fit is priceless and we want the perfect for
-                everyone.
+                <span>We Made Fits Fitter </span>: we did a complete body
+                measurement to create a range of smarter and perfect fits for 5
+                sizes. We did a revised study in 2017 and introduced a sixth
+                size right fit because we want the perfect fit for everyone.
               </div>
             </div>
 

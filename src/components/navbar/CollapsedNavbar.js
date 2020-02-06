@@ -1,10 +1,10 @@
 import React from "react";
 
 import "./CollapsedNavbar.scss";
+import { Link } from "react-router-dom";
 const CollapsedNavbar = ({ showNavbar, height }) => {
   return (
     <div
-      id="myNav"
       id="overlay"
       style={{ height, overflow: height === "0%" ? "hidden" : "visible" }}
     >
@@ -13,13 +13,13 @@ const CollapsedNavbar = ({ showNavbar, height }) => {
       </span>
 
       <div className="overlay-content" onClick={() => showNavbar(false)}>
-        <a href="/">HOME</a>
-        <a href="/shop/men">MEN</a>
-        <a href="/shop/women">WOMEN</a>
-        <a href="/shop/boys">BOYS</a>
-        <a href="/shop/girls">GIRLS</a>
-        <a href="/shop">NEW CLOSET</a>
-        <a href="/faq">FAQ</a>
+        <Link to="/">HOME</Link>
+        <Link to="/shop/men">MEN</Link>
+        <Link to="/shop/women">WOMEN</Link>
+        <Link to="/shop/boys">BOYS</Link>
+        <Link to="/shop/girls">GIRLS</Link>
+        <Link to="/shop">NEW CLOSET</Link>
+        <Link to="/faq">FAQ</Link>
       </div>
     </div>
   );

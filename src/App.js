@@ -9,6 +9,7 @@ import Shoppage from "./components/pages/shoppage/shoppage";
 import Signin from "./components/pages/sign-in/signin";
 import Signup from "./components/pages/sign-up/signup";
 import Checkout from "./components/pages/checkoutpage/checkout";
+import Profile from "./components/pages/profile/profile";
 import Footer from "./components/footer/footer";
 import Errorboundary from "./components/ErrorBoundary";
 
@@ -31,6 +32,10 @@ const App = ({ checkUserAsync, currentUser }) => {
           <Route exact path="/signup">
             {currentUser ? <Redirect to="/" /> : <Signup />}
           </Route>
+          <Route exact path="/profile">
+            {!currentUser ? <Redirect to="/" /> : <Profile />}
+          </Route>
+
           <Route path="/shop" component={Shoppage} />
           <Route path="/" component={HomePage} />
         </Switch>

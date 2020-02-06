@@ -8,7 +8,7 @@
   color: #2f3345;
   word-break: keep-all;
   text-align: center;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 /* width */

@@ -57,7 +57,7 @@ const CheckoutPage = props => {
                 {cartItems.map(item => (
                   <tr key={item.id}>
                     <td>
-                      <img src={item.imageUrl} alt="cart-item-pic" />
+                      <img src={item.imageURL} alt="cart-item-pic" />
                     </td>
                     <td>{item.name}</td>
                     <td>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 // action Creators
 import { fetchProductFromStoreAsync } from "../../../redux/data/data.actions";
@@ -14,7 +14,12 @@ const ShoppageNewClosetWithSpinner = pageSpinner(ShoppageNewCloset);
 const ShoppageSpecificWithSpinner = pageSpinner(ShoppageSpecific);
 const ProductPageWithSpinner = pageSpinner(ProductPage);
 
-const Shoppage = ({ match, isFetching, fetchProductFromStoreAsync }) => {
+const Shoppage = ({
+  match,
+  history,
+  isFetching,
+  fetchProductFromStoreAsync
+}) => {
   useEffect(() => {
     fetchProductFromStoreAsync();
   }, [fetchProductFromStoreAsync]);
@@ -33,6 +38,10 @@ const Shoppage = ({ match, isFetching, fetchProductFromStoreAsync }) => {
         )}
       />
 
+      <Route
+        path={`${match.path}/:collectionName/:title`}
+        render={() => <Redirect to="/shop" />}
+      />
       <Route
         path={`${match.path}/:collectionName`}
         render={props => (

@@ -1,0 +1,198 @@
+.profile {
+  width: 98vw;
+  padding: 0;
+  margin: 0;
+  padding-top: 11rem;
+  min-height: 78vh;
+
+  .container {
+    width: 70%;
+    margin: 0 auto;
+
+    .heading {
+      text-align: center;
+      h2 {
+        font-family: "Sarina", "cursive";
+        font-size: xx-large;
+        margin-bottom: 10px;
+      }
+    }
+    .additional {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 8vh;
+      margin-bottom: 2vh;
+
+      .left {
+        width: 45%;
+        padding: 10px 40px;
+        .profile-card {
+          width: 100%;
+          border: 5px double #101011;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          overflow: hidden;
+          img {
+            width: 200px;
+            border-radius: 50%;
+            width: 200px;
+          }
+
+          .text {
+            margin-top: 20px;
+            span {
+              font-size: larger;
+              color: #101011;
+              text-transform: capitalize;
+              color: #f56618;
+              display: block;
+            }
+          }
+        }
+      }
+
+      .right {
+        margin-left: 3%;
+        border: 5px double #101011;
+        width: 60%;
+        padding: 10px 20px;
+        .head {
+          h4 {
+            font-size: x-large;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: left;
+          }
+          p {
+            text-align: left;
+            color: purple;
+            text-transform: capitalize;
+            font-size: larger;
+          }
+          padding: 20px;
+        }
+        form {
+          border-top: 5px double #101011;
+          padding: 20px;
+          display: flex;
+          flex-wrap: wrap;
+
+          .form-group {
+            width: 100%;
+            margin: 20px 0;
+            text-align: left;
+
+            label {
+              font-weight: 600;
+              font-size: large;
+              text-align: left;
+              display: block;
+              margin-bottom: 20px;
+
+              span.required {
+                color: salmon;
+              }
+            }
+
+            input {
+              width: 100%;
+              text-align: left;
+              margin-top: 10px;
+              margin-bottom: 10px;
+              padding: 10px 20px;
+              font-size: medium;
+              border-radius: 5px;
+              border: 3px double #101011;
+              &:focus {
+                background: #ddd;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1075px) {
+  .profile {
+    .container {
+      .additional {
+        margin-top: 2vh;
+        flex-direction: column;
+        .left,
+        .right {
+          width: 80%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 663px) {
+  .profile {
+    padding-top: 6rem;
+    .container {
+      .additional {
+        margin-top: 2vh;
+        flex-direction: column;
+        .left,
+        .right {
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .profile {
+    .container {
+      .additional {
+        margin-top: 2vh;
+        flex-direction: column;
+        .left {
+          padding: 0;
+          margin-bottom: 20px;
+          .profile-card {
+            img {
+              width: 100px;
+              height: 100px;
+            }
+          }
+        }
+        .right {
+          padding: 10px 10px;
+          .head {
+            h4,
+            p {
+              font-size: medium;
+            }
+          }
+
+          form {
+            padding: 10px;
+            .form-group {
+              label {
+                padding: 0px;
+              }
+
+              input {
+                margin: 0;
+                font-size: small;
+                padding: 10px;
+                overflow: scroll;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 .homepage {
   overflow-x: hidden;
-  width: 100vw;
+  width: 98vw;
   padding: 0;
   margin: 0;
   padding-top: 11rem;
@@ -126,7 +126,7 @@
 
 @media (max-width: 971px) {
   .homepage {
-    padding-top: 8rem;
+    padding-top: 12rem;
     .container {
       .homepage-sections {
         .homepage-section {
@@ -171,6 +171,8 @@
 
 @media (max-width: 695px) {
   .homepage {
+    padding-top: 6rem;
+
     .container {
       width: 90%;
     }

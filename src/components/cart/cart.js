@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -32,9 +31,9 @@ class Cart extends React.Component {
           }}
         >
           <div className="cart-dropdown-heading">
-            <Link to="#" className="closebtn" onClick={this.closeCart}>
+            <div className="closebtn" onClick={this.closeCart}>
               &#9874;
-            </Link>
+            </div>
             <div className="heading">Cart</div>
           </div>
           <div className="cart-dropdown-body">

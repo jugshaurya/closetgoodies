@@ -35,7 +35,7 @@ const RenderCollection = props => {
 
                   <div className="image">
                     <img
-                      src={item.imageUrl}
+                      src={item.imageURL}
                       alt="itempic"
                       onClick={() =>
                         history.push(

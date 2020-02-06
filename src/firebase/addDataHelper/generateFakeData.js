@@ -61,7 +61,7 @@ const getItems = (howMany, name) => {
     arrayToFill[i] = {
       id: idCount + i,
       name: getrandomName(name),
-      imageUrl: `https://picsum.photos/id/${idCount + i}/200/300`,
+      imageURL: `https://picsum.photos/id/${idCount + i}/200/300`,
       price: getRandomPrice()
     };
   }

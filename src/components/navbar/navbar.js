@@ -13,10 +13,10 @@ import Cart from "../cart/cart.js";
 import "./navbar.scss";
 import { ReactComponent as MockUser } from "../../assets/mockuser.svg";
 
-const UserProfile = ({ user, signoutUserAsync }) => {
+const UserProfile = ({ user, signoutUserAsync, history }) => {
   const [show, setShow] = useState(false);
   return (
-    <div className="userProfile">
+    <div className="userProfile" onClick={() => history.push("/profile")}>
       <div className="username" onClick={() => setShow(!show)}>
         {user.displayName} <span>&#9663;</span>
       </div>
@@ -32,7 +32,7 @@ const UserProfile = ({ user, signoutUserAsync }) => {
 };
 
 const Navbar = props => {
-  const { currentUser, signoutUserAsync, location } = props;
+  const { currentUser, signoutUserAsync, location, history } = props;
   const [activeLink, setActiveLink] = useState(`${location.pathname}`);
   const [collapsedProps, setCollapsedProps] = useState({
     isCollapsedNavOpen: false,
@@ -51,7 +51,10 @@ const Navbar = props => {
     setCollapsedProps(obj);
   };
 
-  console.log(currentUser);
+  if (location.pathname !== activeLink) {
+    setActiveLink(location.pathname);
+  }
+
   return (
     <nav className="navbar">
       <section className="navbar-top">
@@ -63,12 +66,15 @@ const Navbar = props => {
             showNavbar={showNavbar}
             height={`${collapsedProps.height}%`}
           />
-          <div className="appname">Cloth Goodies</div>
+          <div className="appname" onClick={() => history.push("/")}>
+            Cloth Goodies
+          </div>
           {currentUser ? (
             <Link to="#">
               <UserProfile
                 user={currentUser}
                 signoutUserAsync={signoutUserAsync}
+                history={history}
               />
             </Link>
           ) : (

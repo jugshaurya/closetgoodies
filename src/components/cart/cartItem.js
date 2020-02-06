@@ -11,12 +11,12 @@ import {
 import "./cartItem.scss";
 
 const CartItem = props => {
-  const { imageUrl, name, quantity, price } = props.item;
+  const { imageURL, name, quantity, price } = props.item;
   const { addToCart, decreaseCartItemCount, deleteFromCart } = props;
   return (
     <div className="cart-item">
       <div className="product-img">
-        <img src={imageUrl} alt="product" />
+        <img src={imageURL} alt="product" />
       </div>
       <div className="property">
         <div className="name">{name}</div>

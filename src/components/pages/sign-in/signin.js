@@ -9,6 +9,7 @@ import {
 
 // Style Import
 import { ReactComponent as Mockuser } from "../../../assets/mockuser.svg";
+import { ReactComponent as Spinner } from "../../../assets/spinner.svg";
 import "./signin.scss";
 
 const SignIn = props => {
@@ -112,7 +113,7 @@ const SignIn = props => {
 
               {isSigning ? (
                 <button className="form-button" type="button" disabled>
-                  Load
+                  <Spinner />
                 </button>
               ) : (
                 <button className="form-button" type="submit">
@@ -127,7 +128,7 @@ const SignIn = props => {
                   className="form-button googlebtn"
                   disabled
                 >
-                  Load
+                  <Spinner />
                 </button>
               ) : (
                 <button

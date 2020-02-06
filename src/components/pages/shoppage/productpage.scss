@@ -1,5 +1,5 @@
 #productpage-section {
-  width: 100vw;
+  width: 98vw;
   padding: 0;
   margin: 0;
   padding-top: 11rem;
@@ -9,7 +9,7 @@
       font-family: monospace;
     }
     width: 70%;
-    min-height: 70vh;
+    min-height: 63vh;
     margin: 0 auto;
     border: 3px double #111;
     margin-bottom: 20px;
@@ -34,6 +34,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        background: antiquewhite;
 
         .middle-left {
           width: 40%;
@@ -48,6 +49,7 @@
             text-align: left;
             text-transform: initial;
             font-size: larger;
+            font-family: monospace;
             span {
               color: #f56618;
               font-weight: 600;

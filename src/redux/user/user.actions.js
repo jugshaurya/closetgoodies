@@ -29,15 +29,17 @@ export const googleSignInAsync = () => async dispatch => {
   dispatch(googleSignInStart());
   try {
     const { user } = await SignInWithGoogle();
-    const userDocRef = await addToFirestore(user);
+    console.log(user);
+
+    const userDocRef = await addToFirestore(user, { imageURL: user.photoURL });
     const snapshot = await userDocRef.get();
-    const { displayName, email, photoURL } = snapshot.data();
+    const { displayName, email, imageURL } = snapshot.data();
     dispatch(
       googleSignInSuccess({
         id: snapshot.id,
         displayName,
         email,
-        photoURL
+        imageURL
       })
     );
   } catch (error) {
@@ -60,19 +62,20 @@ const localSignInFailure = error => ({
   payload: error
 });
 
-export const localSignInAsync = (email, password) => async dispatch => {
+export const localSignInAsync = (emailInp, password) => async dispatch => {
   dispatch(localSignInStart());
   try {
-    const { user } = await auth.signInWithEmailAndPassword(email, password);
+    const { user } = await auth.signInWithEmailAndPassword(emailInp, password);
     const userDocRef = await addToFirestore(user);
     const snapshot = await userDocRef.get();
-    const { displayName, emailResult, photoURL } = snapshot.data();
+    console.log(snapshot.data());
+    const { displayName, email, imageURL } = snapshot.data();
     dispatch(
       localSignInSuccess({
         id: snapshot.id,
         displayName,
-        email: emailResult,
-        photoURL
+        email,
+        imageURL: imageURL
       })
     );
   } catch (error) {
@@ -106,13 +109,13 @@ export const createUserAsync = (
     if (password !== confirmPassword) throw new Error("Password Don't Match");
     const { user } = await auth.createUserWithEmailAndPassword(email, password);
     // update user to include displayname anda default photo
-    const photoURL = `https://api.adorable.io/avatars/285/${email}.png`;
+    const imageURL = `https://i.pravatar.cc/150?u=${email}@pravatar.com`;
     await user.updateProfile({
       displayName,
-      photoURL
+      imageURL
     });
 
-    await addToFirestore(user, { displayName, photoURL });
+    await addToFirestore(user, { displayName, imageURL });
     dispatch(createUserSuccess());
   } catch (error) {
     dispatch(createUserFailure(error.message));
@@ -141,11 +144,13 @@ export const checkUserAsync = () => dispatch => {
   const authSubscription = auth.onAuthStateChanged(
     user => {
       if (user) {
+        console.log(user);
         dispatch(
           checkUserSuccess({
             id: user.uid,
             displayName: user.displayName,
-            email: user.email
+            email: user.email,
+            imageURL: user.imageURL || user.photoURL
           })
         );
       } else {

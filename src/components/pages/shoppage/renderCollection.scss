@@ -1,5 +1,5 @@
 .shoppage-section {
-  width: 100vw;
+  width: 98vw;
   padding: 0;
   margin: 0;
   padding-top: 11rem;
@@ -32,6 +32,7 @@
         background-color: #ddd;
         margin-bottom: 20px;
         border-bottom: 3px solid #2f3345;
+        border-radius: 5px;
       }
       .collection-items {
         display: flex;
@@ -70,6 +71,8 @@
             background-size: cover;
             margin-bottom: 10px;
             img {
+              width: 100%;
+              height: 100%;
               &:hover {
                 transform: scale(1.2);
                 transition: all 1s;
@@ -94,14 +97,14 @@
   }
 }
 
-@media (max-width: 945px) {
+@media (max-width: 1260px) {
   .shoppage-section {
     .container {
       width: 80%;
       .collection {
         .collection-items {
           .item {
-            margin: 20px;
+            margin: 10px;
           }
         }
       }
@@ -111,5 +114,41 @@
 @media (max-width: 663px) {
   .shoppage-section {
     padding-top: 6rem;
+  }
+}
+@media (max-width: 554px) {
+  .shoppage-section {
+    padding-top: 6rem;
+    .container {
+      width: 90%;
+      .collection {
+        .collection-items {
+          .item {
+            margin: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 489px) {
+  .shoppage-section {
+    .container {
+      .section-name {
+        margin-bottom: 30px;
+      }
+      .collection {
+        .collection-items {
+          .item {
+            margin: 10px;
+            .image {
+              height: 350px;
+              width: 250px;
+            }
+          }
+        }
+      }
+    }
   }
 }

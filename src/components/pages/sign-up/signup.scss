@@ -1,13 +1,14 @@
 .signup {
-  width: 100vw;
+  width: 98vw;
   padding: 0;
   margin: 0;
   padding-top: 11rem;
-  min-height: 90vh;
+  min-height: 78vh;
 
   .container {
     width: 70%;
     margin: 0 auto;
+    margin-bottom: 2vh;
 
     .heading {
       text-align: center;
@@ -65,7 +66,7 @@
           flex-wrap: wrap;
 
           .form-group {
-            width: 50%;
+            width: 47%;
             margin: 10px 0;
             text-align: left;
 
@@ -73,7 +74,7 @@
               font-weight: 600;
               font-size: large;
               text-align: left;
-
+              display: block;
               span.required {
                 color: salmon;
               }
@@ -139,15 +140,95 @@
             line-height: 50px;
             padding: 0 35px 0 35px;
             font-size: 15px;
-            background-color: black;
-            color: white;
+            background-color: white;
+            color: black;
             text-transform: uppercase;
             cursor: pointer;
             font-family: "monospace";
+            border: 2px double black;
             &:hover {
-              background-color: white;
-              color: black;
-              border: 1px double black;
+              background-color: black;
+              color: white;
+            }
+            svg {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1428px) {
+  .signup {
+    .container {
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: 1075px) {
+  .signup {
+    .container {
+      width: 90%;
+
+      .heading {
+        display: none;
+      }
+      .additional {
+        margin-top: 5vh;
+        .right {
+          form {
+            flex-direction: column;
+            .form-group {
+              width: 100%;
+              label {
+                width: 100%;
+              }
+              input {
+                width: 100%;
+              }
+            }
+            .form-button {
+              width: fit-content;
+              &.googlebtn {
+                margin-left: 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 663px) {
+  .signup {
+    padding-top: 6.6rem;
+    .container {
+      width: 90%;
+
+      .additional {
+        flex-direction: column;
+        .left {
+          display: none;
+        }
+        .right {
+          width: 95%;
+          form {
+            span.error {
+              .alert {
+                padding: 10px;
+              }
+            }
+            .form-button {
+              &.googlebtn {
+                font-size: small;
+                padding-left: 10px;
+                padding-right: 10px;
+              }
             }
           }
         }

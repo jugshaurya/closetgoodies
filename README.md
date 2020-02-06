@@ -74,7 +74,7 @@ An E-Commerce Website build in REACT
 #939393
 #717171
 #242323
-#purple
+purple
 #f56618
 ```
 

@@ -6,6 +6,8 @@ import { createUserAsync } from "../../../redux/user/user.actions";
 
 // CSS Import
 import { ReactComponent as Mockuser } from "../../../assets/mockuser.svg";
+import { ReactComponent as Spinner } from "../../../assets/spinner.svg";
+
 import "./signup.scss";
 
 const SignUp = ({
@@ -133,7 +135,7 @@ const SignUp = ({
 
                 {isSignuping ? (
                   <button className="form-button" type="button" disabled>
-                    Load
+                    <Spinner />
                   </button>
                 ) : (
                   <button className="form-button" type="submit">

@@ -7,12 +7,12 @@ import NEW_CLOSET_DATA from "../../../firebase/addDataHelper/newCloset.data";
 const ShopPageNewCloset = props => {
   // const { products } = props;
   const products = NEW_CLOSET_DATA;
-  const collection = products["New Closet"];
+  const collection = products["new"];
   return (
     <RenderCollection
       key={collection.id}
       collection={collection}
-      collectionName={"New"}
+      collectionName={"new"}
     />
   );
 };
