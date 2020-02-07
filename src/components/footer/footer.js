@@ -108,7 +108,7 @@ class Footer extends React.Component {
                     {section.title === "Contacts >>" ? (
                       <a href={section.links[i]}>{value}</a>
                     ) : (
-                      <Link to={section.links ? section.links[i] : "#"}>
+                      <Link to={section.links ? section.links[i] : null}>
                         {value}
                       </Link>
                     )}

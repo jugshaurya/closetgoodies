@@ -26,7 +26,7 @@ const CheckoutPage = props => {
   } = props;
 
   const onToken = token => {
-    console.log("Payment Token for charges", token);
+    // console.log("Payment Token for charges", token);
     alert("Thank you for the Payment!");
   };
 

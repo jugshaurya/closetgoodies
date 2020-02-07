@@ -26,9 +26,7 @@ class ErrorBoundary extends React.Component {
   }
 
   // to log error information
-  componentDidCatch(error, info) {
-    console.log("saf", error, info);
-  }
+  componentDidCatch(error, info) {}
 
   render() {
     return this.state.hasError ? (
@@ -45,7 +43,7 @@ class ErrorBoundary extends React.Component {
         <img
           src={Image404}
           alt="404"
-          style={{ width: "100%", height: "100%" }}
+          style={{ width: "60%", height: "70%", borderRadius: "5px" }}
         />
       </div>
     ) : (

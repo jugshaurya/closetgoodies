@@ -29,7 +29,6 @@ export const googleSignInAsync = () => async dispatch => {
   dispatch(googleSignInStart());
   try {
     const { user } = await SignInWithGoogle();
-    console.log(user);
 
     const userDocRef = await addToFirestore(user, { imageURL: user.photoURL });
     const snapshot = await userDocRef.get();
@@ -70,7 +69,6 @@ export const localSignInAsync = (emailInp, password) => async dispatch => {
     const { user } = await auth.signInWithEmailAndPassword(emailInp, password);
     const userDocRef = await addToFirestore(user);
     const snapshot = await userDocRef.get();
-    console.log(snapshot.data());
     const { displayName, email, imageURL } = snapshot.data();
     dispatch(
       localSignInSuccess({
@@ -148,7 +146,6 @@ export const checkUserAsync = () => dispatch => {
   const authSubscription = auth.onAuthStateChanged(
     user => {
       if (user) {
-        console.log(user);
         dispatch(
           checkUserSuccess({
             id: user.uid,

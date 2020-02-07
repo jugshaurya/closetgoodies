@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import "./profile.scss";
 
 const Profile = ({ currentUser }) => {
-  console.log(currentUser);
   return (
     <div className="profile">
       <div className="container">

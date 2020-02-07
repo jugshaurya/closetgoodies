@@ -326,6 +326,6 @@ fs.writeFile(
     "\nexport default SHOP_DATA",
   "utf-8",
   err => {
-    console.log(err);
+    console.error(err);
   }
 );

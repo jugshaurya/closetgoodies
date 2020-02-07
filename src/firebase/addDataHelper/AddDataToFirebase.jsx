@@ -6,7 +6,6 @@ import ACTUAL_DATA from "./actual.data.js";
 
 class AddDataToFirebase extends Component {
   getData = () => {
-    console.log(ACTUAL_DATA);
     return ACTUAL_DATA;
   };
 

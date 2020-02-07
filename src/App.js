@@ -48,6 +48,8 @@ const App = ({ checkUserAsync, currentUser, setCartItemsFromLocalStorage }) => {
           </Route>
 
           <Route path="/shop" component={Shoppage} />
+          <Route path="/faq" component={HomePage} />
+          <Route path="/contact" component={HomePage} />
           <Route exact path="/" component={HomePage} />
           <Route path="/" render={throwError} />
         </Switch>

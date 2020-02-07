@@ -26,9 +26,10 @@ const Shoppage = ({
     <Switch>
       <Route
         exact
-        path={`${match.path}`}
+        path={`${match.path}`} // for /shop/
         render={() => <Redirect to="/shop/new" />}
       />
+      <Route exact path={"/shop"} render={() => <Redirect to="/shop/new" />} />
       <Route
         path={`${match.path}/:collectionName/:title/:itemId`}
         render={props => (

@@ -51,7 +51,7 @@ export const addToFirestore = async (user, additionalData) => {
       ...additionalData
     });
   } catch (err) {
-    console.log("Error Creating a User", err.message);
+    console.error("Error Creating a User", err.message);
   }
 
   return userDocRef;

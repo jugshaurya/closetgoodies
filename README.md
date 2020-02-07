@@ -103,3 +103,20 @@ purple
 - flaticons.com
   - Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 - unsplash.com
+
+### wanna Clone it?
+
+- git clone {this repo}
+- yarn
+- firebase init (select firestore and hosting)
+- firebase deploy
+
+### Deployment
+
+- https://www.robinwieruch.de/firebase-deploy-react-js
+
+## Deploy again (Notes for Shaurya)
+
+- make changes
+- yarn build
+- firebase deploy
