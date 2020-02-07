@@ -22,11 +22,14 @@ const getItemFromURL = (data, collectionName, title, itemId) => {
 };
 
 const throwError = () => {
-  if (2 === 1 + 1) throw Error("404 - Page Not Found");
+  throw Error("404 - Page Not Found");
 };
 
 const ProductPage = props => {
   const { collectionName, title, itemId } = props.match.params;
+  if (!props.data) {
+    return <></>;
+  }
   const item = getItemFromURL(props.data, collectionName, title, itemId);
   return item ? (
     <div id="productpage-section">

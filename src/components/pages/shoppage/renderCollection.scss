@@ -1,5 +1,5 @@
 .shoppage-section {
-  width: 98vw;
+  width: 100%;
   padding: 0;
   margin: 0;
   padding-top: 11rem;
@@ -13,7 +13,7 @@
       width: 100%;
       font-size: xx-large;
       font-weight: 600;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
       text-transform: capitalize;
       span {
         color: #f56618;
@@ -111,20 +111,36 @@
     }
   }
 }
+
 @media (max-width: 663px) {
   .shoppage-section {
-    padding-top: 8rem;
+    padding-top: 6rem;
+    .container {
+      .collection {
+        .collection-items {
+          .item {
+            .image {
+              height: 210px;
+              width: 170px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 @media (max-width: 554px) {
   .shoppage-section {
-    padding-top: 8rem;
     .container {
       width: 90%;
       .collection {
         .collection-items {
           .item {
             margin: 10px;
+            .image {
+              height: 179px;
+              width: 143px;
+            }
           }
         }
       }
@@ -136,15 +152,22 @@
   .shoppage-section {
     .container {
       .section-name {
-        margin-bottom: 30px;
+        margin-bottom: 10px;
+        font-size: large;
       }
       .collection {
+        .collection-header {
+          font-size: large;
+          padding: 10px;
+        }
         .collection-items {
+          justify-content: center;
           .item {
+            width: 40%;
             margin: 10px;
             .image {
-              height: 350px;
-              width: 250px;
+              height: 179px;
+              width: 143px;
             }
           }
         }

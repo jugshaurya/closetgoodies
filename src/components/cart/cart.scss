@@ -110,10 +110,28 @@
   }
 }
 
-@media (max-width: 436px) {
+// height responsive
+@media (max-height: 842px) {
   #cart {
     .cart-dropdown {
-      top: 5.6em;
+      background-color: #242323;
+      top: 4.3em;
+      .cart-dropdown-body {
+        min-height: 66vh;
+        max-height: 58vh;
+      }
+    }
+  }
+}
+
+@media (max-height: 602px) {
+  #cart {
+    .cart-dropdown {
+      top: 4.3em;
+      .cart-dropdown-body {
+        min-height: 65.5vh;
+        max-height: 65vh;
+      }
     }
   }
 }

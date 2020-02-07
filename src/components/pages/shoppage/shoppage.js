@@ -38,7 +38,7 @@ const Shoppage = ({
 
       <Route
         path={`${match.path}/:collectionName/:title`}
-        render={() => <Redirect to="/shop" />}
+        render={() => <Redirect to="/shop/new" />}
       />
       <Route
         path={`${match.path}/:collectionName`}

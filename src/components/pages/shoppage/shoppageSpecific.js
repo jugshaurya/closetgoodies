@@ -5,7 +5,17 @@ import RenderCollection from "./renderCollection";
 const ShopPageSpecific = props => {
   const { collectionName } = props.match.params;
   const DATA = props.data;
+
+  if (!DATA) {
+    return null;
+  }
+
   const collection = DATA ? DATA[collectionName] : null;
+
+  if (!DATA[collectionName]) {
+    throw new Error("404- Page not Found");
+  }
+
   return (
     <RenderCollection collection={collection} collectionName={collectionName} />
   );

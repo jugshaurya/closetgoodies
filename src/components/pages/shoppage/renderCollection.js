@@ -9,11 +9,6 @@ import "./renderCollection.scss";
 
 const RenderCollection = props => {
   const { history, addToCart } = props;
-  // if props value is null simply return
-  if (!props.collection) {
-    return <></>;
-  }
-
   return (
     <div className="shoppage-section">
       <div className="container">

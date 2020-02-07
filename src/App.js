@@ -26,10 +26,15 @@ const App = ({ checkUserAsync, currentUser, setCartItemsFromLocalStorage }) => {
     setCartItemsFromLocalStorage();
   }, [checkUserAsync, setCartItemsFromLocalStorage]);
 
+  const throwError = () => {
+    if (true) {
+      throw new Error("404 - Page Not Found");
+    }
+  };
   return (
     <div className="App">
-      <Errorboundary>
-        <Navbar user={currentUser} />
+      <Navbar user={currentUser} />
+      <Errorboundary user={currentUser}>
         <Switch>
           <Route exact path="/checkout" component={Checkout} />
           <Route exact path="/signin">
@@ -43,10 +48,11 @@ const App = ({ checkUserAsync, currentUser, setCartItemsFromLocalStorage }) => {
           </Route>
 
           <Route path="/shop" component={Shoppage} />
-          <Route path="/" component={HomePage} />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/" render={throwError} />
         </Switch>
-        <Footer />
       </Errorboundary>
+      <Footer />
     </div>
   );
 };

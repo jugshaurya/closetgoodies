@@ -1,15 +1,9 @@
 ## Closet Goodies
 
 <img src="https://img.shields.io/badge/made%20with-react-cyan.svg" alt="made with react">
-
 <img src="https://img.shields.io/badge/made%20with-firebase-yellow.svg" alt="made with firebase">
 <img src="https://img.shields.io/badge/made%20with-redux-purple.svg" alt="made with redux">
-
-<br/>
-<br/>
-
 <img src="https://img.shields.io/github/last-commit/jugshaurya/closetgoodies" alt="last-commit">
-
 <img src="https://img.shields.io/github/languages/code-size/jugshaurya/closetgoodies" alt="code-size">
 
 An E-Commerce Website build in React
@@ -90,14 +84,18 @@ An E-Commerce Website build in React
 #939393
 #717171
 #242323
-purple
 #f56618
+purple
 ```
 
 ### Stretch
 
+- [x] Persist the cart in localstorage
 - [ ] store review system
 - [ ] day sell like monday sell , tuesday sell ... in left corner at fixed like sale.png
+- [ ] Add items listgroup at the men,women, girls,boys pages.
+- [ ] Change Avatar in the profile page
+- [ ] Add stripe charges as well at the backend then deploy backend as well
 
 ### Attribution/Credits
 
