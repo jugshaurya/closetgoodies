@@ -6,28 +6,42 @@ const INITIAL_STATE = {
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
+  let newCartItems = [];
   switch (action.type) {
     case cartActionTypes.ADD_TO_CART:
+      newCartItems = addToCartHelper(state.cartItems, action.payload);
+      localStorage.setItem("cartItems", JSON.stringify(newCartItems));
       return {
         ...state,
-        cartItems: addToCartHelper(state.cartItems, action.payload)
+        cartItems: newCartItems
       };
 
     case cartActionTypes.DECREASE_CART_ITEM_COUNT:
+      newCartItems = cartDecreaseCountHelper(state.cartItems, action.payload);
+      localStorage.setItem("cartItems", JSON.stringify(newCartItems));
       return {
         ...state,
-        cartItems: cartDecreaseCountHelper(state.cartItems, action.payload)
+        cartItems: newCartItems
       };
 
     case cartActionTypes.DELETE_ITEM_FROM_CART:
+      newCartItems = cartItemDeleteHelper(state.cartItems, action.payload);
+      localStorage.setItem("cartItems", JSON.stringify(newCartItems));
       return {
         ...state,
-        cartItems: cartItemDeleteHelper(state.cartItems, action.payload)
+        cartItems: newCartItems
       };
     case cartActionTypes.CLEAR_CART:
+      localStorage.setItem("cartItems", JSON.stringify(newCartItems));
       return {
         ...state,
-        cartItems: []
+        cartItems: newCartItems
+      };
+
+    case cartActionTypes.SET_CART_ITEM_FROM_STORAGE:
+      return {
+        ...state,
+        cartItems: JSON.parse(localStorage.getItem("cartItems"))
       };
 
     default:

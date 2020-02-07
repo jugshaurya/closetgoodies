@@ -1,8 +1,24 @@
 ## Closet Goodies
 
-An E-Commerce Website build in REACT
+<img src="https://img.shields.io/badge/made%20with-react-cyan.svg" alt="made with react">
+
+<img src="https://img.shields.io/badge/made%20with-firebase-yellow.svg" alt="made with firebase">
+<img src="https://img.shields.io/badge/made%20with-redux-purple.svg" alt="made with redux">
+
+<br/>
+<br/>
+
+<img src="https://img.shields.io/github/last-commit/jugshaurya/closetgoodies" alt="last-commit">
+
+<img src="https://img.shields.io/github/languages/code-size/jugshaurya/closetgoodies" alt="code-size">
+
+An E-Commerce Website build in React
+
+## Peek a boo!
 
 ![Progress](./storehome.gif)
+
+## Component Tree
 
 ![Progress](./progress.png)
 

@@ -6,7 +6,7 @@ import {
 } from "../../firebase/helpers.firebase";
 
 import userActionTypes from "./user.types";
-import { clearCart } from "../cart/cart.actions";
+import { clearCart, setCartItemsFromLocalStorage } from "../cart/cart.actions";
 
 //  Async Action Creators
 // ================
@@ -42,6 +42,8 @@ export const googleSignInAsync = () => async dispatch => {
         imageURL
       })
     );
+    localStorage.setItem("cartItems", JSON.stringify([]));
+    dispatch(setCartItemsFromLocalStorage());
   } catch (error) {
     dispatch(googleSignInFailure(error.message));
   }
@@ -78,6 +80,8 @@ export const localSignInAsync = (emailInp, password) => async dispatch => {
         imageURL: imageURL
       })
     );
+    localStorage.setItem("cartItems", JSON.stringify([]));
+    dispatch(setCartItemsFromLocalStorage());
   } catch (error) {
     dispatch(localSignInFailure(error.message));
   }
@@ -183,6 +187,7 @@ export const signoutUserAsync = () => async dispatch => {
     await auth.signOut();
     dispatch(signoutUserSuccess());
     dispatch(clearCart());
+    localStorage.setItem("cartItems", JSON.stringify([]));
   } catch (error) {
     dispatch(signoutUserFailure(error.message));
   }

@@ -21,3 +21,7 @@ export const decreaseCartItemCount = item => ({
 export const clearCart = () => ({
   type: cartActionTypes.CLEAR_CART
 });
+
+export const setCartItemsFromLocalStorage = () => ({
+  type: cartActionTypes.SET_CART_ITEM_FROM_STORAGE
+});

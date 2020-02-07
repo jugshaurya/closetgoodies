@@ -1,7 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./CollapsedNavbar.scss";
-import { Link } from "react-router-dom";
 const CollapsedNavbar = ({ showNavbar, height }) => {
   return (
     <div

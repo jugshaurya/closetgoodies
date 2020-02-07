@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-
 // other Components Import
 import Navbar from "./components/navbar/navbar";
 import HomePage from "./components/pages/homepage/homepage";
@@ -15,10 +14,17 @@ import Errorboundary from "./components/ErrorBoundary";
 
 // action Creator Import
 import { checkUserAsync } from "./redux/user/user.actions";
-const App = ({ checkUserAsync, currentUser }) => {
+import { setCartItemsFromLocalStorage } from "./redux/cart/cart.actions";
+const App = ({ checkUserAsync, currentUser, setCartItemsFromLocalStorage }) => {
   useEffect(() => {
     checkUserAsync();
-  }, [checkUserAsync]);
+
+    if (!localStorage.getItem("cartItems")) {
+      localStorage.setItem("cartItems", JSON.stringify([]));
+    }
+
+    setCartItemsFromLocalStorage();
+  }, [checkUserAsync, setCartItemsFromLocalStorage]);
 
   return (
     <div className="App">
@@ -50,7 +56,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  checkUserAsync: () => dispatch(checkUserAsync())
+  checkUserAsync: () => dispatch(checkUserAsync()),
+  setCartItemsFromLocalStorage: () => dispatch(setCartItemsFromLocalStorage())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
