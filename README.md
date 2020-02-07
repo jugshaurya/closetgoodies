@@ -108,7 +108,7 @@ purple
 
 - git clone {this repo}
 - yarn
-- firebase init (select firestore and hosting)
+- firebase init (select firestore and hosting)and dont forget to set build folder public.
 - firebase deploy
 
 ### Deployment
