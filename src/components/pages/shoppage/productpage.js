@@ -47,7 +47,9 @@ const ProductPage = props => {
           </div>
           <div className="middle">
             <div className="middle-left">
-              <img src={item.imageURL} alt="product" />
+              <div className="middle-left-image">
+                <img src={item.imageURL} alt="product" />
+              </div>
               <div className="text">
                 <span>We Made Fits Fitter </span>: we did a complete body
                 measurement to create a range of smarter and perfect fits for 5
