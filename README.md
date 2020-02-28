@@ -1,10 +1,6 @@
-## Closet Goodies
+## Closet Goodies([visit now](https://closet-goodies.firebaseapp.com))
 
-<img src="https://img.shields.io/badge/made%20with-react-cyan.svg" alt="made with react">
-<img src="https://img.shields.io/badge/made%20with-firebase-yellow.svg" alt="made with firebase">
-<img src="https://img.shields.io/badge/made%20with-redux-purple.svg" alt="made with redux">
-<img src="https://img.shields.io/github/last-commit/jugshaurya/closetgoodies" alt="last-commit">
-<img src="https://img.shields.io/github/languages/code-size/jugshaurya/closetgoodies" alt="code-size">
+<img src="https://img.shields.io/badge/made%20with-react-cyan.svg" alt="made with react"><img src="https://img.shields.io/badge/made%20with-firebase-yellow.svg" alt="made with firebase"><img src="https://img.shields.io/badge/made%20with-redux-purple.svg" alt="made with redux"><img src="https://img.shields.io/github/last-commit/jugshaurya/closetgoodies" alt="last-commit"><img src="https://img.shields.io/github/languages/code-size/jugshaurya/closetgoodies" alt="code-size">
 
 An E-Commerce Website build in React
 
@@ -15,6 +11,22 @@ An E-Commerce Website build in React
 ## Component Tree
 
 ![Progress](./progress.png)
+
+## Wanna Clone it?
+
+```
+git clone {this repo}
+yarn
+firebase init (select firestore and hosting)and dont forget to set build folder public.
+firebase deploy
+```
+
+## Add data to firestore (Notes for Cloner)
+
+```
+uncomment out two lines in index.js and add data to actual.data.js
+file like actual.data.sam[le.js file inside firebase folder
+```
 
 ## Firebase
 
@@ -91,6 +103,7 @@ purple
 ### Stretch
 
 - [x] Persist the cart in localstorage
+- [ ] Add Pagination to shop pages
 - [ ] store review system
 - [ ] day sell like monday sell , tuesday sell ... in left corner at fixed like sale.png
 - [ ] Add items listgroup at the men,women, girls,boys pages.
@@ -104,19 +117,14 @@ purple
   - Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 - unsplash.com
 
-### wanna Clone it?
-
-- git clone {this repo}
-- yarn
-- firebase init (select firestore and hosting)and dont forget to set build folder public.
-- firebase deploy
-
 ### Deployment
 
 - https://www.robinwieruch.de/firebase-deploy-react-js
 
 ## Deploy again (Notes for Shaurya)
 
-- make changes
-- yarn build
-- firebase deploy
+```
+make changes
+yarn build
+firebase deploy
+```

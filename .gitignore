@@ -29,3 +29,6 @@ firestore.indexes.json
 firebase.json
 .firebase/
 .firebaserc
+
+# data
+src/firebase/addDataHelper/actual.data.js

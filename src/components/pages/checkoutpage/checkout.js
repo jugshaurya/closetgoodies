@@ -12,6 +12,7 @@ import {
 // Stripe Payment
 import StripeCheckout from "react-stripe-checkout";
 
+import StripeLogo from "../../../assets/logo/logo1.jpeg";
 // Style Import
 import "./checkout.scss";
 
@@ -120,7 +121,7 @@ const CheckoutPage = props => {
                   description={`Your Cart Total is Rs.${cartTotal}`} // the pop-in header subtitle
                   shippingAddress
                   billingAddress
-                  image="https://i.ibb.co/HBjR4mT/icon.png" // the pop-in header image (default none)
+                  image={StripeLogo} // the pop-in header image (default none)
                   amount={cartTotal} // cents
                   panelLabel="Pay Money" // prepended to the amount in the bottom pay button
                   token={onToken}
